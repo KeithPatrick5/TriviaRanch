@@ -3,13 +3,26 @@ import { MainCategory, Question } from '../types/game';
 
 const questions = rawQuestions as Question[];
 
+export function getAllQuestions(): Question[] {
+  return questions.filter((question) => question.status === 'active');
+}
+
 export function getQuestionsByCategory(category: MainCategory): Question[] {
   return questions.filter((question) => question.category === category && question.status === 'active');
 }
 
-export function getQuestionSet(category: MainCategory, count: number, seed = Date.now()): Question[] {
-  const pool = getQuestionsByCategory(category);
-  const shuffled = seededShuffle(pool, seed);
+export function getQuestionsByIds(ids: string[]): Question[] {
+  const idSet = new Set(ids);
+  const byId = new Map(questions.map((question) => [question.id, question]));
+  return ids.map((id) => byId.get(id)).filter((question): question is Question => Boolean(question) && idSet.has(question.id));
+}
+
+export function getQuestionSet(category: MainCategory, count: number, seed = Date.now(), excludeIds: string[] = []): Question[] {
+  const excluded = new Set(excludeIds);
+  const pool = getQuestionsByCategory(category).filter((question) => !excluded.has(question.id));
+  const fallbackPool = getQuestionsByCategory(category);
+  const chosenPool = pool.length >= Math.min(count, fallbackPool.length) ? pool : fallbackPool;
+  const shuffled = seededShuffle(chosenPool, seed);
   return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
@@ -23,7 +36,7 @@ export function questionCount(): number {
   return questions.length;
 }
 
-function seededShuffle<T>(items: T[], seed: number): T[] {
+export function seededShuffle<T>(items: T[], seed: number): T[] {
   const arr = [...items];
   let currentSeed = seed || 1;
   const random = () => {

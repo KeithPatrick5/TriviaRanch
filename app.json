@@ -26,6 +26,12 @@
         "projectId": "replace-after-eas-init"
       }
     },
-    "icon": "./assets/brand/app-icon.png"
+    "icon": "./assets/brand/app-icon.png",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#020013",
+      "translucent": true
+    },
+    "plugins": []
   }
 }

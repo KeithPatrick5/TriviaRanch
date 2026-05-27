@@ -13,13 +13,13 @@ npm run android
 
 ## Smoke Test
 
-- App opens to the Trivia Ranch home screen.
+- App opens to the Neon Trivia home screen.
 - Home screen shows question count, rank, and XP.
 - No ad slots, banner placeholders, or web-first copy appears.
 - Daily Blitz starts from category select.
 - Survival starts from category select.
 - Challenge Run starts from category select.
-- Pass-the-Phone opens player setup before category select.
+- Pass Phone opens player setup before category select.
 
 ## Daily Blitz
 
@@ -36,7 +36,7 @@ npm run android
 - Game ends when lives hit zero.
 - Best survival streak updates after a better run.
 
-## Pass-the-Phone
+## Pass Phone
 
 - Player names can be edited.
 - Add Player works up to 8 players.

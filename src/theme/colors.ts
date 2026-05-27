@@ -28,10 +28,10 @@ export const colors = {
   warning: '#FFD166',
   white: '#FFFFFF',
 
-  // Legacy aliases used across older components.
-  ranchGold: '#FF3DF2',
-  ranchGoldBright: '#29D9FF',
-  ranchGoldDim: '#9C5BFF',
+  // Legacy-safe aliases used across older components.
+  neonPrimary: '#FF3DF2',
+  neonPrimaryBright: '#29D9FF',
+  neonPrimaryDim: '#9C5BFF',
   bad: '#FF3B6B',
   badDim: '#3D1021',
   correct: '#36F29A',
