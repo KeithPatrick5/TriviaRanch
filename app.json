@@ -19,7 +19,12 @@
         "backgroundColor": "#07051F",
         "foregroundImage": "./assets/brand/adaptive-icon.png"
       },
-      "permissions": []
+      "permissions": [],
+      "splash": {
+        "image": "./assets/brand/splash.png",
+        "backgroundColor": "#020013",
+        "resizeMode": "cover"
+      }
     },
     "extra": {
       "eas": {
@@ -28,7 +33,7 @@
     },
     "icon": "./assets/brand/app-icon.png",
     "splash": {
-      "image": "./assets/brand/loading-screen.png",
+      "image": "./assets/brand/splash.png",
       "backgroundColor": "#020013",
       "resizeMode": "cover"
     },
@@ -37,6 +42,15 @@
       "backgroundColor": "#020013",
       "translucent": false
     },
-    "plugins": []
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/brand/splash.png",
+          "backgroundColor": "#020013",
+          "resizeMode": "cover"
+        }
+      ]
+    ]
   }
 }

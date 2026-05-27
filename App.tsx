@@ -207,12 +207,12 @@ export default function App() {
   useEffect(() => {
     const animation = Animated.timing(loadingProgress, {
       toValue: 1,
-      duration: 2300,
-      easing: Easing.out(Easing.cubic),
+      duration: 3200,
+      easing: Easing.inOut(Easing.cubic),
       useNativeDriver: false,
     });
     animation.start();
-    const timer = setTimeout(() => setMinSplashElapsed(true), 2300);
+    const timer = setTimeout(() => setMinSplashElapsed(true), 3200);
     return () => {
       animation.stop();
       clearTimeout(timer);
@@ -1027,11 +1027,11 @@ const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#020013' },
   loadingScreen: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013' },
   loadingImage: { width: '100%', height: '100%' },
-  loadingBarOverlay: { position: 'absolute', left: '24%', top: '71.6%', width: '52%', height: 22, justifyContent: 'center', zIndex: 10 },
-  loadingBarFill: { height: 4, borderRadius: 2, backgroundColor: '#ff2fc7', shadowColor: '#ff2fc7', shadowOpacity: 0.95, shadowRadius: 10 },
-  loadingKnobWrap: { position: 'absolute', width: 26, height: 26, marginLeft: -13, alignItems: 'center', justifyContent: 'center' },
-  loadingPulse: { position: 'absolute', width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderColor: 'rgba(255, 70, 220, 0.55)', backgroundColor: 'rgba(255, 70, 220, 0.08)' },
-  loadingKnob: { width: 13, height: 13, borderRadius: 7, backgroundColor: '#fff2ff', shadowColor: '#ff35d2', shadowOpacity: 1, shadowRadius: 12 },
+  loadingBarOverlay: { position: 'absolute', left: '23.7%', top: '72.0%', width: '45.7%', height: 18, justifyContent: 'center', zIndex: 10 },
+  loadingBarFill: { height: 3, borderRadius: 2, backgroundColor: 'rgba(255, 36, 187, 0.8)', shadowColor: '#ff2fc7', shadowOpacity: 0.75, shadowRadius: 8 },
+  loadingKnobWrap: { position: 'absolute', width: 20, height: 20, marginLeft: -10, alignItems: 'center', justifyContent: 'center' },
+  loadingPulse: { position: 'absolute', width: 30, height: 30, borderRadius: 15, borderWidth: 1, borderColor: 'rgba(255, 70, 220, 0.45)', backgroundColor: 'rgba(255, 70, 220, 0.05)' },
+  loadingKnob: { width: 10, height: 10, borderRadius: 5, backgroundColor: '#fff2ff', shadowColor: '#ff35d2', shadowOpacity: 0.9, shadowRadius: 10 },
   mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'center' },
   mockupCanvas: { position: 'relative', overflow: 'hidden', backgroundColor: '#020013' },
   mockupImage: { width: '100%', height: '100%' },
