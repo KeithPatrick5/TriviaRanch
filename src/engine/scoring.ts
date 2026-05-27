@@ -11,7 +11,7 @@ export function scoreAnswer(correct: boolean, elapsedMs: number, streakBefore: n
 }
 
 export function rankFromXp(xp: number): string {
-  if (xp >= 5000) return 'Black Hat Ranch';
+  if (xp >= 5000) return 'Neon Legend';
   if (xp >= 3000) return 'Gold III';
   if (xp >= 2000) return 'Gold II';
   if (xp >= 1200) return 'Gold I';

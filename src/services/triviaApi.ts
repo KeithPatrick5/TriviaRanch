@@ -99,7 +99,7 @@ export async function loadQuestionSet(category: MainCategory, count: number, see
 }
 
 export async function ensureAnonymousPlayer(localId: string): Promise<PlayerIdentity> {
-  const fallback = { id: localId, displayName: 'Ranch Hand' };
+  const fallback = { id: localId, displayName: 'Neon Player' };
   if (!API_ENABLED) return fallback;
 
   try {

@@ -1,4 +1,4 @@
--- Trivia Ranch backend schema, hardened MVP.
+-- Neon Trivia backend schema, hardened MVP.
 -- Goal: keep gameplay fast while making official scores server-authoritative.
 -- Public clients should not directly write trusted leaderboard/session records.
 
@@ -6,7 +6,7 @@ create extension if not exists pgcrypto;
 
 create table if not exists users (
   id text primary key,
-  display_name text not null default 'Ranch Hand',
+  display_name text not null default 'Neon Player',
   xp integer not null default 0,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()

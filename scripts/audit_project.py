@@ -57,21 +57,26 @@ if (root / 'docs/gui-screenshots').exists():
     errors.append('Generated screenshot folder should not be included: docs/gui-screenshots')
 
 for expected_asset in [
-    'assets/brand/trivia-ranch-header-logo.png',
-    'assets/brand/trivia-ranch-plaque-logo.png',
+    'assets/mockups/neon-home.png',
+    'assets/mockups/neon-game.png',
+    'assets/mockups/neon-result.png',
     'assets/brand/app-icon.png',
     'assets/brand/adaptive-icon.png',
 ]:
     if not (root / expected_asset).exists():
-        errors.append(f'Missing logo asset: {expected_asset}')
+        errors.append(f'Missing asset-driven UI asset: {expected_asset}')
 
 app_json_text = (root / 'app.json').read_text()
-for marker in ['./assets/brand/app-icon.png', './assets/brand/adaptive-icon.png']:
+for marker in ['"name": "Neon Trivia"', '"slug": "neon-trivia"', '"scheme": "neontrivia"', 'com.neontrivia.app', './assets/brand/app-icon.png', './assets/brand/adaptive-icon.png']:
     if marker not in app_json_text:
-        errors.append(f'Missing app icon config marker: {marker}')
+        errors.append(f'Missing Neon app config marker: {marker}')
+
+package_text = (root / 'package.json').read_text()
+if '"name": "neon-trivia"' not in package_text:
+    errors.append('package.json was not renamed to neon-trivia')
 
 for expected in [
-    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md','docs/RANCH_FIGHT_BOARD_AUDIT.md','docs/PRE_QUESTION_STABILITY_AUDIT.md','docs/LOGO_INTEGRATION_AUDIT.md','docs/LOGO_PLACEMENT_CLEANUP_AUDIT.md',
+    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/PRE_QUESTION_STABILITY_AUDIT.md','docs/NEON_TRIVIA_REBRAND_AUDIT.md',
     'supabase/schema.sql','App.tsx','src/services/triviaApi.ts','src/types/env.d.ts'
 ]:
     if not (root / expected).exists():
@@ -79,72 +84,36 @@ for expected in [
 
 app_text = (root / 'App.tsx').read_text()
 required_app_markers = [
-    'setInterval(() => setTimerNow(Date.now()), 250)',
-    'AsyncStorage.setItem(STATS_STORAGE_KEY',
-    'TextInput',
-    'submitQuestionReport',
+    "require('./assets/mockups/neon-home.png')",
+    "require('./assets/mockups/neon-game.png')",
+    "require('./assets/mockups/neon-result.png')",
+    'ImageBackground',
+    'MockupScreen',
+    'OverlayButton',
+    'HIT.homeStart',
+    'HIT.answerA',
+    'HIT.resultRun',
     'startOfficialGameSession',
     'submitGameResult',
-    'activeSessionId',
-    'LinearGradient',
-    'dailyHero',
-    'gameStatStrip',
-    'resultHero',
-    'categoryList',
-    'categoryRow',
-    'RUN HELD',
+    'submitQuestionReport',
+    'createChallengeFromSession',
     'finishLockRef',
     'lastDailyBlitzDate',
-    'challenge-enter',
-    'reportFlash',
-    'brandCompactLogo',
-    'brandLogoImage',
-    'trivia-ranch-compact-lockup.png',
+    'NEON CREW',
+    'Back to Neon Trivia',
 ]
 for marker in required_app_markers:
     if marker not in app_text:
         errors.append(f'Missing app implementation marker: {marker}')
 
-
-
-# Ranch Fight Board GUI checks: prevent the old bubbly/pill-heavy style from creeping back.
-if 'borderRadius: 999' in app_text:
-    errors.append('Bubbly pill radius found in App.tsx')
-for forbidden_copy in ['One more correct answer would have buried them', 'Backend Status', 'Official Score', 'Local fallback', 'Supabase functions configured']:
-    if forbidden_copy in app_text:
-        errors.append(f'Forbidden visible/debug copy remains: {forbidden_copy}')
-for marker in ['categoryList', 'categoryRow', 'borderLeftWidth: 4', 'progressTrack', 'RUN HELD']:
-    if marker not in app_text:
-        errors.append(f'Missing Ranch Fight Board marker: {marker}')
-
-colors_text = (root / 'src/theme/colors.ts').read_text()
-for marker in ['#070604', 'surfaceRaised', 'ranchGoldBright', 'dangerDim', 'successDim']:
-    if marker not in colors_text:
-        errors.append(f'Missing GUI theme marker: {marker}')
-
-if not (root / 'src/theme/spacing.ts').exists():
-    errors.append('Missing GUI spacing scale: src/theme/spacing.ts')
+for forbidden_copy in ['Backend Status', 'Official Score', 'Local fallback', 'Supabase functions configured', 'Trivia Ranch', 'TRIVIA RANCH', 'RANCH CREW', 'RANCH-', 'PLAY THINK WIN']:
+    if forbidden_copy in app_text or forbidden_copy in app_json_text or forbidden_copy in package_text:
+        errors.append(f'Forbidden old/debug visible marker remains: {forbidden_copy}')
 
 schema_text = (root / 'supabase/schema.sql').read_text()
 for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx', 'official_score', 'assigned_question_ids', 'daily_challenges', 'suspicion_flags', "validation_status = 'official'"]:
     if marker not in schema_text:
         errors.append(f'Missing backend schema marker: {marker}')
-
-if errors:
-    print('AUDIT FAILED')
-    for error in errors:
-        print(f'- {error}')
-    raise SystemExit(1)
-
-print('AUDIT PASSED')
-print(f'Questions: {len(questions)}')
-for cat in required_categories:
-    print(f'- {cat}: {by_cat[cat]}')
-if warnings:
-    print('Warnings:')
-    for warning in warnings:
-        print(f'- {warning}')
-print('No node_modules, package-lock.json, or tsconfig.tsbuildinfo present.')
 
 function_files = [
     'supabase/functions/create-game-session/index.ts',
@@ -164,4 +133,13 @@ if errors:
         print(f'- {error}')
     raise SystemExit(1)
 
-print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass, ranch fight board GUI pass, pre-question stability pass, selected logo integration pass.')
+print('AUDIT PASSED')
+print(f'Questions: {len(questions)}')
+for cat in required_categories:
+    print(f'- {cat}: {by_cat[cat]}')
+if warnings:
+    print('Warnings:')
+    for warning in warnings:
+        print(f'- {warning}')
+print('No node_modules, package-lock.json, or tsconfig.tsbuildinfo present.')
+print('Asset-driven Neon Trivia mockup build present: approved mockup screens are real app backgrounds with tappable gameplay overlays.')

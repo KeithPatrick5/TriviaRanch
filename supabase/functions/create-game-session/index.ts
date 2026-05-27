@@ -24,7 +24,7 @@ Deno.serve(async (req) => {
     if (!playerId || !mode || !category) return jsonResponse({ error: 'missing_required_fields' }, 400);
 
     const supabase = getAdminClient();
-    await supabase.from('users').upsert({ id: playerId, display_name: 'Ranch Hand', updated_at: new Date().toISOString() });
+    await supabase.from('users').upsert({ id: playerId, display_name: 'Neon Player', updated_at: new Date().toISOString() });
 
     const limited = await checkSessionRateLimit(supabase, playerId);
     if (limited) return jsonResponse({ error: 'rate_limited' }, 429);

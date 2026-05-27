@@ -1,22 +1,22 @@
 {
   "expo": {
-    "name": "Trivia Ranch",
-    "slug": "trivia-ranch",
+    "name": "Neon Trivia",
+    "slug": "neon-trivia",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
-    "scheme": "triviaranch",
+    "scheme": "neontrivia",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.triviaranch.app"
+      "bundleIdentifier": "com.neontrivia.app"
     },
     "android": {
-      "package": "com.triviaranch.app",
+      "package": "com.neontrivia.app",
       "adaptiveIcon": {
-        "backgroundColor": "#070604",
+        "backgroundColor": "#07051F",
         "foregroundImage": "./assets/brand/adaptive-icon.png"
       },
       "permissions": []
