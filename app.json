@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Trivia Ranch",
+    "slug": "trivia-ranch",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "triviaranch",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.triviaranch.app"
+    },
+    "android": {
+      "package": "com.triviaranch.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#08090B"
+      },
+      "permissions": []
+    },
+    "extra": {
+      "eas": {
+        "projectId": "replace-after-eas-init"
+      }
+    }
+  }
+}

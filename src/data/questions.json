@@ -1,0 +1,6842 @@
+[
+  {
+    "id": "general-knowledge-01",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 1,
+    "question": "How many days are in a leap year?",
+    "answers": [
+      "365",
+      "366",
+      "364",
+      "367"
+    ],
+    "correctIndex": 1,
+    "explanation": "Leap years add February 29, making 366 days.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-02",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 1,
+    "question": "What is the largest ocean on Earth?",
+    "answers": [
+      "Atlantic",
+      "Indian",
+      "Pacific",
+      "Arctic"
+    ],
+    "correctIndex": 2,
+    "explanation": "The Pacific Ocean is the largest ocean.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-03",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 1,
+    "question": "Which tool is used to tighten a screw?",
+    "answers": [
+      "Hammer",
+      "Screwdriver",
+      "Wrench",
+      "Chisel"
+    ],
+    "correctIndex": 1,
+    "explanation": "A screwdriver turns screws.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-04",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 1,
+    "question": "What is the plural of mouse?",
+    "answers": [
+      "Mouses",
+      "Mice",
+      "Mousees",
+      "Meese"
+    ],
+    "correctIndex": 1,
+    "explanation": "The standard plural is mice.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-05",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 1,
+    "question": "Which planet is known as the Red Planet?",
+    "answers": [
+      "Venus",
+      "Mars",
+      "Jupiter",
+      "Mercury"
+    ],
+    "correctIndex": 1,
+    "explanation": "Mars is called the Red Planet because of iron oxide on its surface.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-06",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 2,
+    "question": "How many colors are in a standard rainbow?",
+    "answers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correctIndex": 2,
+    "explanation": "A common rainbow list has seven colors.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-07",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 2,
+    "question": "What gas do humans need to breathe?",
+    "answers": [
+      "Nitrogen",
+      "Oxygen",
+      "Helium",
+      "Carbon dioxide"
+    ],
+    "correctIndex": 1,
+    "explanation": "Humans need oxygen for respiration.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-08",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 2,
+    "question": "Which object measures temperature?",
+    "answers": [
+      "Barometer",
+      "Thermometer",
+      "Compass",
+      "Ruler"
+    ],
+    "correctIndex": 1,
+    "explanation": "A thermometer measures temperature.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-09",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 2,
+    "question": "What does “annual” mean?",
+    "answers": [
+      "Every day",
+      "Every week",
+      "Every month",
+      "Every year"
+    ],
+    "correctIndex": 3,
+    "explanation": "Annual means once per year.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-10",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 2,
+    "question": "Which continent is Egypt in?",
+    "answers": [
+      "Asia",
+      "Europe",
+      "Africa",
+      "South America"
+    ],
+    "correctIndex": 2,
+    "explanation": "Egypt is in Africa, with the Sinai extending into Asia.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-11",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 2,
+    "question": "How many sides does a hexagon have?",
+    "answers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correctIndex": 1,
+    "explanation": "A hexagon has six sides.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-12",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 2,
+    "question": "What is the boiling point of water at sea level in Celsius?",
+    "answers": [
+      "90°C",
+      "100°C",
+      "110°C",
+      "120°C"
+    ],
+    "correctIndex": 1,
+    "explanation": "Water boils at about 100°C at sea level.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-13",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 2,
+    "question": "Which device stores electrical energy chemically?",
+    "answers": [
+      "Battery",
+      "Speaker",
+      "Mirror",
+      "Lens"
+    ],
+    "correctIndex": 0,
+    "explanation": "A battery stores chemical energy and converts it to electrical energy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-14",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 2,
+    "question": "Which word is a synonym for “quick”?",
+    "answers": [
+      "Slow",
+      "Fast",
+      "Heavy",
+      "Quiet"
+    ],
+    "correctIndex": 1,
+    "explanation": "Fast means quick.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-15",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 2,
+    "question": "What is the capital of Canada?",
+    "answers": [
+      "Toronto",
+      "Vancouver",
+      "Ottawa",
+      "Montreal"
+    ],
+    "correctIndex": 2,
+    "explanation": "Ottawa is the capital of Canada.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-16",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 3,
+    "question": "Which metal has the chemical symbol Fe?",
+    "answers": [
+      "Gold",
+      "Iron",
+      "Silver",
+      "Tin"
+    ],
+    "correctIndex": 1,
+    "explanation": "Fe is the symbol for iron.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-17",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 3,
+    "question": "What is the smallest prime number?",
+    "answers": [
+      "0",
+      "1",
+      "2",
+      "3"
+    ],
+    "correctIndex": 2,
+    "explanation": "2 is the smallest prime and the only even prime.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-18",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 3,
+    "question": "What does a barometer measure?",
+    "answers": [
+      "Temperature",
+      "Air pressure",
+      "Wind speed",
+      "Rainfall"
+    ],
+    "correctIndex": 1,
+    "explanation": "A barometer measures atmospheric pressure.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-19",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 3,
+    "question": "Which language family does Spanish belong to?",
+    "answers": [
+      "Germanic",
+      "Romance",
+      "Slavic",
+      "Celtic"
+    ],
+    "correctIndex": 1,
+    "explanation": "Spanish is a Romance language.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-20",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 3,
+    "question": "Which country uses the yen as currency?",
+    "answers": [
+      "China",
+      "Japan",
+      "South Korea",
+      "Thailand"
+    ],
+    "correctIndex": 1,
+    "explanation": "Japan uses the yen.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-21",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 3,
+    "question": "How many bones are in the adult human body?",
+    "answers": [
+      "186",
+      "206",
+      "226",
+      "246"
+    ],
+    "correctIndex": 1,
+    "explanation": "Adults typically have 206 bones.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-22",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 3,
+    "question": "Which animal is known as the ship of the desert?",
+    "answers": [
+      "Horse",
+      "Camel",
+      "Llama",
+      "Yak"
+    ],
+    "correctIndex": 1,
+    "explanation": "Camels are called ships of the desert.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-23",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 3,
+    "question": "What is the main purpose of a fuse in an electrical circuit?",
+    "answers": [
+      "Store charge",
+      "Increase voltage",
+      "Prevent overcurrent damage",
+      "Measure distance"
+    ],
+    "correctIndex": 2,
+    "explanation": "A fuse breaks the circuit when current is too high.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-24",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 3,
+    "question": "Which punctuation mark ends a question?",
+    "answers": [
+      "Comma",
+      "Period",
+      "Question mark",
+      "Colon"
+    ],
+    "correctIndex": 2,
+    "explanation": "A question mark ends a direct question.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-25",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 3,
+    "question": "Which country has the most people?",
+    "answers": [
+      "United States",
+      "Indonesia",
+      "India",
+      "Brazil"
+    ],
+    "correctIndex": 2,
+    "explanation": "India is currently the most populous country.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-26",
+    "category": "General Knowledge",
+    "subcategory": "Mixed",
+    "difficulty": 4,
+    "question": "What is the hardest natural substance commonly listed on the Mohs scale?",
+    "answers": [
+      "Quartz",
+      "Diamond",
+      "Topaz",
+      "Corundum"
+    ],
+    "correctIndex": 1,
+    "explanation": "Diamond is rated 10 on the Mohs hardness scale.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-27",
+    "category": "General Knowledge",
+    "subcategory": "Common Facts",
+    "difficulty": 4,
+    "question": "Which scientist developed the theory of general relativity?",
+    "answers": [
+      "Isaac Newton",
+      "Albert Einstein",
+      "Niels Bohr",
+      "Marie Curie"
+    ],
+    "correctIndex": 1,
+    "explanation": "Einstein developed general relativity.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-28",
+    "category": "General Knowledge",
+    "subcategory": "Objects",
+    "difficulty": 4,
+    "question": "Which instrument detects earthquakes?",
+    "answers": [
+      "Seismograph",
+      "Altimeter",
+      "Hydrometer",
+      "Gyroscope"
+    ],
+    "correctIndex": 0,
+    "explanation": "A seismograph records seismic waves.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-29",
+    "category": "General Knowledge",
+    "subcategory": "Language",
+    "difficulty": 4,
+    "question": "What is an antonym of “scarce”?",
+    "answers": [
+      "Rare",
+      "Plentiful",
+      "Hidden",
+      "Small"
+    ],
+    "correctIndex": 1,
+    "explanation": "Plentiful means abundant, the opposite of scarce.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "general-knowledge-30",
+    "category": "General Knowledge",
+    "subcategory": "World Basics",
+    "difficulty": 5,
+    "question": "Which country is home to the ancient city of Petra?",
+    "answers": [
+      "Jordan",
+      "Egypt",
+      "Turkey",
+      "Iran"
+    ],
+    "correctIndex": 0,
+    "explanation": "Petra is in Jordan.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-01",
+    "category": "Sports",
+    "subcategory": "NFL",
+    "difficulty": 1,
+    "question": "How many points is a touchdown worth in American football?",
+    "answers": [
+      "3",
+      "6",
+      "7",
+      "2"
+    ],
+    "correctIndex": 1,
+    "explanation": "A touchdown is worth 6 points before the extra point attempt.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-02",
+    "category": "Sports",
+    "subcategory": "NBA",
+    "difficulty": 1,
+    "question": "How many points is a free throw worth in basketball?",
+    "answers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctIndex": 0,
+    "explanation": "A free throw is worth 1 point.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-03",
+    "category": "Sports",
+    "subcategory": "MLB",
+    "difficulty": 1,
+    "question": "How many strikes usually make an out in baseball?",
+    "answers": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correctIndex": 1,
+    "explanation": "Three strikes make an out.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-04",
+    "category": "Sports",
+    "subcategory": "Soccer",
+    "difficulty": 1,
+    "question": "What body part is a goalkeeper allowed to use inside the penalty area?",
+    "answers": [
+      "Only feet",
+      "Hands",
+      "Only head",
+      "No hands"
+    ],
+    "correctIndex": 1,
+    "explanation": "Goalkeepers can use their hands inside their penalty area.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-05",
+    "category": "Sports",
+    "subcategory": "F1",
+    "difficulty": 1,
+    "question": "What does F1 stand for?",
+    "answers": [
+      "Fast One",
+      "Formula One",
+      "Final One",
+      "Formula Open"
+    ],
+    "correctIndex": 1,
+    "explanation": "F1 stands for Formula One.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-06",
+    "category": "Sports",
+    "subcategory": "UFC",
+    "difficulty": 2,
+    "question": "What type of sport is UFC best known for?",
+    "answers": [
+      "Tennis",
+      "Mixed martial arts",
+      "Cricket",
+      "Golf"
+    ],
+    "correctIndex": 1,
+    "explanation": "UFC promotes mixed martial arts events.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-07",
+    "category": "Sports",
+    "subcategory": "Boxing",
+    "difficulty": 2,
+    "question": "How many minutes is a standard professional boxing round for men?",
+    "answers": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correctIndex": 1,
+    "explanation": "Most men’s pro boxing rounds are 3 minutes.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-08",
+    "category": "Sports",
+    "subcategory": "Olympics",
+    "difficulty": 2,
+    "question": "How often are the Summer Olympic Games normally held?",
+    "answers": [
+      "Every 2 years",
+      "Every 3 years",
+      "Every 4 years",
+      "Every 5 years"
+    ],
+    "correctIndex": 2,
+    "explanation": "The Summer Olympics are normally held every four years.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-09",
+    "category": "Sports",
+    "subcategory": "NFL",
+    "difficulty": 2,
+    "question": "Which team position usually throws the football?",
+    "answers": [
+      "Center",
+      "Quarterback",
+      "Linebacker",
+      "Kicker"
+    ],
+    "correctIndex": 1,
+    "explanation": "The quarterback usually throws passes.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-10",
+    "category": "Sports",
+    "subcategory": "NBA",
+    "difficulty": 2,
+    "question": "How many players per team are on the court in basketball?",
+    "answers": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "correctIndex": 1,
+    "explanation": "Basketball teams have five players on the court.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-11",
+    "category": "Sports",
+    "subcategory": "MLB",
+    "difficulty": 2,
+    "question": "How many bases are on a baseball diamond?",
+    "answers": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correctIndex": 1,
+    "explanation": "There are four bases including home plate.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-12",
+    "category": "Sports",
+    "subcategory": "Soccer",
+    "difficulty": 2,
+    "question": "How long is a standard professional soccer match excluding stoppage and extra time?",
+    "answers": [
+      "60 minutes",
+      "80 minutes",
+      "90 minutes",
+      "100 minutes"
+    ],
+    "correctIndex": 2,
+    "explanation": "A standard match is 90 minutes.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-13",
+    "category": "Sports",
+    "subcategory": "F1",
+    "difficulty": 2,
+    "question": "What is a pit stop mainly used for in Formula One?",
+    "answers": [
+      "Change tires",
+      "Score points",
+      "Start the race",
+      "Wave flags"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pit stops are mainly for tire changes and adjustments.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-14",
+    "category": "Sports",
+    "subcategory": "NHL",
+    "difficulty": 2,
+    "question": "What object is hit in ice hockey?",
+    "answers": [
+      "Ball",
+      "Puck",
+      "Disc golf disc",
+      "Ring"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ice hockey uses a puck.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-15",
+    "category": "Sports",
+    "subcategory": "College Sports",
+    "difficulty": 2,
+    "question": "What does NCAA stand for?",
+    "answers": [
+      "National College Athletic Association",
+      "National Collegiate Athletic Association",
+      "North College Action Alliance",
+      "National Coaching Athletic Agency"
+    ],
+    "correctIndex": 1,
+    "explanation": "NCAA stands for National Collegiate Athletic Association.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-16",
+    "category": "Sports",
+    "subcategory": "NFL",
+    "difficulty": 3,
+    "question": "How many yards is the standard NFL field from goal line to goal line?",
+    "answers": [
+      "80",
+      "90",
+      "100",
+      "120"
+    ],
+    "correctIndex": 2,
+    "explanation": "The field is 100 yards between goal lines.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-17",
+    "category": "Sports",
+    "subcategory": "NBA",
+    "difficulty": 3,
+    "question": "Which line is farthest from the basket: free throw, three-point, or baseline?",
+    "answers": [
+      "Free throw",
+      "Three-point",
+      "Baseline",
+      "They are equal"
+    ],
+    "correctIndex": 1,
+    "explanation": "The three-point line is the scoring arc farthest from the basket among those choices.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-18",
+    "category": "Sports",
+    "subcategory": "MLB",
+    "difficulty": 3,
+    "question": "What is a grand slam?",
+    "answers": [
+      "Four strikeouts",
+      "Home run with bases loaded",
+      "Four stolen bases",
+      "No-hit inning"
+    ],
+    "correctIndex": 1,
+    "explanation": "A grand slam is a home run with the bases loaded.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-19",
+    "category": "Sports",
+    "subcategory": "Soccer",
+    "difficulty": 3,
+    "question": "What does a red card mean?",
+    "answers": [
+      "Warning",
+      "Player sent off",
+      "Corner kick",
+      "Penalty saved"
+    ],
+    "correctIndex": 1,
+    "explanation": "A red card sends a player off.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-20",
+    "category": "Sports",
+    "subcategory": "F1",
+    "difficulty": 3,
+    "question": "What does DRS help an F1 car do?",
+    "answers": [
+      "Brake harder",
+      "Reduce drag on straights",
+      "Use more fuel",
+      "Cool the engine"
+    ],
+    "correctIndex": 1,
+    "explanation": "DRS reduces drag to aid overtaking.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-21",
+    "category": "Sports",
+    "subcategory": "UFC",
+    "difficulty": 3,
+    "question": "What is a submission victory?",
+    "answers": [
+      "Win by judges",
+      "Win by forcing a tap or stoppage from a hold",
+      "Win by countout",
+      "Win by coin toss"
+    ],
+    "correctIndex": 1,
+    "explanation": "Submissions come from holds that force a tap or referee stoppage.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-22",
+    "category": "Sports",
+    "subcategory": "Boxing",
+    "difficulty": 3,
+    "question": "What does KO stand for?",
+    "answers": [
+      "Kick out",
+      "Knockout",
+      "Keep open",
+      "Knuckle offense"
+    ],
+    "correctIndex": 1,
+    "explanation": "KO stands for knockout.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-23",
+    "category": "Sports",
+    "subcategory": "Olympics",
+    "difficulty": 3,
+    "question": "Which medal is awarded for second place?",
+    "answers": [
+      "Gold",
+      "Silver",
+      "Bronze",
+      "Platinum"
+    ],
+    "correctIndex": 1,
+    "explanation": "Second place earns silver.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-24",
+    "category": "Sports",
+    "subcategory": "NHL",
+    "difficulty": 3,
+    "question": "How many periods are in a regulation NHL game?",
+    "answers": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correctIndex": 1,
+    "explanation": "NHL regulation games have three periods.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-25",
+    "category": "Sports",
+    "subcategory": "NFL",
+    "difficulty": 4,
+    "question": "What is a safety worth in football?",
+    "answers": [
+      "1 point",
+      "2 points",
+      "3 points",
+      "6 points"
+    ],
+    "correctIndex": 1,
+    "explanation": "A safety is worth 2 points.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-26",
+    "category": "Sports",
+    "subcategory": "NBA",
+    "difficulty": 4,
+    "question": "What is a triple-double?",
+    "answers": [
+      "10+ in three stat categories",
+      "Three straight dunks",
+      "30 points exactly",
+      "Three overtime wins"
+    ],
+    "correctIndex": 0,
+    "explanation": "A triple-double means double digits in three major stat categories.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-27",
+    "category": "Sports",
+    "subcategory": "MLB",
+    "difficulty": 4,
+    "question": "What pitcher stat is abbreviated ERA?",
+    "answers": [
+      "Earned Run Average",
+      "Extra Run Attempt",
+      "Early Relief Appearance",
+      "Error Rate Average"
+    ],
+    "correctIndex": 0,
+    "explanation": "ERA means Earned Run Average.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-28",
+    "category": "Sports",
+    "subcategory": "Soccer",
+    "difficulty": 4,
+    "question": "What is offside designed to prevent?",
+    "answers": [
+      "Goalkeeper saves",
+      "Cherry-picking behind defenders",
+      "Free kicks",
+      "Corner kicks"
+    ],
+    "correctIndex": 1,
+    "explanation": "Offside prevents attackers from camping behind defenders for unfair advantage.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-29",
+    "category": "Sports",
+    "subcategory": "F1",
+    "difficulty": 4,
+    "question": "What flag usually signals the end of an F1 race?",
+    "answers": [
+      "Blue flag",
+      "Green flag",
+      "Checkered flag",
+      "White flag"
+    ],
+    "correctIndex": 2,
+    "explanation": "The checkered flag signals the race finish.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "sports-30",
+    "category": "Sports",
+    "subcategory": "Olympics",
+    "difficulty": 5,
+    "question": "In track, what is the decathlon?",
+    "answers": [
+      "5 events",
+      "8 events",
+      "10 events",
+      "12 events"
+    ],
+    "correctIndex": 2,
+    "explanation": "The decathlon has ten events.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-01",
+    "category": "Science",
+    "subcategory": "Biology",
+    "difficulty": 1,
+    "question": "What is the basic unit of life?",
+    "answers": [
+      "Atom",
+      "Cell",
+      "Organ",
+      "Tissue"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cell.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-02",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "difficulty": 1,
+    "question": "What particle has a negative charge?",
+    "answers": [
+      "Proton",
+      "Neutron",
+      "Electron",
+      "Photon"
+    ],
+    "correctIndex": 2,
+    "explanation": "Electron.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-03",
+    "category": "Science",
+    "subcategory": "Physics",
+    "difficulty": 1,
+    "question": "What force pulls objects toward Earth?",
+    "answers": [
+      "Magnetism",
+      "Gravity",
+      "Friction",
+      "Lift"
+    ],
+    "correctIndex": 1,
+    "explanation": "Gravity.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-04",
+    "category": "Science",
+    "subcategory": "Space",
+    "difficulty": 1,
+    "question": "Which star is closest to Earth?",
+    "answers": [
+      "Sirius",
+      "The Sun",
+      "Polaris",
+      "Alpha Centauri"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Sun.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-05",
+    "category": "Science",
+    "subcategory": "Earth Science",
+    "difficulty": 1,
+    "question": "What layer of Earth do we live on?",
+    "answers": [
+      "Core",
+      "Mantle",
+      "Crust",
+      "Outer core"
+    ],
+    "correctIndex": 2,
+    "explanation": "Crust.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-06",
+    "category": "Science",
+    "subcategory": "Animals",
+    "difficulty": 1,
+    "question": "What animal group do frogs belong to?",
+    "answers": [
+      "Mammals",
+      "Reptiles",
+      "Amphibians",
+      "Fish"
+    ],
+    "correctIndex": 2,
+    "explanation": "Amphibians.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-07",
+    "category": "Science",
+    "subcategory": "Human Body",
+    "difficulty": 1,
+    "question": "What organ pumps blood?",
+    "answers": [
+      "Liver",
+      "Heart",
+      "Lung",
+      "Kidney"
+    ],
+    "correctIndex": 1,
+    "explanation": "Heart.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-08",
+    "category": "Science",
+    "subcategory": "Inventions",
+    "difficulty": 1,
+    "question": "Who is associated with the practical telephone patent?",
+    "answers": [
+      "Tesla",
+      "Bell",
+      "Edison",
+      "Watt"
+    ],
+    "correctIndex": 1,
+    "explanation": "Alexander Graham Bell.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-09",
+    "category": "Science",
+    "subcategory": "Biology",
+    "difficulty": 2,
+    "question": "What carries genetic instructions in cells?",
+    "answers": [
+      "ATP",
+      "DNA",
+      "Insulin",
+      "Keratin"
+    ],
+    "correctIndex": 1,
+    "explanation": "DNA.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-10",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "difficulty": 2,
+    "question": "What is H2O?",
+    "answers": [
+      "Salt",
+      "Water",
+      "Oxygen",
+      "Hydrogen"
+    ],
+    "correctIndex": 1,
+    "explanation": "Water.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-11",
+    "category": "Science",
+    "subcategory": "Physics",
+    "difficulty": 2,
+    "question": "What is speed divided by time change called?",
+    "answers": [
+      "Mass",
+      "Acceleration",
+      "Pressure",
+      "Density"
+    ],
+    "correctIndex": 1,
+    "explanation": "Acceleration.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-12",
+    "category": "Science",
+    "subcategory": "Space",
+    "difficulty": 2,
+    "question": "What planet has prominent rings?",
+    "answers": [
+      "Mars",
+      "Saturn",
+      "Venus",
+      "Mercury"
+    ],
+    "correctIndex": 1,
+    "explanation": "Saturn.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-13",
+    "category": "Science",
+    "subcategory": "Earth Science",
+    "difficulty": 2,
+    "question": "What is molten rock below Earth’s surface called?",
+    "answers": [
+      "Lava",
+      "Magma",
+      "Basalt",
+      "Ash"
+    ],
+    "correctIndex": 1,
+    "explanation": "Magma.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-14",
+    "category": "Science",
+    "subcategory": "Animals",
+    "difficulty": 2,
+    "question": "Which mammals can truly fly?",
+    "answers": [
+      "Squirrels",
+      "Bats",
+      "Penguins",
+      "Lemurs"
+    ],
+    "correctIndex": 1,
+    "explanation": "Bats.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-15",
+    "category": "Science",
+    "subcategory": "Human Body",
+    "difficulty": 2,
+    "question": "Which blood cells help fight infection?",
+    "answers": [
+      "Red blood cells",
+      "White blood cells",
+      "Platelets",
+      "Plasma"
+    ],
+    "correctIndex": 1,
+    "explanation": "White blood cells.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-16",
+    "category": "Science",
+    "subcategory": "Biology",
+    "difficulty": 2,
+    "question": "What process do plants use to make food from sunlight?",
+    "answers": [
+      "Respiration",
+      "Photosynthesis",
+      "Fermentation",
+      "Digestion"
+    ],
+    "correctIndex": 1,
+    "explanation": "Photosynthesis.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-17",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "difficulty": 3,
+    "question": "What is the pH of a neutral solution?",
+    "answers": [
+      "0",
+      "3",
+      "7",
+      "14"
+    ],
+    "correctIndex": 2,
+    "explanation": "7.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-18",
+    "category": "Science",
+    "subcategory": "Physics",
+    "difficulty": 3,
+    "question": "What unit measures electrical resistance?",
+    "answers": [
+      "Volt",
+      "Watt",
+      "Ohm",
+      "Ampere"
+    ],
+    "correctIndex": 2,
+    "explanation": "Ohm.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-19",
+    "category": "Science",
+    "subcategory": "Space",
+    "difficulty": 3,
+    "question": "What galaxy contains our solar system?",
+    "answers": [
+      "Andromeda",
+      "Milky Way",
+      "Sombrero",
+      "Whirlpool"
+    ],
+    "correctIndex": 1,
+    "explanation": "Milky Way.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-20",
+    "category": "Science",
+    "subcategory": "Earth Science",
+    "difficulty": 3,
+    "question": "What instrument measures wind speed?",
+    "answers": [
+      "Thermometer",
+      "Anemometer",
+      "Barometer",
+      "Hygrometer"
+    ],
+    "correctIndex": 1,
+    "explanation": "Anemometer.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-21",
+    "category": "Science",
+    "subcategory": "Animals",
+    "difficulty": 3,
+    "question": "What is the largest living animal?",
+    "answers": [
+      "Elephant",
+      "Blue whale",
+      "Giraffe",
+      "Orca"
+    ],
+    "correctIndex": 1,
+    "explanation": "Blue whale.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-22",
+    "category": "Science",
+    "subcategory": "Human Body",
+    "difficulty": 3,
+    "question": "What organ controls most body functions?",
+    "answers": [
+      "Heart",
+      "Brain",
+      "Liver",
+      "Stomach"
+    ],
+    "correctIndex": 1,
+    "explanation": "Brain.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-23",
+    "category": "Science",
+    "subcategory": "Inventions",
+    "difficulty": 3,
+    "question": "What device converts sunlight into electricity?",
+    "answers": [
+      "Turbine",
+      "Solar panel",
+      "Generator only",
+      "Battery only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Solar panel.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-24",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "difficulty": 3,
+    "question": "What gas do plants take in during photosynthesis?",
+    "answers": [
+      "Oxygen",
+      "Carbon dioxide",
+      "Helium",
+      "Neon"
+    ],
+    "correctIndex": 1,
+    "explanation": "Carbon dioxide.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-25",
+    "category": "Science",
+    "subcategory": "Physics",
+    "difficulty": 4,
+    "question": "What is the SI unit of force?",
+    "answers": [
+      "Joule",
+      "Newton",
+      "Pascal",
+      "Tesla"
+    ],
+    "correctIndex": 1,
+    "explanation": "Newton.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-26",
+    "category": "Science",
+    "subcategory": "Space",
+    "difficulty": 4,
+    "question": "What is a light-year a measure of?",
+    "answers": [
+      "Time",
+      "Distance",
+      "Brightness",
+      "Mass"
+    ],
+    "correctIndex": 1,
+    "explanation": "Distance.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-27",
+    "category": "Science",
+    "subcategory": "Biology",
+    "difficulty": 4,
+    "question": "What is an organism that eats both plants and animals?",
+    "answers": [
+      "Herbivore",
+      "Carnivore",
+      "Omnivore",
+      "Producer"
+    ],
+    "correctIndex": 2,
+    "explanation": "Omnivore.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-28",
+    "category": "Science",
+    "subcategory": "Chemistry",
+    "difficulty": 4,
+    "question": "What is NaCl commonly known as?",
+    "answers": [
+      "Sugar",
+      "Table salt",
+      "Baking soda",
+      "Vinegar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Table salt.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-29",
+    "category": "Science",
+    "subcategory": "Physics",
+    "difficulty": 4,
+    "question": "What simple machine is a ramp?",
+    "answers": [
+      "Pulley",
+      "Lever",
+      "Inclined plane",
+      "Wheel"
+    ],
+    "correctIndex": 2,
+    "explanation": "Inclined plane.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "science-30",
+    "category": "Science",
+    "subcategory": "Space",
+    "difficulty": 5,
+    "question": "What object orbits a planet?",
+    "answers": [
+      "Comet",
+      "Moon",
+      "Galaxy",
+      "Nebula"
+    ],
+    "correctIndex": 1,
+    "explanation": "Moon.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-01",
+    "category": "History",
+    "subcategory": "Ancient History",
+    "difficulty": 1,
+    "question": "Which ancient civilization built the pyramids at Giza?",
+    "answers": [
+      "Romans",
+      "Egyptians",
+      "Vikings",
+      "Mongols"
+    ],
+    "correctIndex": 1,
+    "explanation": "Egyptians.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-02",
+    "category": "History",
+    "subcategory": "World Wars",
+    "difficulty": 1,
+    "question": "Which war ended in 1945?",
+    "answers": [
+      "World War I",
+      "World War II",
+      "Korean War",
+      "Cold War"
+    ],
+    "correctIndex": 1,
+    "explanation": "World War II.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-03",
+    "category": "History",
+    "subcategory": "American History",
+    "difficulty": 1,
+    "question": "Who was the first U.S. president?",
+    "answers": [
+      "Lincoln",
+      "Washington",
+      "Jefferson",
+      "Adams"
+    ],
+    "correctIndex": 1,
+    "explanation": "George Washington.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-04",
+    "category": "History",
+    "subcategory": "European History",
+    "difficulty": 1,
+    "question": "What city was the capital of the Byzantine Empire?",
+    "answers": [
+      "Rome",
+      "Paris",
+      "Constantinople",
+      "Athens"
+    ],
+    "correctIndex": 2,
+    "explanation": "Constantinople.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-05",
+    "category": "History",
+    "subcategory": "Latin American History",
+    "difficulty": 1,
+    "question": "Which empire was centered in Tenochtitlan?",
+    "answers": [
+      "Inca",
+      "Maya",
+      "Aztec",
+      "Olmec"
+    ],
+    "correctIndex": 2,
+    "explanation": "Aztec.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-06",
+    "category": "History",
+    "subcategory": "Leaders",
+    "difficulty": 1,
+    "question": "Who was known as the Maid of Orléans?",
+    "answers": [
+      "Cleopatra",
+      "Joan of Arc",
+      "Boudica",
+      "Catherine"
+    ],
+    "correctIndex": 1,
+    "explanation": "Joan of Arc.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-07",
+    "category": "History",
+    "subcategory": "Historical Dates",
+    "difficulty": 1,
+    "question": "In what year did Columbus reach the Americas?",
+    "answers": [
+      "1215",
+      "1492",
+      "1776",
+      "1914"
+    ],
+    "correctIndex": 1,
+    "explanation": "1492.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-08",
+    "category": "History",
+    "subcategory": "Empires",
+    "difficulty": 1,
+    "question": "Which empire built extensive roads across Europe?",
+    "answers": [
+      "Roman Empire",
+      "Ottoman Empire",
+      "Mali Empire",
+      "Qing Empire"
+    ],
+    "correctIndex": 0,
+    "explanation": "Roman Empire.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-09",
+    "category": "History",
+    "subcategory": "Ancient History",
+    "difficulty": 2,
+    "question": "Which code is associated with Babylonian law?",
+    "answers": [
+      "Magna Carta",
+      "Hammurabi",
+      "Napoleonic Code",
+      "Justinian Code"
+    ],
+    "correctIndex": 1,
+    "explanation": "Code of Hammurabi.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-10",
+    "category": "History",
+    "subcategory": "World Wars",
+    "difficulty": 2,
+    "question": "What event brought the U.S. into World War II?",
+    "answers": [
+      "D-Day",
+      "Pearl Harbor",
+      "Berlin Airlift",
+      "Suez Crisis"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pearl Harbor.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-11",
+    "category": "History",
+    "subcategory": "American History",
+    "difficulty": 2,
+    "question": "What document declared U.S. independence?",
+    "answers": [
+      "Constitution",
+      "Bill of Rights",
+      "Declaration of Independence",
+      "Federalist Papers"
+    ],
+    "correctIndex": 2,
+    "explanation": "Declaration of Independence.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-12",
+    "category": "History",
+    "subcategory": "European History",
+    "difficulty": 2,
+    "question": "What wall divided a German city during the Cold War?",
+    "answers": [
+      "Hadrian’s Wall",
+      "Berlin Wall",
+      "Great Wall",
+      "Western Wall"
+    ],
+    "correctIndex": 1,
+    "explanation": "Berlin Wall.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-13",
+    "category": "History",
+    "subcategory": "Latin American History",
+    "difficulty": 2,
+    "question": "Who led many South American independence campaigns?",
+    "answers": [
+      "Cortés",
+      "Bolívar",
+      "Pizarro",
+      "Villa"
+    ],
+    "correctIndex": 1,
+    "explanation": "Simón Bolívar.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-14",
+    "category": "History",
+    "subcategory": "Leaders",
+    "difficulty": 2,
+    "question": "Who was the British prime minister during much of World War II?",
+    "answers": [
+      "Churchill",
+      "Chamberlain",
+      "Attlee",
+      "Disraeli"
+    ],
+    "correctIndex": 0,
+    "explanation": "Winston Churchill.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-15",
+    "category": "History",
+    "subcategory": "Historical Dates",
+    "difficulty": 2,
+    "question": "What year did the Berlin Wall fall?",
+    "answers": [
+      "1961",
+      "1975",
+      "1989",
+      "1999"
+    ],
+    "correctIndex": 2,
+    "explanation": "1989.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-16",
+    "category": "History",
+    "subcategory": "Empires",
+    "difficulty": 2,
+    "question": "Which empire was ruled from Istanbul/Constantinople after 1453?",
+    "answers": [
+      "Persian",
+      "Ottoman",
+      "Roman",
+      "Spanish"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ottoman Empire.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-17",
+    "category": "History",
+    "subcategory": "Ancient History",
+    "difficulty": 3,
+    "question": "Which civilization is associated with cuneiform writing?",
+    "answers": [
+      "Sumerians",
+      "Aztecs",
+      "Celts",
+      "Inca"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sumerians.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-18",
+    "category": "History",
+    "subcategory": "World Wars",
+    "difficulty": 3,
+    "question": "What was D-Day?",
+    "answers": [
+      "Bombing of Pearl Harbor",
+      "Allied invasion of Normandy",
+      "Fall of Berlin",
+      "Treaty signing"
+    ],
+    "correctIndex": 1,
+    "explanation": "Allied invasion of Normandy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-19",
+    "category": "History",
+    "subcategory": "American History",
+    "difficulty": 3,
+    "question": "Who wrote the main draft of the Declaration of Independence?",
+    "answers": [
+      "Franklin",
+      "Jefferson",
+      "Hamilton",
+      "Madison"
+    ],
+    "correctIndex": 1,
+    "explanation": "Thomas Jefferson.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-20",
+    "category": "History",
+    "subcategory": "European History",
+    "difficulty": 3,
+    "question": "What was the Renaissance known for?",
+    "answers": [
+      "Ice age",
+      "Industrial collapse",
+      "Renewed art and learning",
+      "Space travel"
+    ],
+    "correctIndex": 2,
+    "explanation": "Renewed art and learning.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-21",
+    "category": "History",
+    "subcategory": "Latin American History",
+    "difficulty": 3,
+    "question": "Which country did Mexico gain independence from?",
+    "answers": [
+      "France",
+      "Spain",
+      "Portugal",
+      "Britain"
+    ],
+    "correctIndex": 1,
+    "explanation": "Spain.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-22",
+    "category": "History",
+    "subcategory": "Leaders",
+    "difficulty": 3,
+    "question": "Who was the first emperor of Rome?",
+    "answers": [
+      "Julius Caesar",
+      "Augustus",
+      "Nero",
+      "Trajan"
+    ],
+    "correctIndex": 1,
+    "explanation": "Augustus.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-23",
+    "category": "History",
+    "subcategory": "Historical Dates",
+    "difficulty": 3,
+    "question": "What year did World War I begin?",
+    "answers": [
+      "1812",
+      "1914",
+      "1939",
+      "1945"
+    ],
+    "correctIndex": 1,
+    "explanation": "1914.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-24",
+    "category": "History",
+    "subcategory": "Empires",
+    "difficulty": 3,
+    "question": "Which empire was centered in modern Peru?",
+    "answers": [
+      "Aztec",
+      "Inca",
+      "Mali",
+      "Mughal"
+    ],
+    "correctIndex": 1,
+    "explanation": "Inca Empire.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-25",
+    "category": "History",
+    "subcategory": "Ancient History",
+    "difficulty": 4,
+    "question": "Which Greek city-state was famous for military training?",
+    "answers": [
+      "Athens",
+      "Sparta",
+      "Corinth",
+      "Thebes"
+    ],
+    "correctIndex": 1,
+    "explanation": "Sparta.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-26",
+    "category": "History",
+    "subcategory": "World Wars",
+    "difficulty": 4,
+    "question": "What treaty ended World War I?",
+    "answers": [
+      "Versailles",
+      "Paris 1783",
+      "Tordesillas",
+      "Westphalia"
+    ],
+    "correctIndex": 0,
+    "explanation": "Treaty of Versailles.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-27",
+    "category": "History",
+    "subcategory": "American History",
+    "difficulty": 4,
+    "question": "Which purchase doubled U.S. territory in 1803?",
+    "answers": [
+      "Alaska Purchase",
+      "Louisiana Purchase",
+      "Gadsden Purchase",
+      "Oregon Treaty"
+    ],
+    "correctIndex": 1,
+    "explanation": "Louisiana Purchase.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-28",
+    "category": "History",
+    "subcategory": "European History",
+    "difficulty": 4,
+    "question": "Who was Napoleon defeated by at Waterloo?",
+    "answers": [
+      "Ottomans only",
+      "Britain and Prussia",
+      "Spain only",
+      "Russia only"
+    ],
+    "correctIndex": 1,
+    "explanation": "A coalition led by Britain and Prussia.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-29",
+    "category": "History",
+    "subcategory": "Latin American History",
+    "difficulty": 4,
+    "question": "What ancient Maya city is in Mexico’s Yucatán?",
+    "answers": [
+      "Machu Picchu",
+      "Chichén Itzá",
+      "Teotihuacan",
+      "Tikal"
+    ],
+    "correctIndex": 1,
+    "explanation": "Chichén Itzá.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "history-30",
+    "category": "History",
+    "subcategory": "Empires",
+    "difficulty": 5,
+    "question": "Which empire was ruled by Genghis Khan?",
+    "answers": [
+      "Mongol",
+      "Ottoman",
+      "Roman",
+      "Mughal"
+    ],
+    "correctIndex": 0,
+    "explanation": "Mongol Empire.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-01",
+    "category": "Geography",
+    "subcategory": "Countries",
+    "difficulty": 1,
+    "question": "What country is shaped like a boot?",
+    "answers": [
+      "Spain",
+      "Italy",
+      "Greece",
+      "Portugal"
+    ],
+    "correctIndex": 1,
+    "explanation": "Italy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-02",
+    "category": "Geography",
+    "subcategory": "Capitals",
+    "difficulty": 1,
+    "question": "What is the capital of France?",
+    "answers": [
+      "Paris",
+      "Lyon",
+      "Nice",
+      "Marseille"
+    ],
+    "correctIndex": 0,
+    "explanation": "Paris.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-03",
+    "category": "Geography",
+    "subcategory": "Flags",
+    "difficulty": 1,
+    "question": "What color is not on the flag of Mexico?",
+    "answers": [
+      "Green",
+      "White",
+      "Red",
+      "Purple"
+    ],
+    "correctIndex": 3,
+    "explanation": "Purple.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-04",
+    "category": "Geography",
+    "subcategory": "Maps",
+    "difficulty": 1,
+    "question": "What direction is opposite north?",
+    "answers": [
+      "East",
+      "West",
+      "South",
+      "Northeast"
+    ],
+    "correctIndex": 2,
+    "explanation": "South.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-05",
+    "category": "Geography",
+    "subcategory": "Rivers & Mountains",
+    "difficulty": 1,
+    "question": "What is the longest river often listed in Africa?",
+    "answers": [
+      "Amazon",
+      "Nile",
+      "Danube",
+      "Rhine"
+    ],
+    "correctIndex": 1,
+    "explanation": "Nile.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-06",
+    "category": "Geography",
+    "subcategory": "US States",
+    "difficulty": 1,
+    "question": "What is the largest U.S. state by area?",
+    "answers": [
+      "Texas",
+      "California",
+      "Alaska",
+      "Florida"
+    ],
+    "correctIndex": 2,
+    "explanation": "Alaska.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-07",
+    "category": "Geography",
+    "subcategory": "Mexico",
+    "difficulty": 1,
+    "question": "What is the capital of Mexico?",
+    "answers": [
+      "Guadalajara",
+      "Monterrey",
+      "Mexico City",
+      "Puebla"
+    ],
+    "correctIndex": 2,
+    "explanation": "Mexico City.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-08",
+    "category": "Geography",
+    "subcategory": "World Landmarks",
+    "difficulty": 1,
+    "question": "Where is the Eiffel Tower?",
+    "answers": [
+      "Rome",
+      "Paris",
+      "Berlin",
+      "Madrid"
+    ],
+    "correctIndex": 1,
+    "explanation": "Paris.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-09",
+    "category": "Geography",
+    "subcategory": "Countries",
+    "difficulty": 2,
+    "question": "Which country has the city of Kyoto?",
+    "answers": [
+      "China",
+      "Japan",
+      "Thailand",
+      "India"
+    ],
+    "correctIndex": 1,
+    "explanation": "Japan.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-10",
+    "category": "Geography",
+    "subcategory": "Capitals",
+    "difficulty": 2,
+    "question": "What is the capital of Japan?",
+    "answers": [
+      "Kyoto",
+      "Tokyo",
+      "Osaka",
+      "Hiroshima"
+    ],
+    "correctIndex": 1,
+    "explanation": "Tokyo.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-11",
+    "category": "Geography",
+    "subcategory": "Flags",
+    "difficulty": 2,
+    "question": "How many stars are on the U.S. flag?",
+    "answers": [
+      "13",
+      "48",
+      "50",
+      "52"
+    ],
+    "correctIndex": 2,
+    "explanation": "50.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-12",
+    "category": "Geography",
+    "subcategory": "Maps",
+    "difficulty": 2,
+    "question": "What line divides Earth into Northern and Southern Hemispheres?",
+    "answers": [
+      "Prime Meridian",
+      "Equator",
+      "Tropic of Cancer",
+      "Date Line"
+    ],
+    "correctIndex": 1,
+    "explanation": "Equator.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-13",
+    "category": "Geography",
+    "subcategory": "Rivers & Mountains",
+    "difficulty": 2,
+    "question": "Mount Everest is in which mountain range?",
+    "answers": [
+      "Andes",
+      "Rockies",
+      "Himalayas",
+      "Alps"
+    ],
+    "correctIndex": 2,
+    "explanation": "Himalayas.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-14",
+    "category": "Geography",
+    "subcategory": "US States",
+    "difficulty": 2,
+    "question": "Which U.S. state is known as the Sunshine State?",
+    "answers": [
+      "Arizona",
+      "Florida",
+      "Hawaii",
+      "Nevada"
+    ],
+    "correctIndex": 1,
+    "explanation": "Florida.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-15",
+    "category": "Geography",
+    "subcategory": "Mexico",
+    "difficulty": 2,
+    "question": "Which Mexican state includes Cancún?",
+    "answers": [
+      "Jalisco",
+      "Quintana Roo",
+      "Nuevo León",
+      "Sonora"
+    ],
+    "correctIndex": 1,
+    "explanation": "Quintana Roo.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-16",
+    "category": "Geography",
+    "subcategory": "World Landmarks",
+    "difficulty": 2,
+    "question": "Machu Picchu is in which country?",
+    "answers": [
+      "Peru",
+      "Chile",
+      "Bolivia",
+      "Colombia"
+    ],
+    "correctIndex": 0,
+    "explanation": "Peru.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-17",
+    "category": "Geography",
+    "subcategory": "Countries",
+    "difficulty": 3,
+    "question": "Which country has the most land area?",
+    "answers": [
+      "Canada",
+      "China",
+      "Russia",
+      "Brazil"
+    ],
+    "correctIndex": 2,
+    "explanation": "Russia.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-18",
+    "category": "Geography",
+    "subcategory": "Capitals",
+    "difficulty": 3,
+    "question": "What is the capital of Brazil?",
+    "answers": [
+      "Rio",
+      "São Paulo",
+      "Brasília",
+      "Salvador"
+    ],
+    "correctIndex": 2,
+    "explanation": "Brasília.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-19",
+    "category": "Geography",
+    "subcategory": "Flags",
+    "difficulty": 3,
+    "question": "What shape is centered on Japan’s flag?",
+    "answers": [
+      "Blue square",
+      "Red circle",
+      "Green star",
+      "Black cross"
+    ],
+    "correctIndex": 1,
+    "explanation": "Red circle.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-20",
+    "category": "Geography",
+    "subcategory": "Maps",
+    "difficulty": 3,
+    "question": "Longitude lines run mainly in what direction?",
+    "answers": [
+      "East-west",
+      "North-south",
+      "Circular only",
+      "Diagonal only"
+    ],
+    "correctIndex": 1,
+    "explanation": "North-south.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-21",
+    "category": "Geography",
+    "subcategory": "Rivers & Mountains",
+    "difficulty": 3,
+    "question": "Which river runs through London?",
+    "answers": [
+      "Seine",
+      "Thames",
+      "Tiber",
+      "Volga"
+    ],
+    "correctIndex": 1,
+    "explanation": "Thames.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-22",
+    "category": "Geography",
+    "subcategory": "US States",
+    "difficulty": 3,
+    "question": "Which state is home to Las Vegas?",
+    "answers": [
+      "Nevada",
+      "Utah",
+      "Arizona",
+      "Colorado"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nevada.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-23",
+    "category": "Geography",
+    "subcategory": "Mexico",
+    "difficulty": 3,
+    "question": "Which city is known for mariachi and tequila culture nearby?",
+    "answers": [
+      "Tijuana",
+      "Guadalajara",
+      "Mérida",
+      "Toluca"
+    ],
+    "correctIndex": 1,
+    "explanation": "Guadalajara.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-24",
+    "category": "Geography",
+    "subcategory": "World Landmarks",
+    "difficulty": 3,
+    "question": "The Colosseum is in which city?",
+    "answers": [
+      "Athens",
+      "Rome",
+      "Istanbul",
+      "Paris"
+    ],
+    "correctIndex": 1,
+    "explanation": "Rome.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-25",
+    "category": "Geography",
+    "subcategory": "Countries",
+    "difficulty": 4,
+    "question": "Which country is both a continent and a nation?",
+    "answers": [
+      "Australia",
+      "Greenland",
+      "India",
+      "Madagascar"
+    ],
+    "correctIndex": 0,
+    "explanation": "Australia.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-26",
+    "category": "Geography",
+    "subcategory": "Capitals",
+    "difficulty": 4,
+    "question": "What is the capital of Argentina?",
+    "answers": [
+      "Buenos Aires",
+      "Lima",
+      "Santiago",
+      "Montevideo"
+    ],
+    "correctIndex": 0,
+    "explanation": "Buenos Aires.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-27",
+    "category": "Geography",
+    "subcategory": "Flags",
+    "difficulty": 4,
+    "question": "What leaf is on Canada’s flag?",
+    "answers": [
+      "Oak",
+      "Maple",
+      "Palm",
+      "Cedar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Maple leaf.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-28",
+    "category": "Geography",
+    "subcategory": "Maps",
+    "difficulty": 4,
+    "question": "What ocean is west of Mexico?",
+    "answers": [
+      "Atlantic",
+      "Pacific",
+      "Indian",
+      "Arctic"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pacific Ocean.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-29",
+    "category": "Geography",
+    "subcategory": "Rivers & Mountains",
+    "difficulty": 4,
+    "question": "The Andes are mainly in which continent?",
+    "answers": [
+      "Africa",
+      "Europe",
+      "South America",
+      "Asia"
+    ],
+    "correctIndex": 2,
+    "explanation": "South America.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "geography-30",
+    "category": "Geography",
+    "subcategory": "World Landmarks",
+    "difficulty": 5,
+    "question": "The Taj Mahal is in which country?",
+    "answers": [
+      "Pakistan",
+      "India",
+      "Nepal",
+      "Bangladesh"
+    ],
+    "correctIndex": 1,
+    "explanation": "India.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-01",
+    "category": "Movies",
+    "subcategory": "Action",
+    "difficulty": 1,
+    "question": "Who played John Wick?",
+    "answers": [
+      "Brad Pitt",
+      "Keanu Reeves",
+      "Tom Cruise",
+      "Matt Damon"
+    ],
+    "correctIndex": 1,
+    "explanation": "Keanu Reeves.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-02",
+    "category": "Movies",
+    "subcategory": "Comedy",
+    "difficulty": 1,
+    "question": "What movie features the line “I am serious, and don’t call me Shirley”?",
+    "answers": [
+      "Airplane!",
+      "Anchorman",
+      "Dumb and Dumber",
+      "Caddyshack"
+    ],
+    "correctIndex": 0,
+    "explanation": "Airplane!.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-03",
+    "category": "Movies",
+    "subcategory": "Horror",
+    "difficulty": 1,
+    "question": "Who is the killer in the original Halloween?",
+    "answers": [
+      "Jason",
+      "Michael Myers",
+      "Freddy",
+      "Leatherface"
+    ],
+    "correctIndex": 1,
+    "explanation": "Michael Myers.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-04",
+    "category": "Movies",
+    "subcategory": "Marvel/DC",
+    "difficulty": 1,
+    "question": "What metal is Wolverine’s skeleton coated with?",
+    "answers": [
+      "Vibranium",
+      "Adamantium",
+      "Titanium",
+      "Steel"
+    ],
+    "correctIndex": 1,
+    "explanation": "Adamantium.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-05",
+    "category": "Movies",
+    "subcategory": "Classic Movies",
+    "difficulty": 1,
+    "question": "Who directed Psycho?",
+    "answers": [
+      "Kubrick",
+      "Hitchcock",
+      "Spielberg",
+      "Ford"
+    ],
+    "correctIndex": 1,
+    "explanation": "Alfred Hitchcock.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-06",
+    "category": "Movies",
+    "subcategory": "90s Movies",
+    "difficulty": 1,
+    "question": "What 1997 movie stars a sinking ship?",
+    "answers": [
+      "Speed",
+      "Titanic",
+      "Armageddon",
+      "Twister"
+    ],
+    "correctIndex": 1,
+    "explanation": "Titanic.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-07",
+    "category": "Movies",
+    "subcategory": "2000s Movies",
+    "difficulty": 1,
+    "question": "What film features the character Shrek?",
+    "answers": [
+      "Ice Age",
+      "Shrek",
+      "Cars",
+      "Madagascar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Shrek.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-08",
+    "category": "Movies",
+    "subcategory": "Actors & Directors",
+    "difficulty": 1,
+    "question": "Who directed Jurassic Park?",
+    "answers": [
+      "Lucas",
+      "Spielberg",
+      "Cameron",
+      "Nolan"
+    ],
+    "correctIndex": 1,
+    "explanation": "Steven Spielberg.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-09",
+    "category": "Movies",
+    "subcategory": "Movie Quotes",
+    "difficulty": 2,
+    "question": "“May the Force be with you” comes from what franchise?",
+    "answers": [
+      "Star Trek",
+      "Star Wars",
+      "Dune",
+      "Avatar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Star Wars.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-10",
+    "category": "Movies",
+    "subcategory": "Action",
+    "difficulty": 2,
+    "question": "What actor is known for Mission: Impossible?",
+    "answers": [
+      "Tom Cruise",
+      "Will Smith",
+      "Keanu Reeves",
+      "Harrison Ford"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tom Cruise.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-11",
+    "category": "Movies",
+    "subcategory": "Comedy",
+    "difficulty": 2,
+    "question": "Who played Buddy in Elf?",
+    "answers": [
+      "Carell",
+      "Ferrell",
+      "Rudd",
+      "Sandler"
+    ],
+    "correctIndex": 1,
+    "explanation": "Will Ferrell.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-12",
+    "category": "Movies",
+    "subcategory": "Horror",
+    "difficulty": 2,
+    "question": "What movie features a haunted videotape?",
+    "answers": [
+      "Saw",
+      "The Ring",
+      "Scream",
+      "Us"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Ring.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-13",
+    "category": "Movies",
+    "subcategory": "Marvel/DC",
+    "difficulty": 2,
+    "question": "Who is Bruce Wayne?",
+    "answers": [
+      "Superman",
+      "Batman",
+      "Flash",
+      "Aquaman"
+    ],
+    "correctIndex": 1,
+    "explanation": "Batman.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-14",
+    "category": "Movies",
+    "subcategory": "Classic Movies",
+    "difficulty": 2,
+    "question": "Casablanca is mostly associated with what line?",
+    "answers": [
+      "I’ll be back",
+      "Here’s looking at you, kid",
+      "Why so serious?",
+      "To infinity"
+    ],
+    "correctIndex": 1,
+    "explanation": "Here’s looking at you, kid.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-15",
+    "category": "Movies",
+    "subcategory": "90s Movies",
+    "difficulty": 2,
+    "question": "Who played Forrest Gump?",
+    "answers": [
+      "Tom Hanks",
+      "Robin Williams",
+      "Jim Carrey",
+      "Nicolas Cage"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tom Hanks.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-16",
+    "category": "Movies",
+    "subcategory": "2000s Movies",
+    "difficulty": 2,
+    "question": "What movie has a school called Hogwarts?",
+    "answers": [
+      "Twilight",
+      "Harry Potter",
+      "Narnia",
+      "Eragon"
+    ],
+    "correctIndex": 1,
+    "explanation": "Harry Potter.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-17",
+    "category": "Movies",
+    "subcategory": "Actors & Directors",
+    "difficulty": 3,
+    "question": "Who directed The Dark Knight?",
+    "answers": [
+      "Nolan",
+      "Fincher",
+      "Scott",
+      "Bay"
+    ],
+    "correctIndex": 0,
+    "explanation": "Christopher Nolan.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-18",
+    "category": "Movies",
+    "subcategory": "Movie Quotes",
+    "difficulty": 3,
+    "question": "“I’ll be back” is from which movie?",
+    "answers": [
+      "Predator",
+      "The Terminator",
+      "Aliens",
+      "RoboCop"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Terminator.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-19",
+    "category": "Movies",
+    "subcategory": "Action",
+    "difficulty": 3,
+    "question": "What franchise features Dominic Toretto?",
+    "answers": [
+      "Fast & Furious",
+      "John Wick",
+      "Bourne",
+      "Taken"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fast & Furious.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-20",
+    "category": "Movies",
+    "subcategory": "Comedy",
+    "difficulty": 3,
+    "question": "Mean Girls was released in what decade?",
+    "answers": [
+      "1980s",
+      "1990s",
+      "2000s",
+      "2010s"
+    ],
+    "correctIndex": 2,
+    "explanation": "2000s.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-21",
+    "category": "Movies",
+    "subcategory": "Horror",
+    "difficulty": 3,
+    "question": "What weapon is associated with Freddy Krueger?",
+    "answers": [
+      "Chainsaw",
+      "Bladed glove",
+      "Machete",
+      "Hook"
+    ],
+    "correctIndex": 1,
+    "explanation": "Bladed glove.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-22",
+    "category": "Movies",
+    "subcategory": "Marvel/DC",
+    "difficulty": 3,
+    "question": "What is Captain America’s shield made from?",
+    "answers": [
+      "Adamantium",
+      "Vibranium",
+      "Iron",
+      "Gold"
+    ],
+    "correctIndex": 1,
+    "explanation": "Vibranium.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-23",
+    "category": "Movies",
+    "subcategory": "Classic Movies",
+    "difficulty": 3,
+    "question": "The Godfather centers on what family?",
+    "answers": [
+      "Soprano",
+      "Corleone",
+      "Montana",
+      "Barzini"
+    ],
+    "correctIndex": 1,
+    "explanation": "Corleone.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-24",
+    "category": "Movies",
+    "subcategory": "90s Movies",
+    "difficulty": 3,
+    "question": "The Matrix came out in what year?",
+    "answers": [
+      "1994",
+      "1997",
+      "1999",
+      "2001"
+    ],
+    "correctIndex": 2,
+    "explanation": "1999.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-25",
+    "category": "Movies",
+    "subcategory": "2000s Movies",
+    "difficulty": 4,
+    "question": "Who voiced Donkey in Shrek?",
+    "answers": [
+      "Chris Rock",
+      "Eddie Murphy",
+      "Kevin Hart",
+      "Jamie Foxx"
+    ],
+    "correctIndex": 1,
+    "explanation": "Eddie Murphy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-26",
+    "category": "Movies",
+    "subcategory": "Actors & Directors",
+    "difficulty": 4,
+    "question": "Who played Jack Sparrow?",
+    "answers": [
+      "Johnny Depp",
+      "Orlando Bloom",
+      "Brad Pitt",
+      "Russell Crowe"
+    ],
+    "correctIndex": 0,
+    "explanation": "Johnny Depp.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-27",
+    "category": "Movies",
+    "subcategory": "Movie Quotes",
+    "difficulty": 4,
+    "question": "“Why so serious?” is associated with which character?",
+    "answers": [
+      "Batman",
+      "The Joker",
+      "Bane",
+      "Riddler"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Joker.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-28",
+    "category": "Movies",
+    "subcategory": "Action",
+    "difficulty": 4,
+    "question": "Die Hard mostly takes place in what building?",
+    "answers": [
+      "Empire State",
+      "Nakatomi Plaza",
+      "Stark Tower",
+      "Sears Tower"
+    ],
+    "correctIndex": 1,
+    "explanation": "Nakatomi Plaza.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-29",
+    "category": "Movies",
+    "subcategory": "Comedy",
+    "difficulty": 4,
+    "question": "What mockumentary follows a paper company office?",
+    "answers": [
+      "Parks and Rec",
+      "The Office",
+      "30 Rock",
+      "Community"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Office.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "movies-30",
+    "category": "Movies",
+    "subcategory": "Horror",
+    "difficulty": 5,
+    "question": "The shark movie Jaws was directed by whom?",
+    "answers": [
+      "Spielberg",
+      "Hitchcock",
+      "Carpenter",
+      "Craven"
+    ],
+    "correctIndex": 0,
+    "explanation": "Steven Spielberg.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-01",
+    "category": "Music",
+    "subcategory": "Rock",
+    "difficulty": 1,
+    "question": "Who was the lead singer of Queen?",
+    "answers": [
+      "Bowie",
+      "Mercury",
+      "Jagger",
+      "Prince"
+    ],
+    "correctIndex": 1,
+    "explanation": "Freddie Mercury.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-02",
+    "category": "Music",
+    "subcategory": "Rap",
+    "difficulty": 1,
+    "question": "Which rapper released The College Dropout?",
+    "answers": [
+      "Jay-Z",
+      "Kanye West",
+      "Nas",
+      "Drake"
+    ],
+    "correctIndex": 1,
+    "explanation": "Kanye West.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-03",
+    "category": "Music",
+    "subcategory": "Pop",
+    "difficulty": 1,
+    "question": "Who is known as the King of Pop?",
+    "answers": [
+      "Prince",
+      "Michael Jackson",
+      "Elvis",
+      "Timberlake"
+    ],
+    "correctIndex": 1,
+    "explanation": "Michael Jackson.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-04",
+    "category": "Music",
+    "subcategory": "Country",
+    "difficulty": 1,
+    "question": "What instrument is strongly associated with country music?",
+    "answers": [
+      "Synthesizer",
+      "Banjo",
+      "Tuba",
+      "Harp"
+    ],
+    "correctIndex": 1,
+    "explanation": "Banjo.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-05",
+    "category": "Music",
+    "subcategory": "90s Music",
+    "difficulty": 1,
+    "question": "Smells Like Teen Spirit is by which band?",
+    "answers": [
+      "Pearl Jam",
+      "Nirvana",
+      "Oasis",
+      "Blur"
+    ],
+    "correctIndex": 1,
+    "explanation": "Nirvana.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-06",
+    "category": "Music",
+    "subcategory": "2000s Music",
+    "difficulty": 1,
+    "question": "Hey Ya! was by which group?",
+    "answers": [
+      "OutKast",
+      "Coldplay",
+      "Linkin Park",
+      "Maroon 5"
+    ],
+    "correctIndex": 0,
+    "explanation": "OutKast.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-07",
+    "category": "Music",
+    "subcategory": "Lyrics",
+    "difficulty": 1,
+    "question": "“Let it be” is a famous song by whom?",
+    "answers": [
+      "The Beatles",
+      "The Stones",
+      "U2",
+      "Queen"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Beatles.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-08",
+    "category": "Music",
+    "subcategory": "Albums",
+    "difficulty": 1,
+    "question": "Thriller was released by whom?",
+    "answers": [
+      "Madonna",
+      "Michael Jackson",
+      "Prince",
+      "Usher"
+    ],
+    "correctIndex": 1,
+    "explanation": "Michael Jackson.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-09",
+    "category": "Music",
+    "subcategory": "Bands",
+    "difficulty": 2,
+    "question": "Which band had members John, Paul, George, and Ringo?",
+    "answers": [
+      "The Beatles",
+      "Queen",
+      "Nirvana",
+      "Metallica"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Beatles.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-10",
+    "category": "Music",
+    "subcategory": "Rock",
+    "difficulty": 2,
+    "question": "Who played guitar for Guns N’ Roses and is known as Slash?",
+    "answers": [
+      "Saul Hudson",
+      "Axl Rose",
+      "Duff McKagan",
+      "Izzy Stradlin"
+    ],
+    "correctIndex": 0,
+    "explanation": "Saul Hudson.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-11",
+    "category": "Music",
+    "subcategory": "Rap",
+    "difficulty": 2,
+    "question": "Illmatic is an album by whom?",
+    "answers": [
+      "Nas",
+      "Tupac",
+      "Eminem",
+      "Biggie"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nas.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-12",
+    "category": "Music",
+    "subcategory": "Pop",
+    "difficulty": 2,
+    "question": "Who sang Bad Romance?",
+    "answers": [
+      "Katy Perry",
+      "Lady Gaga",
+      "Rihanna",
+      "Beyoncé"
+    ],
+    "correctIndex": 1,
+    "explanation": "Lady Gaga.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-13",
+    "category": "Music",
+    "subcategory": "Country",
+    "difficulty": 2,
+    "question": "Jolene is a song by whom?",
+    "answers": [
+      "Dolly Parton",
+      "Reba",
+      "Shania Twain",
+      "Loretta Lynn"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dolly Parton.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-14",
+    "category": "Music",
+    "subcategory": "90s Music",
+    "difficulty": 2,
+    "question": "Wonderwall is by which band?",
+    "answers": [
+      "Blur",
+      "Oasis",
+      "Radiohead",
+      "Pulp"
+    ],
+    "correctIndex": 1,
+    "explanation": "Oasis.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-15",
+    "category": "Music",
+    "subcategory": "2000s Music",
+    "difficulty": 2,
+    "question": "In the End is by which band?",
+    "answers": [
+      "Linkin Park",
+      "Green Day",
+      "Muse",
+      "Blink-182"
+    ],
+    "correctIndex": 0,
+    "explanation": "Linkin Park.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-16",
+    "category": "Music",
+    "subcategory": "Lyrics",
+    "difficulty": 2,
+    "question": "“Lose Yourself” is by which rapper?",
+    "answers": [
+      "Eminem",
+      "50 Cent",
+      "Nelly",
+      "Snoop Dogg"
+    ],
+    "correctIndex": 0,
+    "explanation": "Eminem.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-17",
+    "category": "Music",
+    "subcategory": "Albums",
+    "difficulty": 3,
+    "question": "Nevermind is by which band?",
+    "answers": [
+      "Nirvana",
+      "Pearl Jam",
+      "Soundgarden",
+      "Alice in Chains"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nirvana.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-18",
+    "category": "Music",
+    "subcategory": "Bands",
+    "difficulty": 3,
+    "question": "Lars Ulrich is the drummer for which band?",
+    "answers": [
+      "Metallica",
+      "Megadeth",
+      "Slayer",
+      "Anthrax"
+    ],
+    "correctIndex": 0,
+    "explanation": "Metallica.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-19",
+    "category": "Music",
+    "subcategory": "Rock",
+    "difficulty": 3,
+    "question": "Who sang Purple Haze?",
+    "answers": [
+      "Hendrix",
+      "Clapton",
+      "Page",
+      "Beck"
+    ],
+    "correctIndex": 0,
+    "explanation": "Jimi Hendrix.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-20",
+    "category": "Music",
+    "subcategory": "Rap",
+    "difficulty": 3,
+    "question": "Who was in N.W.A. before a solo career and films?",
+    "answers": [
+      "Ice Cube",
+      "Drake",
+      "Kendrick",
+      "J. Cole"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ice Cube.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-21",
+    "category": "Music",
+    "subcategory": "Pop",
+    "difficulty": 3,
+    "question": "Which singer released 1989?",
+    "answers": [
+      "Adele",
+      "Taylor Swift",
+      "Dua Lipa",
+      "Lorde"
+    ],
+    "correctIndex": 1,
+    "explanation": "Taylor Swift.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-22",
+    "category": "Music",
+    "subcategory": "Country",
+    "difficulty": 3,
+    "question": "Friends in Low Places is by whom?",
+    "answers": [
+      "Garth Brooks",
+      "Alan Jackson",
+      "Tim McGraw",
+      "Kenny Chesney"
+    ],
+    "correctIndex": 0,
+    "explanation": "Garth Brooks.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-23",
+    "category": "Music",
+    "subcategory": "90s Music",
+    "difficulty": 3,
+    "question": "No Scrubs was by which group?",
+    "answers": [
+      "TLC",
+      "Destiny’s Child",
+      "En Vogue",
+      "SWV"
+    ],
+    "correctIndex": 0,
+    "explanation": "TLC.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-24",
+    "category": "Music",
+    "subcategory": "2000s Music",
+    "difficulty": 3,
+    "question": "Mr. Brightside is by which band?",
+    "answers": [
+      "The Killers",
+      "The Strokes",
+      "Arctic Monkeys",
+      "Interpol"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Killers.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-25",
+    "category": "Music",
+    "subcategory": "Lyrics",
+    "difficulty": 4,
+    "question": "“Billie Jean” is by whom?",
+    "answers": [
+      "Michael Jackson",
+      "Prince",
+      "Stevie Wonder",
+      "Lionel Richie"
+    ],
+    "correctIndex": 0,
+    "explanation": "Michael Jackson.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-26",
+    "category": "Music",
+    "subcategory": "Albums",
+    "difficulty": 4,
+    "question": "Abbey Road is by which band?",
+    "answers": [
+      "The Beatles",
+      "The Who",
+      "Pink Floyd",
+      "Queen"
+    ],
+    "correctIndex": 0,
+    "explanation": "The Beatles.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-27",
+    "category": "Music",
+    "subcategory": "Bands",
+    "difficulty": 4,
+    "question": "Dave Grohl founded which band after Nirvana?",
+    "answers": [
+      "Foo Fighters",
+      "Soundgarden",
+      "Queens of the Stone Age",
+      "Audioslave"
+    ],
+    "correctIndex": 0,
+    "explanation": "Foo Fighters.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-28",
+    "category": "Music",
+    "subcategory": "Rock",
+    "difficulty": 4,
+    "question": "Back in Black is by which band?",
+    "answers": [
+      "AC/DC",
+      "KISS",
+      "Van Halen",
+      "Aerosmith"
+    ],
+    "correctIndex": 0,
+    "explanation": "AC/DC.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-29",
+    "category": "Music",
+    "subcategory": "Rap",
+    "difficulty": 4,
+    "question": "The Chronic is associated with whom?",
+    "answers": [
+      "Dr. Dre",
+      "Snoop Dogg",
+      "Ice-T",
+      "Warren G"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dr. Dre.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "music-30",
+    "category": "Music",
+    "subcategory": "Pop",
+    "difficulty": 5,
+    "question": "Which artist released Lemonade?",
+    "answers": [
+      "Beyoncé",
+      "Rihanna",
+      "Ariana Grande",
+      "Adele"
+    ],
+    "correctIndex": 0,
+    "explanation": "Beyoncé.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-01",
+    "category": "TV",
+    "subcategory": "Sitcoms",
+    "difficulty": 1,
+    "question": "What sitcom features Ross and Rachel?",
+    "answers": [
+      "Friends",
+      "Seinfeld",
+      "Frasier",
+      "Cheers"
+    ],
+    "correctIndex": 0,
+    "explanation": "Friends.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-02",
+    "category": "TV",
+    "subcategory": "Drama",
+    "difficulty": 1,
+    "question": "Breaking Bad centers on what teacher?",
+    "answers": [
+      "Walter White",
+      "Don Draper",
+      "Tony Soprano",
+      "Saul Goodman"
+    ],
+    "correctIndex": 0,
+    "explanation": "Walter White.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-03",
+    "category": "TV",
+    "subcategory": "Reality TV",
+    "difficulty": 1,
+    "question": "Survivor contestants vote people out at what event?",
+    "answers": [
+      "Boardroom",
+      "Tribal Council",
+      "Rose Ceremony",
+      "Pit Stop"
+    ],
+    "correctIndex": 1,
+    "explanation": "Tribal Council.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-04",
+    "category": "TV",
+    "subcategory": "Cartoons",
+    "difficulty": 1,
+    "question": "SpongeBob lives in what fruit?",
+    "answers": [
+      "Apple",
+      "Pineapple",
+      "Mango",
+      "Coconut"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pineapple.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-05",
+    "category": "TV",
+    "subcategory": "Streaming Shows",
+    "difficulty": 1,
+    "question": "Stranger Things is set mostly in what fictional town?",
+    "answers": [
+      "Hawkins",
+      "Derry",
+      "Sunnydale",
+      "Twin Peaks"
+    ],
+    "correctIndex": 0,
+    "explanation": "Hawkins.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-06",
+    "category": "TV",
+    "subcategory": "Classic TV",
+    "difficulty": 1,
+    "question": "Who says “Live long and prosper”?",
+    "answers": [
+      "Spock",
+      "Kirk",
+      "Picard",
+      "Data"
+    ],
+    "correctIndex": 0,
+    "explanation": "Spock.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-07",
+    "category": "TV",
+    "subcategory": "TV Quotes",
+    "difficulty": 1,
+    "question": "“Winter is coming” is from what show?",
+    "answers": [
+      "Lost",
+      "Game of Thrones",
+      "Vikings",
+      "Rome"
+    ],
+    "correctIndex": 1,
+    "explanation": "Game of Thrones.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-08",
+    "category": "TV",
+    "subcategory": "Sitcoms",
+    "difficulty": 1,
+    "question": "Seinfeld is often described as a show about what?",
+    "answers": [
+      "Cooking",
+      "Nothing",
+      "Politics",
+      "Space"
+    ],
+    "correctIndex": 1,
+    "explanation": "Nothing.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-09",
+    "category": "TV",
+    "subcategory": "Drama",
+    "difficulty": 2,
+    "question": "The Sopranos follows a mob boss named what?",
+    "answers": [
+      "Tony",
+      "Paulie",
+      "Christopher",
+      "Silvio"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tony.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-10",
+    "category": "TV",
+    "subcategory": "Reality TV",
+    "difficulty": 2,
+    "question": "The Bachelor gives out what flower?",
+    "answers": [
+      "Tulip",
+      "Rose",
+      "Lily",
+      "Daisy"
+    ],
+    "correctIndex": 1,
+    "explanation": "Rose.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-11",
+    "category": "TV",
+    "subcategory": "Cartoons",
+    "difficulty": 2,
+    "question": "Homer Simpson works at what plant?",
+    "answers": [
+      "Steel mill",
+      "Nuclear power plant",
+      "Airport",
+      "Factory"
+    ],
+    "correctIndex": 1,
+    "explanation": "Nuclear power plant.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-12",
+    "category": "TV",
+    "subcategory": "Streaming Shows",
+    "difficulty": 2,
+    "question": "The Crown focuses on which institution?",
+    "answers": [
+      "FBI",
+      "British monarchy",
+      "NASA",
+      "Wall Street"
+    ],
+    "correctIndex": 1,
+    "explanation": "British monarchy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-13",
+    "category": "TV",
+    "subcategory": "Classic TV",
+    "difficulty": 2,
+    "question": "M*A*S*H is set during which war?",
+    "answers": [
+      "WWII",
+      "Korean War",
+      "Vietnam War",
+      "Gulf War"
+    ],
+    "correctIndex": 1,
+    "explanation": "Korean War.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-14",
+    "category": "TV",
+    "subcategory": "TV Quotes",
+    "difficulty": 2,
+    "question": "“How you doin’?” is associated with whom?",
+    "answers": [
+      "Chandler",
+      "Joey",
+      "Ross",
+      "Monica"
+    ],
+    "correctIndex": 1,
+    "explanation": "Joey Tribbiani.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-15",
+    "category": "TV",
+    "subcategory": "Sitcoms",
+    "difficulty": 2,
+    "question": "The Office is set mainly at which company?",
+    "answers": [
+      "Dunder Mifflin",
+      "Wernham Hogg",
+      "Sterling Cooper",
+      "Initech"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dunder Mifflin.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-16",
+    "category": "TV",
+    "subcategory": "Drama",
+    "difficulty": 2,
+    "question": "Mad Men centers on what industry?",
+    "answers": [
+      "Law",
+      "Advertising",
+      "Medicine",
+      "Sports"
+    ],
+    "correctIndex": 1,
+    "explanation": "Advertising.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-17",
+    "category": "TV",
+    "subcategory": "Reality TV",
+    "difficulty": 3,
+    "question": "Shark Tank investors are called what?",
+    "answers": [
+      "Sharks",
+      "Dragons",
+      "Wolves",
+      "Bears"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sharks.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-18",
+    "category": "TV",
+    "subcategory": "Cartoons",
+    "difficulty": 3,
+    "question": "Who is Bart Simpson’s sister?",
+    "answers": [
+      "Lisa",
+      "Maggie",
+      "Marge",
+      "Patty"
+    ],
+    "correctIndex": 0,
+    "explanation": "Lisa.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-19",
+    "category": "TV",
+    "subcategory": "Streaming Shows",
+    "difficulty": 3,
+    "question": "Wednesday is part of which fictional family?",
+    "answers": [
+      "Munster",
+      "Addams",
+      "Brady",
+      "Griffin"
+    ],
+    "correctIndex": 1,
+    "explanation": "Addams.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-20",
+    "category": "TV",
+    "subcategory": "Classic TV",
+    "difficulty": 3,
+    "question": "Cheers is set mostly in what kind of place?",
+    "answers": [
+      "Hospital",
+      "Bar",
+      "School",
+      "Taxi garage"
+    ],
+    "correctIndex": 1,
+    "explanation": "Bar.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-21",
+    "category": "TV",
+    "subcategory": "TV Quotes",
+    "difficulty": 3,
+    "question": "“The truth is out there” is from what show?",
+    "answers": [
+      "The X-Files",
+      "Lost",
+      "Fringe",
+      "Twin Peaks"
+    ],
+    "correctIndex": 0,
+    "explanation": "The X-Files.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-22",
+    "category": "TV",
+    "subcategory": "Sitcoms",
+    "difficulty": 3,
+    "question": "Parks and Recreation is set in which fictional town?",
+    "answers": [
+      "Pawnee",
+      "Scranton",
+      "Springfield",
+      "Eagleton"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pawnee.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-23",
+    "category": "TV",
+    "subcategory": "Drama",
+    "difficulty": 3,
+    "question": "House features a doctor specializing in what?",
+    "answers": [
+      "Surgery",
+      "Diagnostics",
+      "Pediatrics",
+      "Dentistry"
+    ],
+    "correctIndex": 1,
+    "explanation": "Diagnostics.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-24",
+    "category": "TV",
+    "subcategory": "Reality TV",
+    "difficulty": 3,
+    "question": "Top Chef is about what?",
+    "answers": [
+      "Singing",
+      "Cooking",
+      "Fashion",
+      "Dating"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cooking.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-25",
+    "category": "TV",
+    "subcategory": "Cartoons",
+    "difficulty": 4,
+    "question": "What color is Marge Simpson’s hair?",
+    "answers": [
+      "Blue",
+      "Green",
+      "Black",
+      "Red"
+    ],
+    "correctIndex": 0,
+    "explanation": "Blue.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-26",
+    "category": "TV",
+    "subcategory": "Streaming Shows",
+    "difficulty": 4,
+    "question": "The Mandalorian is in which universe?",
+    "answers": [
+      "Marvel",
+      "Star Wars",
+      "Star Trek",
+      "Avatar"
+    ],
+    "correctIndex": 1,
+    "explanation": "Star Wars.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-27",
+    "category": "TV",
+    "subcategory": "Classic TV",
+    "difficulty": 4,
+    "question": "The Twilight Zone is known for what genre?",
+    "answers": [
+      "Game show",
+      "Soap opera",
+      "Science fiction anthology",
+      "Sitcom"
+    ],
+    "correctIndex": 2,
+    "explanation": "Science fiction anthology.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-28",
+    "category": "TV",
+    "subcategory": "TV Quotes",
+    "difficulty": 4,
+    "question": "“That’s what she said” is linked to which sitcom?",
+    "answers": [
+      "Friends",
+      "The Office",
+      "Scrubs",
+      "Community"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Office.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-29",
+    "category": "TV",
+    "subcategory": "Sitcoms",
+    "difficulty": 4,
+    "question": "Frasier is a spin-off of what show?",
+    "answers": [
+      "Cheers",
+      "Seinfeld",
+      "Taxi",
+      "Friends"
+    ],
+    "correctIndex": 0,
+    "explanation": "Cheers.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "tv-30",
+    "category": "TV",
+    "subcategory": "Drama",
+    "difficulty": 5,
+    "question": "The Wire is set mainly in which city?",
+    "answers": [
+      "Chicago",
+      "Baltimore",
+      "Boston",
+      "Detroit"
+    ],
+    "correctIndex": 1,
+    "explanation": "Baltimore.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-01",
+    "category": "Gaming",
+    "subcategory": "Nintendo",
+    "difficulty": 1,
+    "question": "Mario is usually a what?",
+    "answers": [
+      "Chef",
+      "Plumber",
+      "Pilot",
+      "Knight"
+    ],
+    "correctIndex": 1,
+    "explanation": "Plumber.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-02",
+    "category": "Gaming",
+    "subcategory": "PlayStation",
+    "difficulty": 1,
+    "question": "God of War stars whom?",
+    "answers": [
+      "Kratos",
+      "Dante",
+      "Cloud",
+      "Nathan Drake"
+    ],
+    "correctIndex": 0,
+    "explanation": "Kratos.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-03",
+    "category": "Gaming",
+    "subcategory": "Xbox",
+    "difficulty": 1,
+    "question": "Halo’s main hero is called what?",
+    "answers": [
+      "Master Chief",
+      "Commander Shepard",
+      "Marcus Fenix",
+      "Doom Slayer"
+    ],
+    "correctIndex": 0,
+    "explanation": "Master Chief.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-04",
+    "category": "Gaming",
+    "subcategory": "PC Gaming",
+    "difficulty": 1,
+    "question": "Steam is mainly a platform for what?",
+    "answers": [
+      "Editing photos",
+      "Buying and launching games",
+      "Banking",
+      "Music streaming"
+    ],
+    "correctIndex": 1,
+    "explanation": "Buying and launching games.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-05",
+    "category": "Gaming",
+    "subcategory": "Retro Games",
+    "difficulty": 1,
+    "question": "Pac-Man eats what?",
+    "answers": [
+      "Coins",
+      "Pellets",
+      "Rings",
+      "Stars"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pellets.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-06",
+    "category": "Gaming",
+    "subcategory": "Minecraft",
+    "difficulty": 1,
+    "question": "What material is needed to make a crafting table?",
+    "answers": [
+      "Stone",
+      "Wood planks",
+      "Iron",
+      "Sand"
+    ],
+    "correctIndex": 1,
+    "explanation": "Wood planks.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-07",
+    "category": "Gaming",
+    "subcategory": "GTA",
+    "difficulty": 1,
+    "question": "What does GTA stand for?",
+    "answers": [
+      "Grand Theft Auto",
+      "Great Track Arena",
+      "Global Tactical Action",
+      "Garage Test Auto"
+    ],
+    "correctIndex": 0,
+    "explanation": "Grand Theft Auto.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-08",
+    "category": "Gaming",
+    "subcategory": "Call of Duty",
+    "difficulty": 1,
+    "question": "Call of Duty is mostly known as what genre?",
+    "answers": [
+      "Racing",
+      "Puzzle",
+      "First-person shooter",
+      "Fighting"
+    ],
+    "correctIndex": 2,
+    "explanation": "First-person shooter.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-09",
+    "category": "Gaming",
+    "subcategory": "Fortnite",
+    "difficulty": 2,
+    "question": "Fortnite’s most famous mode is what?",
+    "answers": [
+      "Battle Royale",
+      "Golf",
+      "Tower Defense only",
+      "Card game"
+    ],
+    "correctIndex": 0,
+    "explanation": "Battle Royale.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-10",
+    "category": "Gaming",
+    "subcategory": "Gaming History",
+    "difficulty": 2,
+    "question": "What company made the Genesis console?",
+    "answers": [
+      "Nintendo",
+      "Sega",
+      "Sony",
+      "Atari"
+    ],
+    "correctIndex": 1,
+    "explanation": "Sega.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-11",
+    "category": "Gaming",
+    "subcategory": "Nintendo",
+    "difficulty": 2,
+    "question": "Link is the hero of what series?",
+    "answers": [
+      "Metroid",
+      "Zelda",
+      "Kirby",
+      "F-Zero"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Legend of Zelda.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-12",
+    "category": "Gaming",
+    "subcategory": "PlayStation",
+    "difficulty": 2,
+    "question": "Gran Turismo is what kind of game?",
+    "answers": [
+      "Racing",
+      "Fighting",
+      "Puzzle",
+      "Horror"
+    ],
+    "correctIndex": 0,
+    "explanation": "Racing.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-13",
+    "category": "Gaming",
+    "subcategory": "Xbox",
+    "difficulty": 2,
+    "question": "Gears of War is associated with which platform family?",
+    "answers": [
+      "PlayStation",
+      "Xbox",
+      "Nintendo",
+      "Atari"
+    ],
+    "correctIndex": 1,
+    "explanation": "Xbox.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-14",
+    "category": "Gaming",
+    "subcategory": "PC Gaming",
+    "difficulty": 2,
+    "question": "What does FPS often stand for in shooters?",
+    "answers": [
+      "Final player score",
+      "Frames per second or first-person shooter",
+      "Fast play session",
+      "Full power save"
+    ],
+    "correctIndex": 1,
+    "explanation": "Frames per second or first-person shooter.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-15",
+    "category": "Gaming",
+    "subcategory": "Retro Games",
+    "difficulty": 2,
+    "question": "What shape blocks fall in Tetris?",
+    "answers": [
+      "Tetrominoes",
+      "Hexagons",
+      "Cards",
+      "Marbles"
+    ],
+    "correctIndex": 0,
+    "explanation": "Tetrominoes.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-16",
+    "category": "Gaming",
+    "subcategory": "Minecraft",
+    "difficulty": 2,
+    "question": "What enemy explodes near the player?",
+    "answers": [
+      "Zombie",
+      "Creeper",
+      "Skeleton",
+      "Enderman"
+    ],
+    "correctIndex": 1,
+    "explanation": "Creeper.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-17",
+    "category": "Gaming",
+    "subcategory": "GTA",
+    "difficulty": 3,
+    "question": "GTA V is mainly set around what fictional city?",
+    "answers": [
+      "Liberty City",
+      "Los Santos",
+      "Vice City",
+      "San Fierro"
+    ],
+    "correctIndex": 1,
+    "explanation": "Los Santos.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-18",
+    "category": "Gaming",
+    "subcategory": "Call of Duty",
+    "difficulty": 3,
+    "question": "Warzone is what type of mode?",
+    "answers": [
+      "Rhythm",
+      "Battle royale",
+      "Sports",
+      "Puzzle"
+    ],
+    "correctIndex": 1,
+    "explanation": "Battle royale.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-19",
+    "category": "Gaming",
+    "subcategory": "Fortnite",
+    "difficulty": 3,
+    "question": "What building material was removed or limited in Zero Build?",
+    "answers": [
+      "Guns",
+      "Player-built structures",
+      "Skins",
+      "Emotes"
+    ],
+    "correctIndex": 1,
+    "explanation": "Player-built structures.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-20",
+    "category": "Gaming",
+    "subcategory": "Gaming History",
+    "difficulty": 3,
+    "question": "Pong simulated what sport?",
+    "answers": [
+      "Basketball",
+      "Table tennis",
+      "Golf",
+      "Boxing"
+    ],
+    "correctIndex": 1,
+    "explanation": "Table tennis.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-21",
+    "category": "Gaming",
+    "subcategory": "Nintendo",
+    "difficulty": 3,
+    "question": "Samus Aran is from what series?",
+    "answers": [
+      "Metroid",
+      "Mario",
+      "Zelda",
+      "Pokémon"
+    ],
+    "correctIndex": 0,
+    "explanation": "Metroid.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-22",
+    "category": "Gaming",
+    "subcategory": "PlayStation",
+    "difficulty": 3,
+    "question": "Uncharted stars which treasure hunter?",
+    "answers": [
+      "Nathan Drake",
+      "Joel Miller",
+      "Kratos",
+      "Sly Cooper"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nathan Drake.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-23",
+    "category": "Gaming",
+    "subcategory": "Xbox",
+    "difficulty": 3,
+    "question": "Forza is what genre?",
+    "answers": [
+      "Racing",
+      "RPG",
+      "Horror",
+      "Strategy"
+    ],
+    "correctIndex": 0,
+    "explanation": "Racing.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-24",
+    "category": "Gaming",
+    "subcategory": "PC Gaming",
+    "difficulty": 3,
+    "question": "What is a mod?",
+    "answers": [
+      "A console cable",
+      "A user-made modification",
+      "A cheat code only",
+      "A payment method"
+    ],
+    "correctIndex": 1,
+    "explanation": "A user-made modification.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-25",
+    "category": "Gaming",
+    "subcategory": "Retro Games",
+    "difficulty": 4,
+    "question": "Donkey Kong introduced which famous character?",
+    "answers": [
+      "Sonic",
+      "Mario",
+      "Crash",
+      "Kirby"
+    ],
+    "correctIndex": 1,
+    "explanation": "Mario.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-26",
+    "category": "Gaming",
+    "subcategory": "Minecraft",
+    "difficulty": 4,
+    "question": "What dimension contains the Ender Dragon?",
+    "answers": [
+      "Nether",
+      "The End",
+      "Overworld",
+      "Skylands"
+    ],
+    "correctIndex": 1,
+    "explanation": "The End.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-27",
+    "category": "Gaming",
+    "subcategory": "GTA",
+    "difficulty": 4,
+    "question": "Vice City is inspired heavily by what real city?",
+    "answers": [
+      "Miami",
+      "New York",
+      "Los Angeles",
+      "Chicago"
+    ],
+    "correctIndex": 0,
+    "explanation": "Miami.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-28",
+    "category": "Gaming",
+    "subcategory": "Call of Duty",
+    "difficulty": 4,
+    "question": "Zombies mode mainly involves fighting what?",
+    "answers": [
+      "Robots",
+      "Zombies",
+      "Aliens only",
+      "Dragons"
+    ],
+    "correctIndex": 1,
+    "explanation": "Zombies.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-29",
+    "category": "Gaming",
+    "subcategory": "Fortnite",
+    "difficulty": 4,
+    "question": "V-Bucks are Fortnite’s what?",
+    "answers": [
+      "Virtual currency",
+      "Map zones",
+      "Weapon class",
+      "Rank points"
+    ],
+    "correctIndex": 0,
+    "explanation": "Virtual currency.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "gaming-30",
+    "category": "Gaming",
+    "subcategory": "Gaming History",
+    "difficulty": 5,
+    "question": "The Atari 2600 is from what era?",
+    "answers": [
+      "Modern VR era",
+      "Early home console era",
+      "Mobile era",
+      "Cloud era"
+    ],
+    "correctIndex": 1,
+    "explanation": "Early home console era.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-01",
+    "category": "Math",
+    "subcategory": "Mental Math",
+    "difficulty": 1,
+    "question": "What is 8 × 7?",
+    "answers": [
+      "54",
+      "56",
+      "58",
+      "64"
+    ],
+    "correctIndex": 1,
+    "explanation": "56.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-02",
+    "category": "Math",
+    "subcategory": "Algebra",
+    "difficulty": 1,
+    "question": "Solve x + 5 = 12.",
+    "answers": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correctIndex": 2,
+    "explanation": "7.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-03",
+    "category": "Math",
+    "subcategory": "Geometry",
+    "difficulty": 1,
+    "question": "How many degrees are in a triangle?",
+    "answers": [
+      "90",
+      "180",
+      "270",
+      "360"
+    ],
+    "correctIndex": 1,
+    "explanation": "180.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-04",
+    "category": "Math",
+    "subcategory": "Probability",
+    "difficulty": 1,
+    "question": "A coin flip has how many equally likely outcomes?",
+    "answers": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctIndex": 1,
+    "explanation": "2.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-05",
+    "category": "Math",
+    "subcategory": "Logic",
+    "difficulty": 1,
+    "question": "If all cats are animals and Milo is a cat, Milo is what?",
+    "answers": [
+      "Plant",
+      "Animal",
+      "Rock",
+      "Machine"
+    ],
+    "correctIndex": 1,
+    "explanation": "Animal.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-06",
+    "category": "Math",
+    "subcategory": "Math History",
+    "difficulty": 1,
+    "question": "Who is linked to a famous theorem about right triangles?",
+    "answers": [
+      "Pythagoras",
+      "Newton",
+      "Gauss",
+      "Euler"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pythagoras.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-07",
+    "category": "Math",
+    "subcategory": "Quick Calculations",
+    "difficulty": 1,
+    "question": "What is 25% of 200?",
+    "answers": [
+      "25",
+      "40",
+      "50",
+      "75"
+    ],
+    "correctIndex": 2,
+    "explanation": "50.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-08",
+    "category": "Math",
+    "subcategory": "Mental Math",
+    "difficulty": 1,
+    "question": "What is 144 ÷ 12?",
+    "answers": [
+      "10",
+      "11",
+      "12",
+      "14"
+    ],
+    "correctIndex": 2,
+    "explanation": "12.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-09",
+    "category": "Math",
+    "subcategory": "Algebra",
+    "difficulty": 2,
+    "question": "What is x if 2x = 18?",
+    "answers": [
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "correctIndex": 2,
+    "explanation": "9.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-10",
+    "category": "Math",
+    "subcategory": "Geometry",
+    "difficulty": 2,
+    "question": "How many sides does an octagon have?",
+    "answers": [
+      "6",
+      "7",
+      "8",
+      "9"
+    ],
+    "correctIndex": 2,
+    "explanation": "8.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-11",
+    "category": "Math",
+    "subcategory": "Probability",
+    "difficulty": 2,
+    "question": "Rolling a standard die, chance of a 6 is what?",
+    "answers": [
+      "1 in 2",
+      "1 in 4",
+      "1 in 6",
+      "1 in 8"
+    ],
+    "correctIndex": 2,
+    "explanation": "1 in 6.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-12",
+    "category": "Math",
+    "subcategory": "Logic",
+    "difficulty": 2,
+    "question": "What comes next: 2, 4, 8, 16?",
+    "answers": [
+      "20",
+      "24",
+      "32",
+      "64"
+    ],
+    "correctIndex": 2,
+    "explanation": "32.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-13",
+    "category": "Math",
+    "subcategory": "Math History",
+    "difficulty": 2,
+    "question": "Who developed calculus independently alongside Leibniz?",
+    "answers": [
+      "Newton",
+      "Einstein",
+      "Turing",
+      "Pascal"
+    ],
+    "correctIndex": 0,
+    "explanation": "Isaac Newton.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-14",
+    "category": "Math",
+    "subcategory": "Quick Calculations",
+    "difficulty": 2,
+    "question": "What is 15% of 100?",
+    "answers": [
+      "10",
+      "15",
+      "20",
+      "25"
+    ],
+    "correctIndex": 1,
+    "explanation": "15.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-15",
+    "category": "Math",
+    "subcategory": "Mental Math",
+    "difficulty": 2,
+    "question": "What is 9 squared?",
+    "answers": [
+      "18",
+      "72",
+      "81",
+      "99"
+    ],
+    "correctIndex": 2,
+    "explanation": "81.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-16",
+    "category": "Math",
+    "subcategory": "Algebra",
+    "difficulty": 2,
+    "question": "Simplify 3x + 2x.",
+    "answers": [
+      "5x",
+      "6x",
+      "x5",
+      "5"
+    ],
+    "correctIndex": 0,
+    "explanation": "5x.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-17",
+    "category": "Math",
+    "subcategory": "Geometry",
+    "difficulty": 3,
+    "question": "Area of a rectangle is length times what?",
+    "answers": [
+      "Height only",
+      "Width",
+      "Radius",
+      "Angle"
+    ],
+    "correctIndex": 1,
+    "explanation": "Width.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-18",
+    "category": "Math",
+    "subcategory": "Probability",
+    "difficulty": 3,
+    "question": "What is probability always between?",
+    "answers": [
+      "-1 and 1",
+      "0 and 1",
+      "1 and 10",
+      "Any numbers"
+    ],
+    "correctIndex": 1,
+    "explanation": "0 and 1.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-19",
+    "category": "Math",
+    "subcategory": "Logic",
+    "difficulty": 3,
+    "question": "If A > B and B > C, then A is what compared to C?",
+    "answers": [
+      "Less",
+      "Equal",
+      "Greater",
+      "Unknown"
+    ],
+    "correctIndex": 2,
+    "explanation": "Greater.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-20",
+    "category": "Math",
+    "subcategory": "Math History",
+    "difficulty": 3,
+    "question": "What number is Archimedes strongly associated with approximating?",
+    "answers": [
+      "Zero",
+      "Pi",
+      "Infinity",
+      "e"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pi.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-21",
+    "category": "Math",
+    "subcategory": "Quick Calculations",
+    "difficulty": 3,
+    "question": "What is 11 × 11?",
+    "answers": [
+      "111",
+      "121",
+      "131",
+      "144"
+    ],
+    "correctIndex": 1,
+    "explanation": "121.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-22",
+    "category": "Math",
+    "subcategory": "Mental Math",
+    "difficulty": 3,
+    "question": "What is 1000 - 375?",
+    "answers": [
+      "525",
+      "625",
+      "675",
+      "725"
+    ],
+    "correctIndex": 1,
+    "explanation": "625.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-23",
+    "category": "Math",
+    "subcategory": "Algebra",
+    "difficulty": 3,
+    "question": "What is y in y - 4 = 10?",
+    "answers": [
+      "6",
+      "10",
+      "14",
+      "16"
+    ],
+    "correctIndex": 2,
+    "explanation": "14.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-24",
+    "category": "Math",
+    "subcategory": "Geometry",
+    "difficulty": 3,
+    "question": "A circle’s diameter is twice its what?",
+    "answers": [
+      "Area",
+      "Radius",
+      "Circumference",
+      "Chord"
+    ],
+    "correctIndex": 1,
+    "explanation": "Radius.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-25",
+    "category": "Math",
+    "subcategory": "Probability",
+    "difficulty": 4,
+    "question": "Drawing one ace from a 52-card deck has how many favorable cards?",
+    "answers": [
+      "1",
+      "2",
+      "4",
+      "13"
+    ],
+    "correctIndex": 2,
+    "explanation": "4.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-26",
+    "category": "Math",
+    "subcategory": "Logic",
+    "difficulty": 4,
+    "question": "Which is the odd one out: 3, 5, 9, 11?",
+    "answers": [
+      "3",
+      "5",
+      "9",
+      "11"
+    ],
+    "correctIndex": 2,
+    "explanation": "9.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-27",
+    "category": "Math",
+    "subcategory": "Math History",
+    "difficulty": 4,
+    "question": "The Fibonacci sequence often starts with what two numbers?",
+    "answers": [
+      "0 and 1",
+      "1 and 3",
+      "2 and 4",
+      "5 and 8"
+    ],
+    "correctIndex": 0,
+    "explanation": "0 and 1.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-28",
+    "category": "Math",
+    "subcategory": "Quick Calculations",
+    "difficulty": 4,
+    "question": "What is 3/4 as a percent?",
+    "answers": [
+      "25%",
+      "50%",
+      "75%",
+      "80%"
+    ],
+    "correctIndex": 2,
+    "explanation": "75%.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-29",
+    "category": "Math",
+    "subcategory": "Algebra",
+    "difficulty": 4,
+    "question": "What is x if x/3 = 6?",
+    "answers": [
+      "9",
+      "12",
+      "18",
+      "24"
+    ],
+    "correctIndex": 2,
+    "explanation": "18.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "math-30",
+    "category": "Math",
+    "subcategory": "Geometry",
+    "difficulty": 5,
+    "question": "How many degrees are in a full circle?",
+    "answers": [
+      "90",
+      "180",
+      "270",
+      "360"
+    ],
+    "correctIndex": 3,
+    "explanation": "360.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-01",
+    "category": "Food & Drink",
+    "subcategory": "Fast Food",
+    "difficulty": 1,
+    "question": "Which chain is famous for the Big Mac?",
+    "answers": [
+      "Burger King",
+      "McDonald’s",
+      "Wendy’s",
+      "KFC"
+    ],
+    "correctIndex": 1,
+    "explanation": "McDonald’s.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-02",
+    "category": "Food & Drink",
+    "subcategory": "Cooking",
+    "difficulty": 1,
+    "question": "What does sauté mean?",
+    "answers": [
+      "Boil in water",
+      "Cook quickly in a little fat",
+      "Freeze",
+      "Smoke overnight"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cook quickly in a little fat.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-03",
+    "category": "Food & Drink",
+    "subcategory": "World Food",
+    "difficulty": 1,
+    "question": "Sushi is strongly associated with which country?",
+    "answers": [
+      "Japan",
+      "Mexico",
+      "Italy",
+      "India"
+    ],
+    "correctIndex": 0,
+    "explanation": "Japan.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-04",
+    "category": "Food & Drink",
+    "subcategory": "Mexican Food",
+    "difficulty": 1,
+    "question": "What is masa commonly made from?",
+    "answers": [
+      "Wheat",
+      "Corn",
+      "Rice",
+      "Potato"
+    ],
+    "correctIndex": 1,
+    "explanation": "Corn.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-05",
+    "category": "Food & Drink",
+    "subcategory": "Snacks",
+    "difficulty": 1,
+    "question": "Popcorn comes from what crop?",
+    "answers": [
+      "Rice",
+      "Corn",
+      "Barley",
+      "Oats"
+    ],
+    "correctIndex": 1,
+    "explanation": "Corn.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-06",
+    "category": "Food & Drink",
+    "subcategory": "Coffee",
+    "difficulty": 1,
+    "question": "Espresso is usually served how?",
+    "answers": [
+      "Frozen",
+      "Small and concentrated",
+      "With soda",
+      "In a bowl"
+    ],
+    "correctIndex": 1,
+    "explanation": "Small and concentrated.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-07",
+    "category": "Food & Drink",
+    "subcategory": "Restaurant Trivia",
+    "difficulty": 1,
+    "question": "What does 86 mean in restaurant slang?",
+    "answers": [
+      "Extra spicy",
+      "Item unavailable",
+      "Free meal",
+      "Table ready"
+    ],
+    "correctIndex": 1,
+    "explanation": "Item unavailable.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-08",
+    "category": "Food & Drink",
+    "subcategory": "Fast Food",
+    "difficulty": 1,
+    "question": "Which chain uses the Whopper name?",
+    "answers": [
+      "Burger King",
+      "McDonald’s",
+      "Subway",
+      "Taco Bell"
+    ],
+    "correctIndex": 0,
+    "explanation": "Burger King.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-09",
+    "category": "Food & Drink",
+    "subcategory": "Cooking",
+    "difficulty": 2,
+    "question": "What is al dente pasta?",
+    "answers": [
+      "Burned",
+      "Firm to the bite",
+      "Raw",
+      "Sweetened"
+    ],
+    "correctIndex": 1,
+    "explanation": "Firm to the bite.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-10",
+    "category": "Food & Drink",
+    "subcategory": "World Food",
+    "difficulty": 2,
+    "question": "Paella is associated with which country?",
+    "answers": [
+      "Spain",
+      "France",
+      "Greece",
+      "Brazil"
+    ],
+    "correctIndex": 0,
+    "explanation": "Spain.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-11",
+    "category": "Food & Drink",
+    "subcategory": "Mexican Food",
+    "difficulty": 2,
+    "question": "What is inside traditional guacamole?",
+    "answers": [
+      "Avocado",
+      "Banana",
+      "Potato",
+      "Apple"
+    ],
+    "correctIndex": 0,
+    "explanation": "Avocado.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-12",
+    "category": "Food & Drink",
+    "subcategory": "Snacks",
+    "difficulty": 2,
+    "question": "Pretzels are known for what basic flavor?",
+    "answers": [
+      "Salty",
+      "Sour",
+      "Bitter",
+      "Minty"
+    ],
+    "correctIndex": 0,
+    "explanation": "Salty.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-13",
+    "category": "Food & Drink",
+    "subcategory": "Coffee",
+    "difficulty": 2,
+    "question": "A latte includes espresso and what?",
+    "answers": [
+      "Orange juice",
+      "Steamed milk",
+      "Cola",
+      "Tea"
+    ],
+    "correctIndex": 1,
+    "explanation": "Steamed milk.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-14",
+    "category": "Food & Drink",
+    "subcategory": "Restaurant Trivia",
+    "difficulty": 2,
+    "question": "What is a tasting menu?",
+    "answers": [
+      "Kids menu",
+      "Drive-thru menu",
+      "Small courses selected by the chef",
+      "Drink list only"
+    ],
+    "correctIndex": 2,
+    "explanation": "Small courses selected by the chef.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-15",
+    "category": "Food & Drink",
+    "subcategory": "Fast Food",
+    "difficulty": 2,
+    "question": "KFC is famous for what?",
+    "answers": [
+      "Pizza",
+      "Fried chicken",
+      "Burgers",
+      "Tacos"
+    ],
+    "correctIndex": 1,
+    "explanation": "Fried chicken.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-16",
+    "category": "Food & Drink",
+    "subcategory": "Cooking",
+    "difficulty": 2,
+    "question": "What is the main ingredient in an omelet?",
+    "answers": [
+      "Eggs",
+      "Rice",
+      "Beef",
+      "Flour"
+    ],
+    "correctIndex": 0,
+    "explanation": "Eggs.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-17",
+    "category": "Food & Drink",
+    "subcategory": "World Food",
+    "difficulty": 3,
+    "question": "Pasta is strongly associated with which country?",
+    "answers": [
+      "Italy",
+      "Peru",
+      "China",
+      "Canada"
+    ],
+    "correctIndex": 0,
+    "explanation": "Italy.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-18",
+    "category": "Food & Drink",
+    "subcategory": "Mexican Food",
+    "difficulty": 3,
+    "question": "What is a tortilla usually shaped like?",
+    "answers": [
+      "Cube",
+      "Flat round disc",
+      "Cone",
+      "Sphere"
+    ],
+    "correctIndex": 1,
+    "explanation": "Flat round disc.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-19",
+    "category": "Food & Drink",
+    "subcategory": "Snacks",
+    "difficulty": 3,
+    "question": "Trail mix often includes nuts and what?",
+    "answers": [
+      "Dried fruit",
+      "Soup",
+      "Fresh fish",
+      "Noodles"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dried fruit.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-20",
+    "category": "Food & Drink",
+    "subcategory": "Coffee",
+    "difficulty": 3,
+    "question": "What does decaf have less of?",
+    "answers": [
+      "Sugar",
+      "Caffeine",
+      "Water",
+      "Milk"
+    ],
+    "correctIndex": 1,
+    "explanation": "Caffeine.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-21",
+    "category": "Food & Drink",
+    "subcategory": "Restaurant Trivia",
+    "difficulty": 3,
+    "question": "What is a sommelier focused on?",
+    "answers": [
+      "Wine service",
+      "Desserts",
+      "Meat cutting",
+      "Dishwashing"
+    ],
+    "correctIndex": 0,
+    "explanation": "Wine service.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-22",
+    "category": "Food & Drink",
+    "subcategory": "Fast Food",
+    "difficulty": 3,
+    "question": "Subway is known mainly for what?",
+    "answers": [
+      "Sandwiches",
+      "Sushi",
+      "Steak",
+      "Ice cream"
+    ],
+    "correctIndex": 0,
+    "explanation": "Sandwiches.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-23",
+    "category": "Food & Drink",
+    "subcategory": "Cooking",
+    "difficulty": 3,
+    "question": "What does simmer mean?",
+    "answers": [
+      "Deep fry",
+      "Cook gently below a boil",
+      "Freeze dry",
+      "Burn"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cook gently below a boil.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-24",
+    "category": "Food & Drink",
+    "subcategory": "World Food",
+    "difficulty": 3,
+    "question": "Curry is strongly associated with which cuisine family?",
+    "answers": [
+      "South Asian",
+      "Nordic",
+      "Canadian",
+      "Irish"
+    ],
+    "correctIndex": 0,
+    "explanation": "South Asian.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-25",
+    "category": "Food & Drink",
+    "subcategory": "Mexican Food",
+    "difficulty": 4,
+    "question": "What meat is often used in carnitas?",
+    "answers": [
+      "Pork",
+      "Fish",
+      "Turkey",
+      "Lamb"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pork.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-26",
+    "category": "Food & Drink",
+    "subcategory": "Snacks",
+    "difficulty": 4,
+    "question": "Chocolate is made from what bean?",
+    "answers": [
+      "Coffee",
+      "Cacao",
+      "Soy",
+      "Vanilla"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cacao.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-27",
+    "category": "Food & Drink",
+    "subcategory": "Coffee",
+    "difficulty": 4,
+    "question": "What is cold brew made with?",
+    "answers": [
+      "Boiling soda",
+      "Cold water over time",
+      "Steam only",
+      "Milk only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Cold water over time.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-28",
+    "category": "Food & Drink",
+    "subcategory": "Restaurant Trivia",
+    "difficulty": 4,
+    "question": "What is mise en place?",
+    "answers": [
+      "A dessert",
+      "Everything in its place before cooking",
+      "A wine type",
+      "A receipt"
+    ],
+    "correctIndex": 1,
+    "explanation": "Everything in its place before cooking.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-29",
+    "category": "Food & Drink",
+    "subcategory": "Cooking",
+    "difficulty": 4,
+    "question": "What ingredient helps bread rise?",
+    "answers": [
+      "Salt",
+      "Yeast",
+      "Pepper",
+      "Oil"
+    ],
+    "correctIndex": 1,
+    "explanation": "Yeast.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "food-drink-30",
+    "category": "Food & Drink",
+    "subcategory": "World Food",
+    "difficulty": 5,
+    "question": "Falafel is commonly made from what?",
+    "answers": [
+      "Chickpeas",
+      "Beef",
+      "Potatoes",
+      "Rice"
+    ],
+    "correctIndex": 0,
+    "explanation": "Chickpeas.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-01",
+    "category": "Pop Culture",
+    "subcategory": "Celebrities",
+    "difficulty": 1,
+    "question": "Who is known for the album and era called Renaissance?",
+    "answers": [
+      "Beyoncé",
+      "Adele",
+      "Rihanna",
+      "Madonna"
+    ],
+    "correctIndex": 0,
+    "explanation": "Beyoncé.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-02",
+    "category": "Pop Culture",
+    "subcategory": "Internet Culture",
+    "difficulty": 1,
+    "question": "What does meme usually mean online?",
+    "answers": [
+      "Private email",
+      "Repeatable joke or idea",
+      "Password",
+      "Bank code"
+    ],
+    "correctIndex": 1,
+    "explanation": "Repeatable joke or idea.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-03",
+    "category": "Pop Culture",
+    "subcategory": "Memes",
+    "difficulty": 1,
+    "question": "Doge is associated with what animal?",
+    "answers": [
+      "Cat",
+      "Dog",
+      "Frog",
+      "Duck"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dog.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-04",
+    "category": "Pop Culture",
+    "subcategory": "YouTube",
+    "difficulty": 1,
+    "question": "What does a YouTube subscriber do?",
+    "answers": [
+      "Deletes videos",
+      "Follows a channel",
+      "Uploads only",
+      "Blocks ads"
+    ],
+    "correctIndex": 1,
+    "explanation": "Follows a channel.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-05",
+    "category": "Pop Culture",
+    "subcategory": "TikTok",
+    "difficulty": 1,
+    "question": "TikTok is best known for what format?",
+    "answers": [
+      "Long novels",
+      "Short videos",
+      "Podcasts only",
+      "Email"
+    ],
+    "correctIndex": 1,
+    "explanation": "Short videos.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-06",
+    "category": "Pop Culture",
+    "subcategory": "Famous Scandals",
+    "difficulty": 1,
+    "question": "What festival became infamous for luxury promises and chaos?",
+    "answers": [
+      "Fyre Festival",
+      "Coachella",
+      "Lollapalooza",
+      "Burning Man"
+    ],
+    "correctIndex": 0,
+    "explanation": "Fyre Festival.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-07",
+    "category": "Pop Culture",
+    "subcategory": "Fashion",
+    "difficulty": 1,
+    "question": "Sneaker culture focuses on what?",
+    "answers": [
+      "Hats only",
+      "Collectible shoes",
+      "Suits",
+      "Watches only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Collectible shoes.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-08",
+    "category": "Pop Culture",
+    "subcategory": "Brands",
+    "difficulty": 1,
+    "question": "What company makes the iPhone?",
+    "answers": [
+      "Apple",
+      "Samsung",
+      "Google",
+      "Sony"
+    ],
+    "correctIndex": 0,
+    "explanation": "Apple.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-09",
+    "category": "Pop Culture",
+    "subcategory": "Celebrities",
+    "difficulty": 2,
+    "question": "The Kardashians first became famous through what kind of show?",
+    "answers": [
+      "Reality TV",
+      "Game show",
+      "News show",
+      "Sports show"
+    ],
+    "correctIndex": 0,
+    "explanation": "Reality TV.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-10",
+    "category": "Pop Culture",
+    "subcategory": "Internet Culture",
+    "difficulty": 2,
+    "question": "What does “viral” mean online?",
+    "answers": [
+      "Hidden",
+      "Expensive",
+      "Spreading rapidly",
+      "Illegal only"
+    ],
+    "correctIndex": 2,
+    "explanation": "Spreading rapidly.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-11",
+    "category": "Pop Culture",
+    "subcategory": "Memes",
+    "difficulty": 2,
+    "question": "Pepe is usually depicted as what?",
+    "answers": [
+      "Frog",
+      "Dog",
+      "Bird",
+      "Mouse"
+    ],
+    "correctIndex": 0,
+    "explanation": "Frog.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-12",
+    "category": "Pop Culture",
+    "subcategory": "YouTube",
+    "difficulty": 2,
+    "question": "A thumbnail is used to do what?",
+    "answers": [
+      "Pay creators",
+      "Preview a video",
+      "Edit audio",
+      "Block comments"
+    ],
+    "correctIndex": 1,
+    "explanation": "Preview a video.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-13",
+    "category": "Pop Culture",
+    "subcategory": "TikTok",
+    "difficulty": 2,
+    "question": "A duet feature lets users do what?",
+    "answers": [
+      "Delete accounts",
+      "Respond alongside another video",
+      "Buy products only",
+      "Change password"
+    ],
+    "correctIndex": 1,
+    "explanation": "Respond alongside another video.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-14",
+    "category": "Pop Culture",
+    "subcategory": "Famous Scandals",
+    "difficulty": 2,
+    "question": "Which awards show had a famous mistaken Best Picture announcement in 2017?",
+    "answers": [
+      "Oscars",
+      "Grammys",
+      "Tonys",
+      "Emmys"
+    ],
+    "correctIndex": 0,
+    "explanation": "Oscars.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-15",
+    "category": "Pop Culture",
+    "subcategory": "Fashion",
+    "difficulty": 2,
+    "question": "What is streetwear closely tied to?",
+    "answers": [
+      "Medieval armor",
+      "Casual urban style",
+      "Ballroom gowns",
+      "Uniforms only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Casual urban style.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-16",
+    "category": "Pop Culture",
+    "subcategory": "Brands",
+    "difficulty": 2,
+    "question": "What brand uses the swoosh logo?",
+    "answers": [
+      "Nike",
+      "Adidas",
+      "Puma",
+      "Reebok"
+    ],
+    "correctIndex": 0,
+    "explanation": "Nike.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-17",
+    "category": "Pop Culture",
+    "subcategory": "Celebrities",
+    "difficulty": 3,
+    "question": "Who played Barbie in the 2023 movie?",
+    "answers": [
+      "Margot Robbie",
+      "Emma Stone",
+      "Zendaya",
+      "Anne Hathaway"
+    ],
+    "correctIndex": 0,
+    "explanation": "Margot Robbie.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-18",
+    "category": "Pop Culture",
+    "subcategory": "Internet Culture",
+    "difficulty": 3,
+    "question": "What does DM stand for?",
+    "answers": [
+      "Direct message",
+      "Digital money",
+      "Daily meme",
+      "Data mode"
+    ],
+    "correctIndex": 0,
+    "explanation": "Direct message.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-19",
+    "category": "Pop Culture",
+    "subcategory": "Memes",
+    "difficulty": 3,
+    "question": "Rickrolling uses a song by whom?",
+    "answers": [
+      "Rick Astley",
+      "Elton John",
+      "Billy Joel",
+      "George Michael"
+    ],
+    "correctIndex": 0,
+    "explanation": "Rick Astley.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-20",
+    "category": "Pop Culture",
+    "subcategory": "YouTube",
+    "difficulty": 3,
+    "question": "What is monetization on YouTube?",
+    "answers": [
+      "Deleting videos",
+      "Earning money from content",
+      "Changing names",
+      "Blocking viewers"
+    ],
+    "correctIndex": 1,
+    "explanation": "Earning money from content.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-21",
+    "category": "Pop Culture",
+    "subcategory": "TikTok",
+    "difficulty": 3,
+    "question": "A creator’s For You Page is commonly called what?",
+    "answers": [
+      "FYI",
+      "FYP",
+      "FAQ",
+      "FTP"
+    ],
+    "correctIndex": 1,
+    "explanation": "FYP.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-22",
+    "category": "Pop Culture",
+    "subcategory": "Famous Scandals",
+    "difficulty": 3,
+    "question": "Watergate is linked to which U.S. president resigning?",
+    "answers": [
+      "Nixon",
+      "Reagan",
+      "Clinton",
+      "Johnson"
+    ],
+    "correctIndex": 0,
+    "explanation": "Richard Nixon.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-23",
+    "category": "Pop Culture",
+    "subcategory": "Fashion",
+    "difficulty": 3,
+    "question": "What item is a hoodie?",
+    "answers": [
+      "Hat",
+      "Sweatshirt with hood",
+      "Shoe",
+      "Belt"
+    ],
+    "correctIndex": 1,
+    "explanation": "Sweatshirt with hood.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-24",
+    "category": "Pop Culture",
+    "subcategory": "Brands",
+    "difficulty": 3,
+    "question": "What company owns Instagram?",
+    "answers": [
+      "Meta",
+      "Apple",
+      "Netflix",
+      "Amazon"
+    ],
+    "correctIndex": 0,
+    "explanation": "Meta.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-25",
+    "category": "Pop Culture",
+    "subcategory": "Celebrities",
+    "difficulty": 4,
+    "question": "Which actor is strongly associated with Iron Man?",
+    "answers": [
+      "Robert Downey Jr.",
+      "Chris Evans",
+      "Mark Ruffalo",
+      "Chris Pratt"
+    ],
+    "correctIndex": 0,
+    "explanation": "Robert Downey Jr.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-26",
+    "category": "Pop Culture",
+    "subcategory": "Internet Culture",
+    "difficulty": 4,
+    "question": "What is a livestream?",
+    "answers": [
+      "Saved photo only",
+      "Broadcast in real time",
+      "Text file",
+      "Offline game"
+    ],
+    "correctIndex": 1,
+    "explanation": "Broadcast in real time.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-27",
+    "category": "Pop Culture",
+    "subcategory": "Memes",
+    "difficulty": 4,
+    "question": "“This is fine” features what animal?",
+    "answers": [
+      "Dog",
+      "Cat",
+      "Bird",
+      "Horse"
+    ],
+    "correctIndex": 0,
+    "explanation": "Dog.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-28",
+    "category": "Pop Culture",
+    "subcategory": "YouTube",
+    "difficulty": 4,
+    "question": "What is a creator plaque awarded for?",
+    "answers": [
+      "Copyright strikes",
+      "Subscriber milestones",
+      "Video length",
+      "Ad spend"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subscriber milestones.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-29",
+    "category": "Pop Culture",
+    "subcategory": "TikTok",
+    "difficulty": 4,
+    "question": "A stitch lets users do what?",
+    "answers": [
+      "Order food",
+      "Clip and respond to another video",
+      "Delete comments",
+      "Make playlists"
+    ],
+    "correctIndex": 1,
+    "explanation": "Clip and respond to another video.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  },
+  {
+    "id": "pop-culture-30",
+    "category": "Pop Culture",
+    "subcategory": "Brands",
+    "difficulty": 5,
+    "question": "What company is associated with the golden arches?",
+    "answers": [
+      "McDonald’s",
+      "Wendy’s",
+      "Subway",
+      "Starbucks"
+    ],
+    "correctIndex": 0,
+    "explanation": "McDonald’s.",
+    "sourceNote": "Starter static seed question for local gameplay testing.",
+    "freshnessType": "static",
+    "retireAfter": null,
+    "status": "active"
+  }
+]
