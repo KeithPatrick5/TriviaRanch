@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Alert,
+  Animated,
+  Easing,
   ImageBackground,
   Pressable,
   ScrollView,
@@ -49,6 +51,7 @@ type PartyPlayer = { id: string; name: string; score: number; correct: number };
 const HOME_MOCKUP = require('./assets/mockups/neon-home.png');
 const GAME_MOCKUP = require('./assets/mockups/neon-game.png');
 const RESULT_MOCKUP = require('./assets/mockups/neon-result.png');
+const LOADING_SCREEN = require('./assets/brand/loading-screen.png');
 
 const STATS_STORAGE_KEY = 'neon-trivia:player-stats:v5';
 const REPORT_STORAGE_KEY = 'neon-trivia:question-reports:v1';
@@ -185,6 +188,9 @@ export default function App() {
   const [partyTurnIndex, setPartyTurnIndex] = useState(0);
   const [pendingPartyAdvance, setPendingPartyAdvance] = useState(false);
   const finishLockRef = useRef(false);
+  const loadingProgress = useRef(new Animated.Value(0)).current;
+  const [minSplashElapsed, setMinSplashElapsed] = useState(false);
+  const [bootReady, setBootReady] = useState(false);
 
   const currentQuestion = questions[index];
   const remainingMs = Math.max(0, BLITZ_DURATION_MS - (timerNow - startedAt));
@@ -197,6 +203,25 @@ export default function App() {
   useEffect(() => {
     hydrateLocalData().catch(() => undefined);
   }, []);
+
+  useEffect(() => {
+    const animation = Animated.timing(loadingProgress, {
+      toValue: 1,
+      duration: 2300,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: false,
+    });
+    animation.start();
+    const timer = setTimeout(() => setMinSplashElapsed(true), 2300);
+    return () => {
+      animation.stop();
+      clearTimeout(timer);
+    };
+  }, [loadingProgress]);
+
+  useEffect(() => {
+    if (statsLoaded && minSplashElapsed) setBootReady(true);
+  }, [statsLoaded, minSplashElapsed]);
 
   useEffect(() => {
     if (!statsLoaded) return;
@@ -541,6 +566,10 @@ export default function App() {
       <SafeAreaView style={styles.safeArea} edges={[]}>
         <StatusBar style="light" backgroundColor="#020013" translucent={false} />
 
+        {!bootReady ? (
+          <LoadingScreen progress={loadingProgress} />
+        ) : (
+          <>
         {screen === 'home' && (
           <MockupScreen source={HOME_MOCKUP}>
             <HomeDynamicLayer stats={stats} rank={rank} category={category} />
@@ -628,8 +657,30 @@ export default function App() {
             <OverlayButton label="Menu" box={HIT.resultMenu} onPress={() => setScreen('home')} />
           </MockupScreen>
         )}
+          </>
+        )}
       </SafeAreaView>
     </SafeAreaProvider>
+  );
+}
+
+
+function LoadingScreen({ progress }: { progress: Animated.Value }) {
+  const fillWidth = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '62%'] });
+  const knobLeft = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '62%'] });
+  const pulseScale = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.88, 1.18, 0.88] });
+  const pulseOpacity = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.35, 0.9, 0.35] });
+
+  return (
+    <ImageBackground source={LOADING_SCREEN} style={styles.loadingScreen} imageStyle={styles.loadingImage} resizeMode="cover">
+      <View pointerEvents="none" style={styles.loadingBarOverlay}>
+        <Animated.View style={[styles.loadingBarFill, { width: fillWidth }]} />
+        <Animated.View style={[styles.loadingKnobWrap, { left: knobLeft }]}>
+          <Animated.View style={[styles.loadingPulse, { opacity: pulseOpacity, transform: [{ scale: pulseScale }] }]} />
+          <View style={styles.loadingKnob} />
+        </Animated.View>
+      </View>
+    </ImageBackground>
   );
 }
 
@@ -974,6 +1025,13 @@ function labelForMode(nextMode: GameMode) {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#020013' },
+  loadingScreen: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013' },
+  loadingImage: { width: '100%', height: '100%' },
+  loadingBarOverlay: { position: 'absolute', left: '24%', top: '71.6%', width: '52%', height: 22, justifyContent: 'center', zIndex: 10 },
+  loadingBarFill: { height: 4, borderRadius: 2, backgroundColor: '#ff2fc7', shadowColor: '#ff2fc7', shadowOpacity: 0.95, shadowRadius: 10 },
+  loadingKnobWrap: { position: 'absolute', width: 26, height: 26, marginLeft: -13, alignItems: 'center', justifyContent: 'center' },
+  loadingPulse: { position: 'absolute', width: 38, height: 38, borderRadius: 19, borderWidth: 1, borderColor: 'rgba(255, 70, 220, 0.55)', backgroundColor: 'rgba(255, 70, 220, 0.08)' },
+  loadingKnob: { width: 13, height: 13, borderRadius: 7, backgroundColor: '#fff2ff', shadowColor: '#ff35d2', shadowOpacity: 1, shadowRadius: 12 },
   mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'center' },
   mockupCanvas: { position: 'relative', overflow: 'hidden', backgroundColor: '#020013' },
   mockupImage: { width: '100%', height: '100%' },

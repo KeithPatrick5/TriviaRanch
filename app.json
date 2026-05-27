@@ -28,7 +28,7 @@
     },
     "icon": "./assets/brand/app-icon.png",
     "splash": {
-      "image": "./assets/brand/splash.png",
+      "image": "./assets/brand/loading-screen.png",
       "backgroundColor": "#020013",
       "resizeMode": "cover"
     },
