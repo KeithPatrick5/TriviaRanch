@@ -54,7 +54,7 @@ for forbidden in ['node_modules', 'package-lock.json', 'tsconfig.tsbuildinfo']:
         errors.append(f'Forbidden artifact present: {forbidden}')
 
 for expected in [
-    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md',
+    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md',
     'supabase/schema.sql','App.tsx','src/services/triviaApi.ts','src/types/env.d.ts'
 ]:
     if not (root / expected).exists():
@@ -69,10 +69,23 @@ required_app_markers = [
     'startOfficialGameSession',
     'submitGameResult',
     'activeSessionId',
+    'LinearGradient',
+    'dailyHero',
+    'gameStatStrip',
+    'resultHero',
 ]
 for marker in required_app_markers:
     if marker not in app_text:
         errors.append(f'Missing app implementation marker: {marker}')
+
+
+colors_text = (root / 'src/theme/colors.ts').read_text()
+for marker in ['#070604', 'surfaceRaised', 'ranchGoldBright', 'dangerDim', 'successDim']:
+    if marker not in colors_text:
+        errors.append(f'Missing GUI theme marker: {marker}')
+
+if not (root / 'src/theme/spacing.ts').exists():
+    errors.append('Missing GUI spacing scale: src/theme/spacing.ts')
 
 schema_text = (root / 'supabase/schema.sql').read_text()
 for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx', 'official_score', 'assigned_question_ids', 'daily_challenges', 'suspicion_flags']:
@@ -113,4 +126,4 @@ if errors:
         print(f'- {error}')
     raise SystemExit(1)
 
-print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions.')
+print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass.')
