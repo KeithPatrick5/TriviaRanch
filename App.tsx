@@ -637,10 +637,8 @@ function MockupScreen({ source, children }: { source: number; children: React.Re
   const { width, height } = useWindowDimensions();
   const usableWidth = width;
   const usableHeight = height;
-  const targetRatio = 941 / 1672;
-  const widthFromHeight = usableHeight * targetRatio;
-  const canvasWidth = Math.min(usableWidth, widthFromHeight);
-  const canvasHeight = canvasWidth / targetRatio;
+  const canvasWidth = usableWidth;
+  const canvasHeight = usableHeight;
 
   return (
     <View style={styles.mockupShell}>
@@ -659,18 +657,34 @@ function MockupScreen({ source, children }: { source: number; children: React.Re
 function HomeDynamicLayer({ stats, rank, category }: { stats: PlayerStats; rank: string; category: MainCategory }) {
   return (
     <>
-      <View pointerEvents="none" style={[styles.mask, styles.homeBadgeMask]} />
-      <View pointerEvents="none" style={[styles.mask, styles.homeCategoryMask]} />
-      <Text pointerEvents="none" style={styles.homeCategory}>{category.toUpperCase()}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.homeTimerMask]} />
-      <Text pointerEvents="none" style={styles.homeTimer}>60</Text>
-      <Text pointerEvents="none" style={styles.homeTimerSec}>SEC</Text>
       <Text pointerEvents="none" style={styles.homeRank}>{rank.toUpperCase()}</Text>
       <Text pointerEvents="none" style={styles.homeXp}>{stats.xp.toLocaleString()} XP</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.homeStatsMask]} />
+      <Text pointerEvents="none" style={styles.homeHeatLabel}>TONIGHT'S HEAT</Text>
+      <Text pointerEvents="none" style={styles.homeCategory}>{category.toUpperCase()}</Text>
+      <Text pointerEvents="none" style={styles.homeTagline}>Think fast. Score big.</Text>
+      <Text pointerEvents="none" style={styles.homeTimer}>60</Text>
+      <Text pointerEvents="none" style={styles.homeTimerSec}>SEC</Text>
+      <Text pointerEvents="none" style={styles.homeStartText}>START ›</Text>
+      <Text pointerEvents="none" style={styles.homeStatLabelLeft}>STREAK</Text>
+      <Text pointerEvents="none" style={styles.homeStatLabelMid}>BEST</Text>
+      <Text pointerEvents="none" style={styles.homeStatLabelRight}>REVENGE</Text>
       <Text pointerEvents="none" style={styles.homeStreak}>{stats.dailyStreak || 4}</Text>
       <Text pointerEvents="none" style={styles.homeBest}>{stats.bestBlitzScore || 18}</Text>
       <Text pointerEvents="none" style={styles.homeRevenge}>2</Text>
+      <Text pointerEvents="none" style={styles.homePick}>PICK A FIGHT</Text>
+      <Text pointerEvents="none" style={styles.homeMode1}>SURVIVAL</Text>
+      <Text pointerEvents="none" style={styles.homeMode1Sub}>Keep answering. Beat the clock.</Text>
+      <Text pointerEvents="none" style={styles.homeMode2}>CHALLENGE</Text>
+      <Text pointerEvents="none" style={styles.homeMode2Sub}>Beat friends. Top the leaderboard.</Text>
+      <Text pointerEvents="none" style={styles.homeMode3}>PASS PHONE</Text>
+      <Text pointerEvents="none" style={styles.homeMode3Sub}>Hot seat. Pass it to your crew.</Text>
+      <Text pointerEvents="none" style={styles.homeMode4}>STATS</Text>
+      <Text pointerEvents="none" style={styles.homeMode4Sub}>Track your wins and progress.</Text>
+      <Text pointerEvents="none" style={styles.navHome}>HOME</Text>
+      <Text pointerEvents="none" style={styles.navLeaderboard}>LEADERBOARD</Text>
+      <Text pointerEvents="none" style={styles.navCrew}>NEON CREW</Text>
+      <Text pointerEvents="none" style={styles.navShop}>SHOP</Text>
+      <Text pointerEvents="none" style={styles.navProfile}>PROFILE</Text>
     </>
   );
 }
@@ -681,24 +695,24 @@ function GameDynamicLayer({ question, remainingSeconds, score, streak, best, mod
   const timerLabel = mode === 'survival' ? `${lives}❤` : `00:${String(Math.max(0, remainingSeconds)).padStart(2, '0')}`;
   return (
     <>
-      <View pointerEvents="none" style={[styles.mask, styles.gameTitleMask]} />
       <Text pointerEvents="none" style={styles.gameTitle}>{modeTitle}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.gameCategoryMask]} />
       <Text pointerEvents="none" style={styles.gameCategory}>{category.toUpperCase()}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.gameTimerMask]} />
       <Text pointerEvents="none" style={styles.gameTimer}>{timerLabel}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.gameScoreMask]} />
+      <Text pointerEvents="none" style={styles.gameScoreLabel}>SCORE</Text>
+      <Text pointerEvents="none" style={styles.gameStreakLabel}>STREAK</Text>
+      <Text pointerEvents="none" style={styles.gameBestLabel}>★ BEST</Text>
       <Text pointerEvents="none" style={styles.gameScore}>{score.toLocaleString()}</Text>
       <Text pointerEvents="none" style={styles.gameStreak}>{streak}</Text>
       <Text pointerEvents="none" style={styles.gameBest}>{best}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.questionMask]} />
-      <Text pointerEvents="none" style={styles.questionText}>{question?.question ?? 'Loading question...'}</Text>
+      <Text pointerEvents="none" style={styles.questionText} numberOfLines={3} adjustsFontSizeToFit minimumFontScale={0.70}>{question?.question ?? 'Loading question...'}</Text>
       {answerChoices.map((answer, idx) => (
         <React.Fragment key={`${idx}-${answer}`}>
-          <View pointerEvents="none" style={answerMaskPosition(idx)} />
-          <Text pointerEvents="none" style={answerTextPosition(idx)} numberOfLines={1}>{answer}</Text>
+          <Text pointerEvents="none" style={answerLetterPosition(idx)}>{String.fromCharCode(65 + idx)}</Text>
+          <Text pointerEvents="none" style={answerTextPosition(idx)} numberOfLines={1} ellipsizeMode="tail" adjustsFontSizeToFit minimumFontScale={0.58}>{answer}</Text>
         </React.Fragment>
       ))}
+      <Text pointerEvents="none" style={styles.reportText}>REPORT</Text>
+      <Text pointerEvents="none" style={styles.skipText}>SKIP</Text>
       {lastAnswerState && lastAnswerState.selectedIndex !== null && (
         <View
           pointerEvents="none"
@@ -726,16 +740,16 @@ function ResultDynamicLayer({ result, score, correct, xpEarned, rank }: { result
   const headline = resultHeadline(result);
   return (
     <>
-      <View pointerEvents="none" style={[styles.mask, styles.resultHeadlineMask]} />
+      <Text pointerEvents="none" style={styles.resultRoundComplete}>ROUND COMPLETE</Text>
       <Text pointerEvents="none" style={styles.resultHeadline}>{headline}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.resultScoreMask]} />
+      <Text pointerEvents="none" style={styles.resultFinalScoreLabel}>FINAL SCORE</Text>
       <Text pointerEvents="none" style={styles.resultScore}>{score.toLocaleString()}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.resultSmallStatMask]} />
       <Text pointerEvents="none" style={styles.resultXp}>+{xpEarned} XP</Text>
+      <Text pointerEvents="none" style={styles.resultXpSub}>EXPERIENCE EARNED</Text>
       <Text pointerEvents="none" style={styles.resultCorrect}>{correct} RIGHT</Text>
       <Text pointerEvents="none" style={styles.resultOutOf}>OUT OF {total}</Text>
-      <View pointerEvents="none" style={[styles.mask, styles.resultRankTextMask]} />
       <Text pointerEvents="none" style={styles.resultRank}>{result?.category?.toUpperCase() ?? 'SPORTS'} {rank.toUpperCase()}</Text>
+      <Text pointerEvents="none" style={styles.resultRankUp}>RANK UP!</Text>
       <View pointerEvents="none" style={styles.resultProgressTrack} />
       <View pointerEvents="none" style={[styles.resultProgressFill, { width: `${Math.max(5, progressPct * 40)}%` }]} />
       <Text pointerEvents="none" style={styles.resultProgressText}>{score % 800} / 800 XP</Text>
@@ -927,8 +941,11 @@ function resultHeadline(nextResult: GameResult | null) {
 function answerMaskPosition(index: number) {
   return [styles.answerMaskBase, { top: `${45.1 + index * 10.1}%` }];
 }
+function answerLetterPosition(index: number) {
+  return [styles.answerLetterBase, { top: `${44.0 + index * 10.1}%` }];
+}
 function answerTextPosition(index: number) {
-  return [styles.answerTextBase, { top: `${45.1 + index * 10.1}%` }];
+  return [styles.answerTextBase, { top: `${44.7 + index * 10.1}%` }];
 }
 function answerFeedbackPosition(index: number) {
   return [styles.answerFeedbackBase, { top: `${42.8 + index * 10.1}%` }];
@@ -947,53 +964,83 @@ function labelForMode(nextMode: GameMode) {
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#020013' },
-  mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'center' },
+  mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'flex-start' },
   mockupCanvas: { position: 'relative', overflow: 'hidden', backgroundColor: '#020013' },
   mockupImage: { width: '100%', height: '100%' },
   hit: { position: 'absolute', zIndex: 50 },
   hitPressed: { backgroundColor: 'rgba(255, 45, 220, 0.08)' },
-  mask: { position: 'absolute', backgroundColor: 'rgba(4, 2, 28, 0.92)', zIndex: 8 },
+  mask: { position: 'absolute', backgroundColor: 'transparent', zIndex: 8 },
   homeBadgeMask: { top: '5.4%', left: '77%', width: '18%', height: '5.3%', borderRadius: 10 },
-  homeRank: { position: 'absolute', top: '6.2%', left: '78%', width: '16%', color: '#ffd657', fontSize: 14, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  homeXp: { position: 'absolute', top: '8.2%', left: '78%', width: '16%', color: '#f7f1ff', fontSize: 12, fontWeight: '700', textAlign: 'center', zIndex: 9 },
-  homeCategoryMask: { top: '35.7%', left: '13%', width: '48%', height: '6.8%', borderRadius: 10, backgroundColor: 'rgba(7, 3, 35, 0.88)' },
-  homeCategory: { position: 'absolute', top: '35.5%', left: '13%', width: '48%', color: '#ffffff', fontSize: 42, fontWeight: '900', textAlign: 'left', zIndex: 9, textShadowColor: '#6f7cff', textShadowRadius: 12 },
-  homeTimerMask: { top: '33.9%', left: '64.5%', width: '28%', height: '12.5%', borderRadius: 80, backgroundColor: 'rgba(7, 3, 35, 0.94)' },
-  homeTimer: { position: 'absolute', top: '36.2%', left: '68%', width: '20%', color: '#ffffff', fontSize: 40, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  homeTimerSec: { position: 'absolute', top: '40.2%', left: '69%', width: '18%', color: '#ff4ad7', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  homeRank: { position: 'absolute', top: '5.7%', left: '77.5%', width: '17%', color: '#ffd657', fontSize: 13, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#5b2b00', textShadowRadius: 8 },
+  homeXp: { position: 'absolute', top: '7.65%', left: '78%', width: '16%', color: '#f7f1ff', fontSize: 10, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  homeHeatLabel: { position: 'absolute', top: '31.5%', left: '18%', width: '42%', color: '#ff4ad7', fontSize: 16, fontWeight: '900', letterSpacing: 1, zIndex: 9, textShadowColor: '#ff2ed3', textShadowRadius: 8 },
+  homeCategoryMask: { top: '35.7%', left: '13%', width: '48%', height: '6.8%', borderRadius: 10, backgroundColor: 'transparent' },
+  homeCategory: { position: 'absolute', top: '36.3%', left: '13%', width: '48%', color: '#ffffff', fontSize: 38, fontWeight: '900', textAlign: 'left', zIndex: 9, textShadowColor: '#6f7cff', textShadowRadius: 12 },
+  homeTagline: { position: 'absolute', top: '42.1%', left: '13.6%', width: '48%', color: '#dcd4f4', fontSize: 14, fontWeight: '700', zIndex: 9 },
+  homeTimerMask: { top: '33.9%', left: '64.5%', width: '28%', height: '12.5%', borderRadius: 80, backgroundColor: 'transparent' },
+  homeTimer: { position: 'absolute', top: '36.35%', left: '68%', width: '20%', color: '#ffffff', fontSize: 39, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#ff39cc', textShadowRadius: 12 },
+  homeTimerSec: { position: 'absolute', top: '40.3%', left: '69%', width: '18%', color: '#ff4ad7', fontSize: 17, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  homeStartText: { position: 'absolute', top: '47.1%', left: '34%', width: '34%', color: '#ffffff', fontSize: 28, fontWeight: '900', textAlign: 'center', zIndex: 9, letterSpacing: 1, textShadowColor: '#ff40d6', textShadowRadius: 10 },
   homeStatsMask: { top: '55.5%', left: '13%', width: '74%', height: '4.2%', borderRadius: 12 },
+  homeStatLabelLeft: { position: 'absolute', top: '54.5%', left: '20%', width: '14%', color: '#d4c9ea', fontSize: 11, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  homeStatLabelMid: { position: 'absolute', top: '54.5%', left: '45%', width: '13%', color: '#d4c9ea', fontSize: 11, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  homeStatLabelRight: { position: 'absolute', top: '54.5%', left: '71%', width: '16%', color: '#d4c9ea', fontSize: 11, fontWeight: '800', textAlign: 'center', zIndex: 9 },
   homeStreak: { position: 'absolute', top: '56.1%', left: '20%', width: '10%', color: '#ff39c9', fontSize: 32, fontWeight: '900', textAlign: 'center', zIndex: 9 },
   homeBest: { position: 'absolute', top: '56.1%', left: '45%', width: '11%', color: '#29dfff', fontSize: 32, fontWeight: '900', textAlign: 'center', zIndex: 9 },
   homeRevenge: { position: 'absolute', top: '56.1%', left: '74%', width: '8%', color: '#b566ff', fontSize: 32, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  gameTitleMask: { top: '5.8%', left: '34%', width: '34%', height: '4.8%', borderRadius: 8, backgroundColor: 'rgba(4, 2, 28, 0.88)' },
-  gameTitle: { position: 'absolute', top: '6.0%', left: '30%', width: '42%', color: '#ffffff', fontSize: 25, fontWeight: '900', textAlign: 'center', letterSpacing: 1, zIndex: 9, textShadowColor: '#ff32d1', textShadowRadius: 13 },
-  gameCategoryMask: { top: '15.2%', left: '16%', width: '18%', height: '4.6%', borderRadius: 8, backgroundColor: 'rgba(4, 2, 28, 0.90)' },
-  gameCategory: { position: 'absolute', top: '16.0%', left: '16%', width: '19%', color: '#ffffff', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  gameTimerMask: { top: '13.5%', left: '36.5%', width: '27%', height: '10.5%', borderRadius: 80, backgroundColor: 'rgba(4, 2, 28, 0.96)' },
-  gameTimer: { position: 'absolute', top: '16.35%', left: '39.6%', width: '21%', color: '#ffffff', fontSize: 26, fontWeight: '900', textAlign: 'center', letterSpacing: 1, zIndex: 9 },
-  gameScoreMask: { top: '16.2%', left: '63%', width: '31%', height: '4.3%', borderRadius: 8, backgroundColor: 'rgba(4, 2, 28, 0.96)' },
-  gameScore: { position: 'absolute', top: '16.9%', left: '61.5%', width: '13%', color: '#25dfff', fontSize: 19, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  gameStreak: { position: 'absolute', top: '16.9%', left: '77.3%', width: '8%', color: '#ff43d2', fontSize: 19, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  gameBest: { position: 'absolute', top: '16.9%', left: '90%', width: '7%', color: '#ffd84f', fontSize: 19, fontWeight: '900', textAlign: 'center', zIndex: 9 },
-  questionMask: { top: '32.1%', left: '18%', width: '64%', height: '9.7%', borderRadius: 12, backgroundColor: 'rgba(6, 2, 33, 0.94)' },
-  questionText: { position: 'absolute', top: '31.8%', left: '15%', width: '70%', minHeight: '12%', color: '#ffffff', fontSize: 28, fontWeight: '800', lineHeight: 36, textAlign: 'center', textShadowColor: '#11103f', textShadowRadius: 8, zIndex: 9 },
-  answerMaskBase: { position: 'absolute', left: '27%', width: '57%', height: '4.6%', borderRadius: 8, backgroundColor: 'rgba(7, 2, 35, 0.96)', zIndex: 8 },
-  answerTextBase: { position: 'absolute', left: '27%', width: '58%', color: '#ffffff', fontSize: 26, fontWeight: '800', zIndex: 10, textShadowColor: '#08021d', textShadowRadius: 6 },
+  homePick: { position: 'absolute', top: '62.8%', left: '31%', width: '38%', color: '#ffffff', fontSize: 20, fontWeight: '900', textAlign: 'center', zIndex: 9, letterSpacing: 1 },
+  homeMode1: { position: 'absolute', top: '66.7%', left: '25%', color: '#ffffff', fontSize: 20, fontWeight: '900', zIndex: 9 },
+  homeMode1Sub: { position: 'absolute', top: '69.1%', left: '25%', color: '#d5d0e5', fontSize: 12, fontWeight: '700', zIndex: 9 },
+  homeMode2: { position: 'absolute', top: '73.7%', left: '25%', color: '#ffffff', fontSize: 20, fontWeight: '900', zIndex: 9 },
+  homeMode2Sub: { position: 'absolute', top: '76.1%', left: '25%', color: '#d5d0e5', fontSize: 12, fontWeight: '700', zIndex: 9 },
+  homeMode3: { position: 'absolute', top: '80.6%', left: '25%', color: '#ffffff', fontSize: 19, fontWeight: '900', zIndex: 9 },
+  homeMode3Sub: { position: 'absolute', top: '83.0%', left: '25%', color: '#d5d0e5', fontSize: 12, fontWeight: '700', zIndex: 9 },
+  homeMode4: { position: 'absolute', top: '87.5%', left: '25%', color: '#ffffff', fontSize: 20, fontWeight: '900', zIndex: 9 },
+  homeMode4Sub: { position: 'absolute', top: '89.9%', left: '25%', color: '#d5d0e5', fontSize: 12, fontWeight: '700', zIndex: 9 },
+  navHome: { position: 'absolute', top: '96.3%', left: '6%', width: '15%', color: '#ff3fd7', fontSize: 10, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  navLeaderboard: { position: 'absolute', top: '96.3%', left: '19%', width: '22%', color: '#d0cbe3', fontSize: 9, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  navCrew: { position: 'absolute', top: '96.3%', left: '40%', width: '22%', color: '#d0cbe3', fontSize: 9, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  navShop: { position: 'absolute', top: '96.3%', left: '61%', width: '18%', color: '#d0cbe3', fontSize: 9, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  navProfile: { position: 'absolute', top: '96.3%', left: '78%', width: '18%', color: '#d0cbe3', fontSize: 9, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  gameTitleMask: { top: '5.8%', left: '34%', width: '34%', height: '4.8%', borderRadius: 8, backgroundColor: 'transparent' },
+  gameTitle: { position: 'absolute', top: '5.4%', left: '29%', width: '44%', color: '#ffffff', fontSize: 24, fontWeight: '900', textAlign: 'center', letterSpacing: 1, zIndex: 9, textShadowColor: '#ff32d1', textShadowRadius: 13 },
+  gameCategoryMask: { top: '15.2%', left: '16%', width: '18%', height: '4.6%', borderRadius: 8, backgroundColor: 'transparent' },
+  gameCategory: { position: 'absolute', top: '14.8%', left: '16%', width: '20%', color: '#ffffff', fontSize: 17, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  gameTimerMask: { top: '13.5%', left: '36.5%', width: '27%', height: '10.5%', borderRadius: 80, backgroundColor: 'transparent' },
+  gameTimer: { position: 'absolute', top: '15.5%', left: '39.6%', width: '21%', color: '#ffffff', fontSize: 26, fontWeight: '900', textAlign: 'center', letterSpacing: 1, zIndex: 9 },
+  gameScoreLabel: { position: 'absolute', top: '13.7%', left: '61.5%', width: '13%', color: '#dcd4f4', fontSize: 10, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  gameStreakLabel: { position: 'absolute', top: '13.7%', left: '76%', width: '10%', color: '#dcd4f4', fontSize: 10, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  gameBestLabel: { position: 'absolute', top: '13.7%', left: '88%', width: '10%', color: '#ffdf5a', fontSize: 10, fontWeight: '800', textAlign: 'center', zIndex: 9 },
+  gameScoreMask: { top: '16.2%', left: '63%', width: '31%', height: '4.3%', borderRadius: 8, backgroundColor: 'transparent' },
+  gameScore: { position: 'absolute', top: '16.2%', left: '61.5%', width: '13%', color: '#25dfff', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  gameStreak: { position: 'absolute', top: '16.2%', left: '77.3%', width: '8%', color: '#ff43d2', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  gameBest: { position: 'absolute', top: '16.2%', left: '90%', width: '7%', color: '#ffd84f', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9 },
+  questionMask: { top: '32.1%', left: '18%', width: '64%', height: '9.7%', borderRadius: 12, backgroundColor: 'transparent' },
+  questionText: { position: 'absolute', top: '31.3%', left: '16%', width: '68%', minHeight: '10%', color: '#ffffff', fontSize: 24, fontWeight: '800', lineHeight: 29, textAlign: 'center', textShadowColor: '#11103f', textShadowRadius: 8, zIndex: 9 },
+  answerLetterBase: { position: 'absolute', left: '14.1%', width: '7%', color: '#ffffff', fontSize: 30, fontWeight: '900', textAlign: 'center', zIndex: 11, textShadowColor: '#03103a', textShadowRadius: 6 },
+  answerMaskBase: { position: 'absolute', left: '27%', width: '57%', height: '4.6%', borderRadius: 8, backgroundColor: 'transparent', zIndex: 8 },
+  answerTextBase: { position: 'absolute', left: '27%', width: '57%', color: '#ffffff', fontSize: 22, fontWeight: '800', zIndex: 10, textShadowColor: '#08021d', textShadowRadius: 6 },
   answerFeedbackBase: { position: 'absolute', left: '7.5%', width: '85%', height: '7.7%', borderRadius: 30, zIndex: 7 },
   answerGood: { backgroundColor: 'rgba(20, 230, 130, 0.24)', borderWidth: 2, borderColor: '#25ff9d' },
   answerBad: { backgroundColor: 'rgba(255, 50, 90, 0.24)', borderWidth: 2, borderColor: '#ff356e' },
+  reportText: { position: 'absolute', top: '91.7%', left: '20%', width: '20%', color: '#ffffff', fontSize: 18, fontWeight: '900', zIndex: 9 },
+  skipText: { position: 'absolute', top: '91.7%', left: '63%', width: '18%', color: '#ffffff', fontSize: 20, fontWeight: '900', textAlign: 'center', zIndex: 9 },
   reportedPill: { position: 'absolute', top: '88.2%', left: '8%', width: '38%', height: '4%', borderRadius: 18, backgroundColor: 'rgba(255, 63, 220, 0.28)', borderWidth: 1, borderColor: '#ff4cda', alignItems: 'center', justifyContent: 'center', zIndex: 9 },
   reportedText: { color: '#ffffff', fontWeight: '900', letterSpacing: 1 },
-  resultHeadlineMask: { top: '17.2%', left: '8%', width: '84%', height: '7.5%', borderRadius: 10, backgroundColor: 'rgba(4, 2, 28, 0.78)' },
-  resultHeadline: { position: 'absolute', top: '17.2%', left: '7%', width: '86%', color: '#ffffff', fontSize: 42, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#bd38ff', textShadowRadius: 14 },
-  resultScoreMask: { top: '31.1%', left: '25%', width: '50%', height: '8%', borderRadius: 16, backgroundColor: 'rgba(7, 3, 35, 0.92)' },
-  resultScore: { position: 'absolute', top: '29.9%', left: '16%', width: '68%', color: '#ffffff', fontSize: 70, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#43b7ff', textShadowRadius: 14 },
-  resultSmallStatMask: { top: '42.0%', left: '24%', width: '62%', height: '4.2%', borderRadius: 6, backgroundColor: 'rgba(7, 3, 35, 0.90)' },
-  resultXp: { position: 'absolute', top: '42.35%', left: '28%', width: '24%', color: '#f7f1ff', fontSize: 18, fontWeight: '900', zIndex: 9 },
-  resultCorrect: { position: 'absolute', top: '42.35%', left: '63%', width: '24%', color: '#ffffff', fontSize: 18, fontWeight: '900', zIndex: 9 },
-  resultOutOf: { position: 'absolute', top: '45.1%', left: '63%', width: '24%', color: '#bdb6d8', fontSize: 12, fontWeight: '700', zIndex: 9 },
-  resultRankTextMask: { top: '51.5%', left: '38%', width: '45%', height: '6%', borderRadius: 8, backgroundColor: 'rgba(5, 7, 42, 0.86)' },
-  resultRank: { position: 'absolute', top: '51.6%', left: '38%', width: '45%', color: '#ffffff', fontSize: 22, fontWeight: '900', zIndex: 9 },
+  resultRoundComplete: { position: 'absolute', top: '16.0%', left: '25%', width: '50%', color: '#23e8ff', fontSize: 18, fontWeight: '800', textAlign: 'center', letterSpacing: 3, zIndex: 9, textShadowColor: '#23e8ff', textShadowRadius: 9 },
+  resultHeadlineMask: { top: '17.2%', left: '8%', width: '84%', height: '7.5%', borderRadius: 10, backgroundColor: 'transparent' },
+  resultHeadline: { position: 'absolute', top: '18.0%', left: '7%', width: '86%', color: '#ffffff', fontSize: 38, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#bd38ff', textShadowRadius: 14 },
+  resultFinalScoreLabel: { position: 'absolute', top: '28.1%', left: '35%', width: '30%', color: '#ff4ad7', fontSize: 18, fontWeight: '900', textAlign: 'center', zIndex: 9, letterSpacing: 1 },
+  resultScoreMask: { top: '31.1%', left: '25%', width: '50%', height: '8%', borderRadius: 16, backgroundColor: 'transparent' },
+  resultScore: { position: 'absolute', top: '31.2%', left: '16%', width: '68%', color: '#ffffff', fontSize: 60, fontWeight: '900', textAlign: 'center', zIndex: 9, textShadowColor: '#43b7ff', textShadowRadius: 14 },
+  resultSmallStatMask: { top: '42.0%', left: '24%', width: '62%', height: '4.2%', borderRadius: 6, backgroundColor: 'transparent' },
+  resultXp: { position: 'absolute', top: '42.3%', left: '28%', width: '24%', color: '#f7f1ff', fontSize: 18, fontWeight: '900', zIndex: 9 },
+  resultXpSub: { position: 'absolute', top: '45.0%', left: '24%', width: '30%', color: '#c9c1dc', fontSize: 10, fontWeight: '800', zIndex: 9 },
+  resultCorrect: { position: 'absolute', top: '42.3%', left: '63%', width: '24%', color: '#ffffff', fontSize: 18, fontWeight: '900', zIndex: 9 },
+  resultOutOf: { position: 'absolute', top: '45.0%', left: '63%', width: '24%', color: '#bdb6d8', fontSize: 12, fontWeight: '700', zIndex: 9 },
+  resultRankTextMask: { top: '51.5%', left: '38%', width: '45%', height: '6%', borderRadius: 8, backgroundColor: 'transparent' },
+  resultRank: { position: 'absolute', top: '51.7%', left: '38%', width: '45%', color: '#ffffff', fontSize: 20, fontWeight: '900', zIndex: 9 },
+  resultRankUp: { position: 'absolute', top: '54.4%', left: '38%', width: '45%', color: '#ff4ad7', fontSize: 17, fontWeight: '900', zIndex: 9, letterSpacing: 1 },
   resultProgressTrack: { position: 'absolute', top: '57.4%', left: '43%', width: '40%', height: 8, borderRadius: 4, backgroundColor: 'rgba(18, 5, 54, 0.95)', zIndex: 9 },
   resultProgressFill: { position: 'absolute', top: '57.4%', left: '43%', height: 8, maxWidth: '40%', borderRadius: 4, backgroundColor: '#ff36c7', zIndex: 10 },
   resultProgressText: { position: 'absolute', top: '59.2%', left: '43%', width: '36%', color: '#ffffff', fontSize: 14, fontWeight: '800', zIndex: 9 },
