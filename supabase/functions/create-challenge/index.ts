@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
 
     if (error || !session) return jsonResponse({ error: 'session_not_found' }, 404);
     if (session.user_id !== playerId) return jsonResponse({ error: 'player_session_mismatch' }, 403);
-    if (!['official', 'flagged'].includes(session.validation_status)) return jsonResponse({ error: 'session_not_official' }, 409);
+    if (session.validation_status !== 'official') return jsonResponse({ error: 'session_not_official' }, 409);
 
     const challengeCode = makeChallengeCode();
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();

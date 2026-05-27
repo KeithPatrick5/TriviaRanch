@@ -34,11 +34,11 @@ export function buildAnswer(question: Question, selectedIndex: number | null, el
 
 export function resultLine(mode: GameMode, correct: number, wrong: number, maxStreak: number): string {
   if (mode === 'survival') {
-    if (maxStreak >= 15) return 'Absolute menace. That run had teeth.';
-    if (wrong >= 3) return 'Three lives gone. You know exactly which one was stupid.';
-    return 'Warm-up run. Run it back.';
+    if (maxStreak >= 15) return 'MENACE RUN';
+    if (wrong >= 3) return 'THREE LIVES GONE';
+    return 'WARM-UP RUN';
   }
-  if (correct >= 20) return 'That was a beating. Send it to someone.';
-  if (correct >= 12) return 'Solid run. Not genius, not embarrassing.';
-  return 'That was rough. Fortunately, deleting the app is coward behavior.';
+  if (correct >= 20) return 'BURIAL';
+  if (correct >= 12) return 'SOLID HIT';
+  return 'ROUGH RUN';
 }

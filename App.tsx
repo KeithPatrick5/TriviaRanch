@@ -1,9 +1,9 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors } from './src/theme/colors';
 import { spacing } from './src/theme/spacing';
@@ -13,7 +13,7 @@ import { BLITZ_DURATION_MS, SURVIVAL_LIVES, buildAnswer, rankFromXp, resultLine 
 import { GameAnswer, GameMode, GameResult, MainCategory, PlayerStats, Question } from './src/types/game';
 import { createChallengeFromSession, ensureAnonymousPlayer, startOfficialGameSession, submitGameResult, submitQuestionReport } from './src/services/triviaApi';
 
-type Screen = 'home' | 'categories' | 'game' | 'result' | 'party-setup';
+type Screen = 'home' | 'categories' | 'game' | 'result' | 'party-setup' | 'challenge-enter';
 
 const STATS_STORAGE_KEY = 'trivia-ranch:player-stats:v1';
 const REPORT_STORAGE_KEY = 'trivia-ranch:question-reports:v1';
@@ -35,26 +35,26 @@ const modeCopy: Record<GameMode, { title: string; kicker: string; body: string; 
   'daily-blitz': {
     title: 'Daily Blitz',
     kicker: 'TODAY\'S HEAT',
-    body: '60 seconds. Everyone gets the same heat.',
-    cta: 'Start daily run',
+    body: '60 seconds. Same heat.',
+    cta: 'Start',
   },
   survival: {
     title: 'Survival',
     kicker: '3 LIVES',
-    body: 'Three lives. One bad run can end fast.',
-    cta: 'Enter survival',
+    body: 'Three lives. Stay alive.',
+    cta: 'Enter',
   },
   challenge: {
     title: 'Challenge Run',
     kicker: 'SEND A SCORE',
-    body: 'Post a score. Make them answer for it.',
-    cta: 'Create challenge',
+    body: 'Set the mark. Send it.',
+    cta: 'Create',
   },
   'pass-the-phone': {
     title: 'Pass the Phone',
     kicker: 'LOCAL CHAOS',
-    body: 'One phone. Two to eight players. No mercy.',
-    cta: 'Start party mode',
+    body: 'One phone. Table fight.',
+    cta: 'Start',
   },
 };
 
@@ -90,7 +90,9 @@ export default function App() {
   const [statsLoaded, setStatsLoaded] = useState(false);
   const [playerId, setPlayerId] = useState<string>('local-player');
   const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
-  const [sessionSource, setSessionSource] = useState<'edge_function' | 'rest_fallback' | 'local_fallback'>('local_fallback');
+  const [challengeEntryCode, setChallengeEntryCode] = useState('');
+  const [reportFlash, setReportFlash] = useState(false);
+  const finishLockRef = useRef(false);
 
   const currentQuestion = questions[index];
   const remainingMs = Math.max(0, BLITZ_DURATION_MS - (timerNow - startedAt));
@@ -155,7 +157,6 @@ export default function App() {
     const officialSession = await startOfficialGameSession(playerId, mode, nextCategory, count, seed);
     setQuestions(officialSession.questions);
     setActiveSessionId(officialSession.sessionId);
-    setSessionSource(officialSession.source);
     setIndex(0);
     setAnswers([]);
     setScore(0);
@@ -167,13 +168,15 @@ export default function App() {
     setTimerNow(Date.now());
     setResult(null);
     setLastAnswer(null);
+    setReportFlash(false);
+    finishLockRef.current = false;
     setPartyTurn(0);
     setPartyPlayers((players) => players.map((player) => ({ ...player, score: 0, correct: 0 })));
     setScreen('game');
   }
 
   function answerQuestion(selectedIndex: number | null) {
-    if (!currentQuestion) return;
+    if (!currentQuestion || finishLockRef.current) return;
     const elapsedMs = Date.now() - questionStartedAt;
     const answer = buildAnswer(currentQuestion, selectedIndex, elapsedMs, streak);
     Haptics.impactAsync(answer.correct ? Haptics.ImpactFeedbackStyle.Light : Haptics.ImpactFeedbackStyle.Heavy).catch(() => undefined);
@@ -218,6 +221,8 @@ export default function App() {
   }
 
   function finishGame(finalAnswers: GameAnswer[], finalScore: number, finalMaxStreak: number) {
+    if (finishLockRef.current) return;
+    finishLockRef.current = true;
     const correct = finalAnswers.filter((answer) => answer.correct).length;
     const wrong = finalAnswers.filter((answer) => !answer.correct && answer.selectedIndex !== null).length;
     const skipped = finalAnswers.filter((answer) => answer.selectedIndex === null).length;
@@ -256,15 +261,20 @@ export default function App() {
         );
       })
       .catch(() => undefined);
-    setStats((current) => ({
-      totalGames: current.totalGames + 1,
-      totalCorrect: current.totalCorrect + correct,
-      totalWrong: current.totalWrong + wrong,
-      bestBlitzScore: mode === 'daily-blitz' ? Math.max(current.bestBlitzScore, finalScore) : current.bestBlitzScore,
-      bestSurvivalStreak: mode === 'survival' ? Math.max(current.bestSurvivalStreak, finalMaxStreak) : current.bestSurvivalStreak,
-      dailyStreak: mode === 'daily-blitz' ? current.dailyStreak + 1 : current.dailyStreak,
-      xp: current.xp + Math.floor(finalScore / 10) + correct * 5,
-    }));
+    setStats((current) => {
+      const todayKey = new Date().toISOString().slice(0, 10);
+      const playedBlitzToday = current.lastDailyBlitzDate === todayKey;
+      return {
+        totalGames: current.totalGames + 1,
+        totalCorrect: current.totalCorrect + correct,
+        totalWrong: current.totalWrong + wrong,
+        bestBlitzScore: mode === 'daily-blitz' ? Math.max(current.bestBlitzScore, finalScore) : current.bestBlitzScore,
+        bestSurvivalStreak: mode === 'survival' ? Math.max(current.bestSurvivalStreak, finalMaxStreak) : current.bestSurvivalStreak,
+        dailyStreak: mode === 'daily-blitz' && !playedBlitzToday ? current.dailyStreak + 1 : current.dailyStreak,
+        lastDailyBlitzDate: mode === 'daily-blitz' ? todayKey : current.lastDailyBlitzDate,
+        xp: current.xp + Math.floor(finalScore / 10) + correct * 5,
+      };
+    });
     setScreen('result');
   }
 
@@ -274,6 +284,8 @@ export default function App() {
     setReportedQuestionIds(nextReports);
     AsyncStorage.setItem(REPORT_STORAGE_KEY, JSON.stringify(nextReports)).catch(() => undefined);
     submitQuestionReport(playerId, currentQuestion.id, mode).catch(() => undefined);
+    setReportFlash(true);
+    setTimeout(() => setReportFlash(false), 1200);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning).catch(() => undefined);
   }
 
@@ -293,6 +305,12 @@ export default function App() {
     setPartyPlayers((players) => players.slice(0, -1));
   }
 
+  function submitChallengeCode() {
+    const trimmed = challengeEntryCode.trim().toUpperCase();
+    if (!trimmed) return;
+    Alert.alert('No match found', 'Check the code and try again.');
+  }
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar style="light" />
@@ -303,7 +321,7 @@ export default function App() {
               <View>
                 <Text style={styles.logoTiny}>TRIVIA</Text>
                 <Text style={styles.logo}>RANCH</Text>
-                <Text style={styles.tagline}>Fast trivia fights. No mercy.</Text>
+                <Text style={styles.tagline}>FAST TRIVIA FIGHTS</Text>
               </View>
               <View style={styles.rankBadge}>
                 <Text style={styles.rankBadgeTop}>{rankFromXp(stats.xp)}</Text>
@@ -317,10 +335,10 @@ export default function App() {
                 <View style={styles.timerPill}><Text style={styles.timerPillText}>60 SEC</Text></View>
               </View>
               <Text style={styles.heroTitle}>Daily Blitz</Text>
-              <Text style={styles.heroBody}>Beat your best: {stats.bestBlitzScore || 'new run'}.</Text>
+              <Text style={styles.heroBody}>BEST: {stats.bestBlitzScore || 'NEW'}</Text>
               <View style={styles.heroFooter}>
-                <Text style={styles.heroCta}>Start run →</Text>
-                <Text style={styles.heroMeta}>{questionCount()} questions</Text>
+                <Text style={styles.heroCta}>START</Text>
+                <Text style={styles.heroMeta}>{questionCount()}Q</Text>
               </View>
             </Pressable>
 
@@ -330,35 +348,59 @@ export default function App() {
               <Stat label="Streak" value={String(stats.dailyStreak)} />
             </View>
 
-            <Text style={styles.sectionTitle}>Pick a fight</Text>
+            <Text style={styles.sectionTitle}>FIGHT CARD</Text>
             <ModeCard mode="survival" onPress={() => chooseMode('survival')} />
             <ModeCard mode="challenge" onPress={() => chooseMode('challenge')} />
+            <Pressable style={styles.codeEntryCard} onPress={() => setScreen('challenge-enter')}>
+              <Text style={styles.modeKicker}>CHASE A CODE</Text>
+              <Text style={styles.codeEntryTitle}>Enter Challenge Code</Text>
+            </Pressable>
             <ModeCard mode="pass-the-phone" onPress={() => chooseMode('pass-the-phone')} />
           </ScrollView>
         )}
 
         {screen === 'categories' && (
           <ScrollView contentContainerStyle={styles.page}>
-            <Header title={headline} subtitle="Pick your lane." onBack={() => setScreen('home')} />
+            <Header title={headline.toUpperCase()} subtitle="PICK YOUR LANE" onBack={() => setScreen('home')} />
             <View style={styles.categorySummary}>
               <Text style={styles.categorySummaryTitle}>{modeCopy[mode].kicker}</Text>
-              <Text style={styles.categorySummaryText}>{modeCopy[mode].body}</Text>
+              <Text style={styles.categorySummaryText} numberOfLines={1}>{modeCopy[mode].body}</Text>
             </View>
-            <View style={styles.grid}>
+            <View style={styles.categoryList}>
               {MAIN_CATEGORIES.map((item) => (
-                <Pressable key={item} style={styles.categoryCard} onPress={() => startGame(item)}>
+                <Pressable key={item} style={styles.categoryRow} onPress={() => startGame(item)}>
                   <Text style={styles.categoryInitial}>{item.slice(0, 1)}</Text>
-                  <Text style={styles.categoryText}>{item}</Text>
-                  <Text style={styles.categoryMeta}>30 questions</Text>
+                  <Text style={styles.categoryText} numberOfLines={1}>{item}</Text>
+                  <Text style={styles.categoryMeta}>30Q</Text>
                 </Pressable>
               ))}
             </View>
           </ScrollView>
         )}
 
+        {screen === 'challenge-enter' && (
+          <ScrollView contentContainerStyle={styles.page}>
+            <Header title="ENTER CODE" subtitle="CHASE THE MARK" onBack={() => setScreen('home')} />
+            <View style={styles.panel}>
+              <Text style={styles.panelTitle}>Challenge Code</Text>
+              <TextInput
+                value={challengeEntryCode}
+                onChangeText={(value) => setChallengeEntryCode(value.toUpperCase())}
+                placeholder="RANCH-1234"
+                placeholderTextColor={colors.dim}
+                autoCapitalize="characters"
+                style={styles.nameInput}
+              />
+              <Pressable style={styles.primaryAction} onPress={submitChallengeCode}>
+                <Text style={styles.primaryActionText}>Chase it</Text>
+              </Pressable>
+            </View>
+          </ScrollView>
+        )}
+
         {screen === 'party-setup' && (
           <ScrollView contentContainerStyle={styles.page}>
-            <Header title="Pass the Phone" subtitle="One phone. Zero mercy." onBack={() => setScreen('home')} />
+            <Header title="PASS THE PHONE" subtitle="TABLE FIGHT" onBack={() => setScreen('home')} />
             <View style={styles.panel}>
               <View style={styles.panelHeaderRow}>
                 <Text style={styles.panelTitle}>Players</Text>
@@ -379,13 +421,13 @@ export default function App() {
                 <SmallButton title="Add Player" onPress={addPartyPlayer} hot />
               </View>
             </View>
-            <Text style={styles.sectionTitle}>Choose category</Text>
-            <View style={styles.grid}>
+            <Text style={styles.sectionTitle}>CATEGORY</Text>
+            <View style={styles.categoryList}>
               {MAIN_CATEGORIES.map((item) => (
-                <Pressable key={item} style={styles.categoryCard} onPress={() => startGame(item)}>
+                <Pressable key={item} style={styles.categoryRow} onPress={() => startGame(item)}>
                   <Text style={styles.categoryInitial}>{item.slice(0, 1)}</Text>
-                  <Text style={styles.categoryText}>{item}</Text>
-                  <Text style={styles.categoryMeta}>Ready</Text>
+                  <Text style={styles.categoryText} numberOfLines={1}>{item}</Text>
+                  <Text style={styles.categoryMeta}>READY</Text>
                 </Pressable>
               ))}
             </View>
@@ -419,7 +461,7 @@ export default function App() {
 
             {lastAnswer && (
               <View style={[styles.feedbackPill, lastAnswer.correct ? styles.feedbackGood : styles.feedbackBad]}>
-                <Text style={styles.feedbackText}>{lastAnswer.correct ? `Correct · +${lastAnswer.points}` : currentQuestion.explanation}</Text>
+                <Text style={styles.feedbackText} numberOfLines={1}>{lastAnswer.correct ? `CORRECT +${lastAnswer.points}` : 'MISS'}</Text>
               </View>
             )}
 
@@ -444,20 +486,21 @@ export default function App() {
                 <Text style={styles.skipText}>Skip</Text>
               </Pressable>
             </View>
+            {reportFlash && <Text style={styles.reportFlash}>REPORTED</Text>}
           </View>
         )}
 
         {screen === 'result' && result && (
           <ScrollView contentContainerStyle={styles.page}>
             <Text style={styles.logoTiny}>RESULT</Text>
-            <Text style={styles.resultBurn}>{resultLine(result.mode, result.correct, result.wrong, result.maxStreak)}</Text>
+            <Text style={styles.resultBurn} numberOfLines={1}>{resultLine(result.mode, result.correct, result.wrong, result.maxStreak)}</Text>
             <View style={styles.resultHero}>
               <Text style={styles.resultScore}>{result.score}</Text>
               <Text style={styles.resultLabel}>FINAL SCORE</Text>
               <View style={styles.progressTrack}>
                 <View style={[styles.progressFill, { width: `${Math.min(100, Math.max(12, result.correct * 5))}%` }]} />
               </View>
-              <Text style={styles.resultXp}>+{Math.floor(result.score / 10) + result.correct * 5} XP · {rankFromXp(stats.xp)}</Text>
+              <Text style={styles.resultXp} numberOfLines={1}>+{Math.floor(result.score / 10) + result.correct * 5} XP · {rankFromXp(stats.xp)}</Text>
             </View>
             <View style={styles.statRow}>
               <Stat label="Correct" value={String(result.correct)} />
@@ -466,8 +509,8 @@ export default function App() {
             </View>
             {(result.validationStatus === 'rejected' || result.validationStatus === 'flagged') && (
               <View style={styles.panelCompact}>
-                <Text style={styles.panelTitle}>Score Review</Text>
-                <Text style={styles.muted}>{result.validationStatus === 'rejected' ? 'This run needs another look.' : 'Score posted. Review pending.'}</Text>
+                <Text style={styles.panelTitle}>RUN HELD</Text>
+                <Text style={styles.muted}>{result.validationStatus === 'rejected' ? 'RUN IT BACK.' : 'POSTED. WATCHED.'}</Text>
               </View>
             )}
             {mode === 'pass-the-phone' && (
@@ -482,7 +525,7 @@ export default function App() {
               <View style={styles.panelCompact}>
                 <Text style={styles.panelTitle}>Challenge Code</Text>
                 <Text style={styles.challengeCode}>{result.challengeCode ?? `RANCH-${result.score}-${result.correct}`}</Text>
-                <Text style={styles.muted}>Send this code. Make them chase it.</Text>
+                <Text style={styles.muted}>SEND IT.</Text>
               </View>
             )}
             <Pressable style={styles.primaryAction} onPress={() => startGame(result.category)}>
@@ -554,102 +597,107 @@ function SmallButton({ title, onPress, hot }: { title: string; onPress: () => vo
 const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: colors.bg },
   appBackdrop: { flex: 1 },
-  page: { flexGrow: 1, padding: spacing.lg, gap: spacing.md, backgroundColor: 'transparent' },
-  gamePage: { flex: 1, padding: spacing.lg, gap: spacing.md, backgroundColor: 'transparent' },
+  page: { flexGrow: 1, padding: spacing.lg, gap: spacing.sm, backgroundColor: 'transparent' },
+  gamePage: { flex: 1, padding: spacing.lg, gap: spacing.sm, backgroundColor: 'transparent' },
   brandRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: spacing.xs },
-  logoTiny: { color: colors.muted, fontSize: 15, fontWeight: '900', letterSpacing: 3 },
-  logo: { color: colors.text, fontSize: 42, fontWeight: '900', letterSpacing: 2, lineHeight: 44 },
-  tagline: { color: colors.ranchGoldBright, fontSize: 14, fontWeight: '800', marginTop: spacing.xs },
-  rankBadge: { borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceRaised, borderRadius: 16, paddingHorizontal: spacing.md, paddingVertical: spacing.sm, alignItems: 'flex-end' },
-  rankBadgeTop: { color: colors.ranchGoldBright, fontSize: 13, fontWeight: '900' },
-  rankBadgeBottom: { color: colors.muted, fontSize: 11, fontWeight: '800', marginTop: 2 },
-  dailyHero: { borderWidth: 2, borderColor: colors.border, backgroundColor: colors.surface, borderRadius: 24, padding: spacing.lg, gap: spacing.sm, shadowColor: colors.ranchGold, shadowOpacity: 0.2, shadowRadius: 18 },
+  logoTiny: { color: colors.muted, fontSize: 13, fontWeight: '900', letterSpacing: 4 },
+  logo: { color: colors.text, fontSize: 41, fontWeight: '900', letterSpacing: 1, lineHeight: 42 },
+  tagline: { color: colors.ranchGold, fontSize: 12, fontWeight: '900', marginTop: spacing.xs, letterSpacing: 1.4 },
+  rankBadge: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 7, paddingHorizontal: spacing.md, paddingVertical: spacing.sm, alignItems: 'flex-end' },
+  rankBadgeTop: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900' },
+  rankBadgeBottom: { color: colors.muted, fontSize: 10, fontWeight: '800', marginTop: 2 },
+  dailyHero: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 9, padding: spacing.md, gap: spacing.sm, borderLeftWidth: 4, borderLeftColor: colors.ranchGold },
   kickerRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  heroKicker: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900', letterSpacing: 1.6 },
-  timerPill: { backgroundColor: colors.danger, borderRadius: 999, paddingHorizontal: spacing.md, paddingVertical: 6 },
-  timerPillText: { color: colors.white, fontSize: 12, fontWeight: '900' },
-  heroTitle: { color: colors.text, fontSize: 30, fontWeight: '900', lineHeight: 32 },
-  heroBody: { color: colors.textSoft, fontSize: 15, fontWeight: '700', lineHeight: 21 },
-  heroFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: spacing.xs },
-  heroCta: { color: colors.ranchGoldBright, fontWeight: '900', fontSize: 15 },
-  heroMeta: { color: colors.muted, fontWeight: '800', fontSize: 12 },
-  sectionTitle: { color: colors.text, fontSize: 17, fontWeight: '900', marginTop: spacing.xs },
-  statRow: { flexDirection: 'row', gap: spacing.sm },
-  statCard: { flex: 1, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, padding: spacing.md, borderRadius: 16 },
-  statValue: { color: colors.text, fontSize: 17, fontWeight: '900' },
-  statLabel: { color: colors.muted, fontSize: 10, marginTop: 4, textTransform: 'uppercase', fontWeight: '900', letterSpacing: 0.8 },
-  modeCard: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, padding: spacing.md, borderRadius: 18 },
+  heroKicker: { color: colors.ranchGoldBright, fontSize: 11, fontWeight: '900', letterSpacing: 1.6 },
+  timerPill: { backgroundColor: colors.danger, borderRadius: 4, paddingHorizontal: spacing.sm, paddingVertical: 5 },
+  timerPillText: { color: colors.white, fontSize: 11, fontWeight: '900' },
+  heroTitle: { color: colors.text, fontSize: 30, fontWeight: '900', lineHeight: 31, textTransform: 'uppercase' },
+  heroBody: { color: colors.textSoft, fontSize: 13, fontWeight: '900', letterSpacing: 0.8 },
+  heroFooter: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: spacing.xs, borderTopWidth: 1, borderTopColor: colors.borderSoft, paddingTop: spacing.sm },
+  heroCta: { color: colors.bg, backgroundColor: colors.ranchGold, overflow: 'hidden', fontWeight: '900', fontSize: 13, paddingHorizontal: spacing.md, paddingVertical: 6, borderRadius: 4 },
+  heroMeta: { color: colors.muted, fontWeight: '900', fontSize: 11, letterSpacing: 1 },
+  sectionTitle: { color: colors.text, fontSize: 14, fontWeight: '900', marginTop: spacing.sm, letterSpacing: 2 },
+  statRow: { flexDirection: 'row', gap: 1, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 7, overflow: 'hidden' },
+  statCard: { flex: 1, backgroundColor: colors.surface, paddingVertical: spacing.sm, paddingHorizontal: spacing.md, borderRightWidth: 1, borderRightColor: colors.borderSoft },
+  statValue: { color: colors.text, fontSize: 16, fontWeight: '900' },
+  statLabel: { color: colors.muted, fontSize: 9, marginTop: 3, textTransform: 'uppercase', fontWeight: '900', letterSpacing: 1 },
+  modeCard: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, padding: spacing.md, borderRadius: 8, borderLeftWidth: 3, borderLeftColor: colors.ranchGoldDim },
   modeTopRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  modeKicker: { color: colors.ranchGold, fontSize: 11, fontWeight: '900', letterSpacing: 1.2 },
-  modeArrow: { color: colors.ranchGoldBright, fontSize: 22, fontWeight: '900' },
-  modeTitle: { color: colors.text, fontSize: 21, fontWeight: '900', marginTop: 3 },
-  modeBody: { color: colors.muted, fontSize: 13, marginTop: 5, lineHeight: 18, fontWeight: '700' },
-  modeAction: { color: colors.ranchGoldBright, fontWeight: '900', marginTop: spacing.sm, fontSize: 13 },
-  header: { gap: 5, marginBottom: spacing.xs },
-  backPill: { alignSelf: 'flex-start', borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 999, paddingHorizontal: spacing.md, paddingVertical: 6 },
-  back: { color: colors.ranchGoldBright, fontSize: 13, fontWeight: '900' },
-  headerTitle: { color: colors.text, fontSize: 31, fontWeight: '900', lineHeight: 34 },
-  headerSubtitle: { color: colors.muted, fontSize: 14, fontWeight: '700' },
-  categorySummary: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 18, padding: spacing.md },
-  categorySummaryTitle: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900', letterSpacing: 1.2 },
-  categorySummaryText: { color: colors.textSoft, fontSize: 14, fontWeight: '700', marginTop: spacing.xs, lineHeight: 19 },
+  modeKicker: { color: colors.ranchGold, fontSize: 10, fontWeight: '900', letterSpacing: 1.3 },
+  modeArrow: { color: colors.ranchGoldBright, fontSize: 18, fontWeight: '900' },
+  modeTitle: { color: colors.text, fontSize: 20, fontWeight: '900', marginTop: 2, textTransform: 'uppercase' },
+  modeBody: { color: colors.muted, fontSize: 12, marginTop: 4, lineHeight: 16, fontWeight: '800' },
+  modeAction: { color: colors.ranchGoldBright, fontWeight: '900', marginTop: spacing.sm, fontSize: 12, textTransform: 'uppercase', letterSpacing: 1 },
+  codeEntryCard: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, padding: spacing.md, borderRadius: 6, borderLeftWidth: 3, borderLeftColor: colors.danger },
+  codeEntryTitle: { color: colors.text, fontSize: 16, fontWeight: '900', marginTop: 4, textTransform: 'uppercase' },
+  header: { gap: 4, marginBottom: spacing.xs },
+  backPill: { alignSelf: 'flex-start', borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 6, paddingHorizontal: spacing.md, paddingVertical: 6 },
+  back: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
+  headerTitle: { color: colors.text, fontSize: 30, fontWeight: '900', lineHeight: 32, letterSpacing: 0.5 },
+  headerSubtitle: { color: colors.ranchGold, fontSize: 12, fontWeight: '900', letterSpacing: 1.6 },
+  categorySummary: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 8, padding: spacing.md, borderLeftWidth: 4, borderLeftColor: colors.ranchGoldDim },
+  categorySummaryTitle: { color: colors.ranchGoldBright, fontSize: 11, fontWeight: '900', letterSpacing: 1.4 },
+  categorySummaryText: { color: colors.textSoft, fontSize: 13, fontWeight: '800', marginTop: spacing.xs },
+  categoryList: { gap: 6 },
+  categoryRow: { minHeight: 52, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 7, paddingHorizontal: spacing.md, flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  categoryInitial: { color: colors.bg, backgroundColor: colors.ranchGold, overflow: 'hidden', width: 28, height: 28, borderRadius: 4, textAlign: 'center', lineHeight: 28, fontSize: 15, fontWeight: '900' },
+  categoryText: { color: colors.text, fontWeight: '900', fontSize: 15, flex: 1, textTransform: 'uppercase' },
+  categoryMeta: { color: colors.muted, fontWeight: '900', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-  categoryCard: { width: '48.7%', minHeight: 92, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 18, padding: spacing.md, justifyContent: 'space-between' },
-  categoryInitial: { color: colors.ranchGoldBright, fontSize: 20, fontWeight: '900' },
-  categoryText: { color: colors.text, fontWeight: '900', fontSize: 15, marginTop: spacing.xs },
-  categoryMeta: { color: colors.muted, fontWeight: '800', fontSize: 10, marginTop: spacing.xs, textTransform: 'uppercase' },
-  panel: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 20, padding: spacing.md, gap: spacing.sm },
-  panelCompact: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 18, padding: spacing.md, gap: 6 },
+  categoryCard: { width: '48.7%', minHeight: 92, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 8, padding: spacing.md, justifyContent: 'space-between' },
+  panel: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 8, padding: spacing.md, gap: spacing.sm },
+  panelCompact: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 8, padding: spacing.md, gap: 6 },
   panelHeaderRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  panelTitle: { color: colors.text, fontSize: 17, fontWeight: '900' },
-  panelBadge: { color: colors.ranchGoldBright, fontWeight: '900', borderWidth: 1, borderColor: colors.border, paddingHorizontal: spacing.sm, paddingVertical: 4, borderRadius: 999 },
+  panelTitle: { color: colors.text, fontSize: 16, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 },
+  panelBadge: { color: colors.ranchGoldBright, fontWeight: '900', borderWidth: 1, borderColor: colors.borderSoft, paddingHorizontal: spacing.sm, paddingVertical: 4, borderRadius: 4 },
   playerLine: { color: colors.text, fontSize: 14, paddingVertical: 3, fontWeight: '800' },
-  nameInput: { color: colors.text, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 14, paddingHorizontal: spacing.md, paddingVertical: 11, fontSize: 15, fontWeight: '800' },
+  nameInput: { color: colors.text, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 6, paddingHorizontal: spacing.md, paddingVertical: 10, fontSize: 15, fontWeight: '800' },
   buttonRow: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.xs },
-  smallButton: { flex: 1, backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.borderSoft, padding: spacing.md, borderRadius: 14, alignItems: 'center' },
-  smallButtonHot: { backgroundColor: colors.ranchGold, borderColor: colors.ranchGoldBright },
-  smallButtonText: { color: colors.text, fontWeight: '900' },
+  smallButton: { flex: 1, backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.borderSoft, padding: spacing.md, borderRadius: 6, alignItems: 'center' },
+  smallButtonHot: { backgroundColor: colors.ranchGold, borderColor: colors.ranchGold },
+  smallButtonText: { color: colors.text, fontWeight: '900', textTransform: 'uppercase', fontSize: 12, letterSpacing: 1 },
   smallButtonTextHot: { color: colors.bg, fontWeight: '900' },
-  gameTopBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-  eyebrow: { color: colors.ranchGoldBright, fontSize: 13, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1.3 },
-  progress: { color: colors.muted, fontSize: 12, fontWeight: '800', marginTop: 2 },
-  clockBox: { minWidth: 74, alignItems: 'center', backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.border, borderRadius: 18, paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
-  clockBoxHot: { backgroundColor: colors.dangerDim, borderColor: colors.danger },
-  timer: { color: colors.text, fontSize: 21, fontWeight: '900' },
+  gameTopBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', borderBottomWidth: 1, borderBottomColor: colors.borderSoft, paddingBottom: spacing.sm },
+  eyebrow: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1.4 },
+  progress: { color: colors.muted, fontSize: 11, fontWeight: '800', marginTop: 2, textTransform: 'uppercase' },
+  clockBox: { minWidth: 70, alignItems: 'center', backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.borderSoft, borderRadius: 6, paddingVertical: spacing.sm, paddingHorizontal: spacing.md },
+  clockBoxHot: { backgroundColor: colors.danger, borderColor: colors.danger },
+  timer: { color: colors.text, fontSize: 20, fontWeight: '900' },
   timerHot: { color: colors.white },
-  gameStatStrip: { flexDirection: 'row', borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 18, overflow: 'hidden' },
+  gameStatStrip: { flexDirection: 'row', borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 7, overflow: 'hidden' },
   miniStat: { flex: 1, paddingVertical: spacing.sm, alignItems: 'center', borderRightWidth: 1, borderRightColor: colors.borderSoft },
-  miniValue: { color: colors.text, fontSize: 16, fontWeight: '900' },
-  miniLabel: { color: colors.muted, fontSize: 10, fontWeight: '900', textTransform: 'uppercase', marginTop: 2 },
+  miniValue: { color: colors.text, fontSize: 15, fontWeight: '900' },
+  miniLabel: { color: colors.muted, fontSize: 9, fontWeight: '900', textTransform: 'uppercase', marginTop: 2, letterSpacing: 1 },
   hotText: { color: colors.ranchGoldBright },
-  turnText: { color: colors.warning, fontSize: 16, fontWeight: '900' },
-  questionCard: { borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface, borderRadius: 22, padding: spacing.lg, minHeight: 152, justifyContent: 'center' },
-  questionNumber: { color: colors.ranchGold, fontSize: 11, fontWeight: '900', letterSpacing: 1.2, marginBottom: spacing.sm },
-  question: { color: colors.text, fontSize: 24, fontWeight: '900', lineHeight: 31 },
-  feedbackPill: { borderRadius: 14, padding: spacing.md, borderWidth: 1 },
+  turnText: { color: colors.warning, fontSize: 14, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 },
+  questionCard: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 8, padding: spacing.md, minHeight: 142, justifyContent: 'center', borderLeftWidth: 4, borderLeftColor: colors.ranchGoldDim },
+  questionNumber: { color: colors.ranchGold, fontSize: 10, fontWeight: '900', letterSpacing: 1.4, marginBottom: spacing.sm },
+  question: { color: colors.text, fontSize: 23, fontWeight: '900', lineHeight: 29 },
+  feedbackPill: { borderRadius: 6, padding: spacing.sm, borderWidth: 1 },
   feedbackGood: { borderColor: colors.success, backgroundColor: colors.successDim },
   feedbackBad: { borderColor: colors.danger, backgroundColor: colors.dangerDim },
-  feedbackText: { color: colors.text, fontWeight: '900', fontSize: 13 },
-  answerGrid: { gap: spacing.sm },
-  answerButton: { backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.borderSoft, borderRadius: 16, padding: spacing.md, flexDirection: 'row', alignItems: 'center', gap: spacing.md },
-  answerLetter: { color: colors.bg, backgroundColor: colors.ranchGold, overflow: 'hidden', width: 28, height: 28, borderRadius: 14, textAlign: 'center', lineHeight: 28, fontWeight: '900' },
+  feedbackText: { color: colors.text, fontWeight: '900', fontSize: 12, textTransform: 'uppercase' },
+  answerGrid: { gap: 7 },
+  answerButton: { backgroundColor: colors.surfaceRaised, borderWidth: 1, borderColor: colors.borderSoft, borderRadius: 7, paddingVertical: 12, paddingHorizontal: spacing.md, flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  answerLetter: { color: colors.bg, backgroundColor: colors.ranchGold, overflow: 'hidden', width: 26, height: 26, borderRadius: 4, textAlign: 'center', lineHeight: 26, fontWeight: '900' },
   answerText: { color: colors.text, fontSize: 15, fontWeight: '900', flex: 1 },
-  gameActionRow: { marginTop: 'auto', flexDirection: 'row', gap: spacing.sm },
-  reportButton: { flex: 1, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, paddingVertical: spacing.md, borderRadius: 14, alignItems: 'center' },
-  reportText: { color: colors.dim, fontWeight: '900', fontSize: 12, textTransform: 'uppercase' },
-  skipButton: { flex: 1, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surfaceRaised, paddingVertical: spacing.md, borderRadius: 14, alignItems: 'center' },
-  skipText: { color: colors.ranchGoldBright, fontWeight: '900', textTransform: 'uppercase' },
-  resultBurn: { color: colors.ranchGoldBright, fontSize: 21, fontWeight: '900', lineHeight: 28 },
-  resultHero: { borderWidth: 2, borderColor: colors.border, backgroundColor: colors.surface, borderRadius: 24, padding: spacing.lg, alignItems: 'center', gap: spacing.xs },
-  resultScore: { color: colors.text, fontSize: 58, fontWeight: '900', lineHeight: 62 },
-  resultLabel: { color: colors.muted, fontSize: 11, fontWeight: '900', letterSpacing: 1.6 },
-  resultXp: { color: colors.ranchGoldBright, fontWeight: '900', marginTop: spacing.xs },
-  progressTrack: { width: '100%', height: 10, backgroundColor: colors.surfaceRaised, borderRadius: 999, marginTop: spacing.sm, overflow: 'hidden' },
-  progressFill: { height: '100%', backgroundColor: colors.ranchGold, borderRadius: 999 },
-  challengeCode: { color: colors.text, fontSize: 24, fontWeight: '900', letterSpacing: 1 },
-  muted: { color: colors.muted, lineHeight: 19, fontSize: 13, fontWeight: '700' },
-  primaryAction: { backgroundColor: colors.ranchGold, borderRadius: 18, padding: spacing.lg, alignItems: 'center' },
-  primaryActionText: { color: colors.bg, fontSize: 17, fontWeight: '900', textTransform: 'uppercase' },
-  secondaryAction: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 18, padding: spacing.md, alignItems: 'center' },
-  secondaryActionText: { color: colors.text, fontSize: 15, fontWeight: '900' },
+  gameActionRow: { marginTop: 'auto', flexDirection: 'row', gap: spacing.sm, borderTopWidth: 1, borderTopColor: colors.borderSoft, paddingTop: spacing.sm },
+  reportButton: { flex: 1, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, paddingVertical: spacing.md, borderRadius: 6, alignItems: 'center' },
+  reportText: { color: colors.dim, fontWeight: '900', fontSize: 11, textTransform: 'uppercase', letterSpacing: 1 },
+  reportFlash: { color: colors.ranchGoldBright, fontSize: 10, fontWeight: '900', letterSpacing: 1.4, textAlign: 'center', textTransform: 'uppercase' },
+  skipButton: { flex: 1, borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, paddingVertical: spacing.md, borderRadius: 6, alignItems: 'center' },
+  skipText: { color: colors.ranchGoldBright, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 },
+  resultBurn: { color: colors.ranchGoldBright, fontSize: 24, fontWeight: '900', lineHeight: 30, letterSpacing: 1.2, textTransform: 'uppercase' },
+  resultHero: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 8, padding: spacing.lg, alignItems: 'center', gap: spacing.xs, borderTopWidth: 4, borderTopColor: colors.ranchGoldDim },
+  resultScore: { color: colors.text, fontSize: 60, fontWeight: '900', lineHeight: 62 },
+  resultLabel: { color: colors.muted, fontSize: 10, fontWeight: '900', letterSpacing: 1.7 },
+  resultXp: { color: colors.ranchGoldBright, fontWeight: '900', marginTop: spacing.xs, fontSize: 12, letterSpacing: 0.8 },
+  progressTrack: { width: '100%', height: 6, backgroundColor: colors.surfaceRaised, borderRadius: 3, marginTop: spacing.sm, overflow: 'hidden' },
+  progressFill: { height: '100%', backgroundColor: colors.ranchGold, borderRadius: 2 },
+  challengeCode: { color: colors.text, fontSize: 22, fontWeight: '900', letterSpacing: 1 },
+  muted: { color: colors.muted, lineHeight: 17, fontSize: 12, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 1 },
+  primaryAction: { backgroundColor: colors.ranchGold, borderRadius: 6, padding: spacing.lg, alignItems: 'center' },
+  primaryActionText: { color: colors.bg, fontSize: 16, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 },
+  secondaryAction: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 6, padding: spacing.md, alignItems: 'center' },
+  secondaryActionText: { color: colors.text, fontSize: 14, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 1 },
 });

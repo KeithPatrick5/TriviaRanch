@@ -64,5 +64,6 @@ export type PlayerStats = {
   bestBlitzScore: number;
   bestSurvivalStreak: number;
   dailyStreak: number;
+  lastDailyBlitzDate?: string;
   xp: number;
 };

@@ -54,7 +54,7 @@ for forbidden in ['node_modules', 'package-lock.json', 'tsconfig.tsbuildinfo']:
         errors.append(f'Forbidden artifact present: {forbidden}')
 
 for expected in [
-    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md',
+    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md','docs/RANCH_FIGHT_BOARD_AUDIT.md','docs/PRE_QUESTION_STABILITY_AUDIT.md',
     'supabase/schema.sql','App.tsx','src/services/triviaApi.ts','src/types/env.d.ts'
 ]:
     if not (root / expected).exists():
@@ -73,11 +73,29 @@ required_app_markers = [
     'dailyHero',
     'gameStatStrip',
     'resultHero',
+    'categoryList',
+    'categoryRow',
+    'RUN HELD',
+    'finishLockRef',
+    'lastDailyBlitzDate',
+    'challenge-enter',
+    'reportFlash',
 ]
 for marker in required_app_markers:
     if marker not in app_text:
         errors.append(f'Missing app implementation marker: {marker}')
 
+
+
+# Ranch Fight Board GUI checks: prevent the old bubbly/pill-heavy style from creeping back.
+if 'borderRadius: 999' in app_text:
+    errors.append('Bubbly pill radius found in App.tsx')
+for forbidden_copy in ['One more correct answer would have buried them', 'Backend Status', 'Official Score', 'Local fallback', 'Supabase functions configured']:
+    if forbidden_copy in app_text:
+        errors.append(f'Forbidden visible/debug copy remains: {forbidden_copy}')
+for marker in ['categoryList', 'categoryRow', 'borderLeftWidth: 4', 'progressTrack', 'RUN HELD']:
+    if marker not in app_text:
+        errors.append(f'Missing Ranch Fight Board marker: {marker}')
 
 colors_text = (root / 'src/theme/colors.ts').read_text()
 for marker in ['#070604', 'surfaceRaised', 'ranchGoldBright', 'dangerDim', 'successDim']:
@@ -88,7 +106,7 @@ if not (root / 'src/theme/spacing.ts').exists():
     errors.append('Missing GUI spacing scale: src/theme/spacing.ts')
 
 schema_text = (root / 'supabase/schema.sql').read_text()
-for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx', 'official_score', 'assigned_question_ids', 'daily_challenges', 'suspicion_flags']:
+for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx', 'official_score', 'assigned_question_ids', 'daily_challenges', 'suspicion_flags', "validation_status = 'official'"]:
     if marker not in schema_text:
         errors.append(f'Missing backend schema marker: {marker}')
 
@@ -126,4 +144,4 @@ if errors:
         print(f'- {error}')
     raise SystemExit(1)
 
-print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass.')
+print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass, ranch fight board GUI pass, pre-question stability pass.')

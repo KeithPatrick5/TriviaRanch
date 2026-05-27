@@ -33,7 +33,7 @@ Deno.serve(async (req) => {
 
     if (sessionError || !session) return jsonResponse({ error: 'session_not_found' }, 404);
     if (session.user_id !== playerId) return jsonResponse({ error: 'player_session_mismatch' }, 403);
-    if (!['official', 'flagged'].includes(session.validation_status)) return jsonResponse({ error: 'session_not_official' }, 409);
+    if (session.validation_status !== 'official') return jsonResponse({ error: 'session_not_official' }, 409);
 
     const expected = JSON.stringify(challenge.question_ids ?? []);
     const actual = JSON.stringify(session.assigned_question_ids ?? []);

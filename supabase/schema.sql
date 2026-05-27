@@ -108,7 +108,7 @@ create table if not exists entitlements (
 
 create index if not exists questions_category_status_idx on questions(category, status);
 create index if not exists game_sessions_user_created_idx on game_sessions(user_id, created_at desc);
-create index if not exists game_sessions_official_score_idx on game_sessions(category, official_score desc) where validation_status in ('official', 'flagged');
+create index if not exists game_sessions_official_score_idx on game_sessions(category, official_score desc) where validation_status = 'official';
 create index if not exists game_sessions_validation_idx on game_sessions(validation_status, created_at desc);
 create index if not exists daily_challenges_date_category_idx on daily_challenges(challenge_date, category);
 create index if not exists challenges_code_idx on challenges(challenge_code);
@@ -141,7 +141,7 @@ do $$ begin
 exception when duplicate_object then null; end $$;
 
 do $$ begin
-  create policy "read official leaderboard sessions" on game_sessions for select using (validation_status in ('official', 'flagged'));
+  create policy "read official leaderboard sessions" on game_sessions for select using (validation_status = 'official');
 exception when duplicate_object then null; end $$;
 
 do $$ begin
