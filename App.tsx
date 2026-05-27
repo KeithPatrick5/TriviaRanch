@@ -651,37 +651,58 @@ export default function App() {
 
 function LoadingScreen({ onDone }: { onDone: () => void }) {
   const progress = useRef(new Animated.Value(0)).current;
+  const fade = useRef(new Animated.Value(1)).current;
   const fillWidth = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] });
   const knobLeft = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] });
-  const pulseScale = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.9, 1.24, 0.96] });
-  const pulseOpacity = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.18, 0.85, 0.25] });
+  const pulseScale = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.88, 1.28, 0.95] });
+  const pulseOpacity = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.16, 0.92, 0.25] });
 
   useEffect(() => {
+    let doneTimer: ReturnType<typeof setTimeout> | undefined;
     progress.setValue(0);
-    const startDelay = setTimeout(() => {
+    fade.setValue(1);
+
+    const animation = Animated.sequence([
+      Animated.delay(450),
       Animated.timing(progress, {
         toValue: 1,
-        duration: 3600,
+        duration: 4200,
         easing: Easing.inOut(Easing.cubic),
         useNativeDriver: false,
-      }).start(({ finished }) => {
-        if (finished) setTimeout(onDone, 320);
-      });
-    }, 280);
-    return () => clearTimeout(startDelay);
-  }, [onDone, progress]);
+      }),
+      Animated.delay(260),
+      Animated.timing(fade, {
+        toValue: 0,
+        duration: 360,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: true,
+      }),
+    ]);
+
+    animation.start(({ finished }) => {
+      if (finished) doneTimer = setTimeout(onDone, 80);
+    });
+
+    return () => {
+      animation.stop();
+      if (doneTimer) clearTimeout(doneTimer);
+    };
+  }, [fade, onDone, progress]);
 
   return (
-    <ImageBackground source={LOADING_SCREEN} style={styles.loadingScreen} imageStyle={styles.loadingImage} resizeMode="cover">
-      <View pointerEvents="none" style={styles.loadingBarOverlay}>
-        <View style={styles.loadingBarTrack} />
-        <Animated.View style={[styles.loadingBarFill, { width: fillWidth }]} />
-        <Animated.View style={[styles.loadingKnobWrap, { left: knobLeft }]}>
-          <Animated.View style={[styles.loadingPulse, { opacity: pulseOpacity, transform: [{ scale: pulseScale }] }]} />
-          <View style={styles.loadingKnob} />
-        </Animated.View>
-      </View>
-    </ImageBackground>
+    <Animated.View style={[styles.loadingScreen, { opacity: fade }]}>
+      <ImageBackground source={LOADING_SCREEN} style={styles.loadingScreen} imageStyle={styles.loadingImage} resizeMode="cover">
+        <View pointerEvents="none" style={styles.loadingBarOverlay}>
+          <View style={styles.loadingBarTrack} />
+          <Animated.View style={[styles.loadingBarFill, { width: fillWidth }]} />
+          <Animated.View style={[styles.loadingKnobWrap, { left: knobLeft }]}>
+            <Animated.View style={[styles.loadingPulseOuter, { opacity: pulseOpacity, transform: [{ scale: pulseScale }] }]} />
+            <Animated.View style={[styles.loadingPulse, { opacity: pulseOpacity, transform: [{ scale: pulseScale }] }]} />
+            <View style={styles.loadingKnob} />
+          </Animated.View>
+        </View>
+      </ImageBackground>
+    </Animated.View>
   );
 }
 
@@ -1028,12 +1049,13 @@ const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#020013' },
   loadingScreen: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013' },
   loadingImage: { width: '100%', height: '100%' },
-  loadingBarOverlay: { position: 'absolute', left: '24.5%', top: '66.9%', width: '51%', height: 24, justifyContent: 'center', zIndex: 10 },
-  loadingBarTrack: { position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 3, backgroundColor: 'rgba(18, 6, 45, 0.96)', shadowColor: '#2b0d62', shadowOpacity: 0.65, shadowRadius: 6 },
-  loadingBarFill: { height: 4, borderRadius: 3, backgroundColor: 'rgba(255, 32, 190, 0.95)', shadowColor: '#ff2fc7', shadowOpacity: 0.95, shadowRadius: 10 },
-  loadingKnobWrap: { position: 'absolute', width: 24, height: 24, marginLeft: -12, alignItems: 'center', justifyContent: 'center' },
-  loadingPulse: { position: 'absolute', width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: 'rgba(255, 77, 225, 0.5)', backgroundColor: 'rgba(255, 60, 220, 0.06)' },
-  loadingKnob: { width: 12, height: 12, borderRadius: 6, backgroundColor: '#fff3ff', shadowColor: '#ff35d2', shadowOpacity: 1, shadowRadius: 12 },
+  loadingBarOverlay: { position: 'absolute', left: '20.8%', top: '70.25%', width: '58.4%', height: 34, justifyContent: 'center', zIndex: 10 },
+  loadingBarTrack: { position: 'absolute', left: 0, right: 0, height: 3, borderRadius: 2, backgroundColor: 'rgba(69, 18, 89, 0.45)' },
+  loadingBarFill: { height: 4, borderRadius: 3, backgroundColor: '#ff2fbf', shadowColor: '#ff2fc7', shadowOpacity: 1, shadowRadius: 13 },
+  loadingKnobWrap: { position: 'absolute', width: 34, height: 34, marginLeft: -17, alignItems: 'center', justifyContent: 'center' },
+  loadingPulse: { position: 'absolute', width: 30, height: 30, borderRadius: 15, borderWidth: 1, borderColor: 'rgba(255, 92, 226, 0.42)', backgroundColor: 'rgba(255, 60, 220, 0.04)' },
+  loadingPulseOuter: { position: 'absolute', width: 50, height: 50, borderRadius: 25, borderWidth: 1, borderColor: 'rgba(255, 45, 210, 0.18)', backgroundColor: 'rgba(255, 60, 220, 0.025)' },
+  loadingKnob: { width: 13, height: 13, borderRadius: 7, backgroundColor: '#fff7ff', shadowColor: '#ff3bd4', shadowOpacity: 1, shadowRadius: 15 },
   mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'center' },
   mockupCanvas: { position: 'relative', overflow: 'hidden', backgroundColor: '#020013' },
   mockupImage: { width: '100%', height: '100%' },

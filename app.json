@@ -21,9 +21,8 @@
       },
       "permissions": [],
       "splash": {
-        "image": "./assets/brand/splash.png",
         "backgroundColor": "#020013",
-        "resizeMode": "cover"
+        "resizeMode": "contain"
       }
     },
     "extra": {
@@ -33,9 +32,8 @@
     },
     "icon": "./assets/brand/app-icon.png",
     "splash": {
-      "image": "./assets/brand/splash.png",
       "backgroundColor": "#020013",
-      "resizeMode": "cover"
+      "resizeMode": "contain"
     },
     "androidStatusBar": {
       "barStyle": "light-content",
@@ -46,9 +44,8 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/brand/splash.png",
           "backgroundColor": "#020013",
-          "resizeMode": "cover"
+          "resizeMode": "contain"
         }
       ],
       "./plugins/withCleanAndroidLaunchSplash"
