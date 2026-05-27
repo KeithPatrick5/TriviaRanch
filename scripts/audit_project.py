@@ -54,7 +54,7 @@ for forbidden in ['node_modules', 'package-lock.json', 'tsconfig.tsbuildinfo']:
         errors.append(f'Forbidden artifact present: {forbidden}')
 
 for expected in [
-    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md',
+    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md',
     'supabase/schema.sql','App.tsx','src/services/triviaApi.ts','src/types/env.d.ts'
 ]:
     if not (root / expected).exists():
@@ -66,15 +66,16 @@ required_app_markers = [
     'AsyncStorage.setItem(STATS_STORAGE_KEY',
     'TextInput',
     'submitQuestionReport',
-    'loadQuestionSet',
+    'startOfficialGameSession',
     'submitGameResult',
+    'activeSessionId',
 ]
 for marker in required_app_markers:
     if marker not in app_text:
         errors.append(f'Missing app implementation marker: {marker}')
 
 schema_text = (root / 'supabase/schema.sql').read_text()
-for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx']:
+for marker in ['enable row level security', 'game_sessions', 'question_reports', 'entitlements', 'questions_category_status_idx', 'official_score', 'assigned_question_ids', 'daily_challenges', 'suspicion_flags']:
     if marker not in schema_text:
         errors.append(f'Missing backend schema marker: {marker}')
 
@@ -93,4 +94,23 @@ if warnings:
     for warning in warnings:
         print(f'- {warning}')
 print('No node_modules, package-lock.json, or tsconfig.tsbuildinfo present.')
-print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, score submit, backend schema.')
+
+function_files = [
+    'supabase/functions/create-game-session/index.ts',
+    'supabase/functions/submit-game-session/index.ts',
+    'supabase/functions/create-challenge/index.ts',
+    'supabase/functions/submit-challenge/index.ts',
+    'supabase/functions/submit-question-report/index.ts',
+    'supabase/functions/_shared/scoring.ts',
+]
+for file in function_files:
+    if not (root / file).exists():
+        errors.append(f'Missing backend function file: {file}')
+
+if errors:
+    print('AUDIT FAILED')
+    for error in errors:
+        print(f'- {error}')
+    raise SystemExit(1)
+
+print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions.')

@@ -50,6 +50,11 @@ export type GameResult = {
   totalQuestions: number;
   durationMs: number;
   answers: GameAnswer[];
+  sessionId?: string | null;
+  officialScore?: number;
+  validationStatus?: 'local_only' | 'pending' | 'official' | 'flagged' | 'rejected';
+  suspicionFlags?: string[];
+  challengeCode?: string | null;
 };
 
 export type PlayerStats = {

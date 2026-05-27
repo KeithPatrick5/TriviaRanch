@@ -9,7 +9,7 @@ import { MAIN_CATEGORIES } from './src/data/categories';
 import { getDailySeed, getQuestionSet, questionCount } from './src/engine/questions';
 import { BLITZ_DURATION_MS, SURVIVAL_LIVES, buildAnswer, rankFromXp, resultLine } from './src/engine/scoring';
 import { GameAnswer, GameMode, GameResult, MainCategory, PlayerStats, Question } from './src/types/game';
-import { ensureAnonymousPlayer, loadQuestionSet, submitGameResult, submitQuestionReport } from './src/services/triviaApi';
+import { createChallengeFromSession, ensureAnonymousPlayer, startOfficialGameSession, submitGameResult, submitQuestionReport } from './src/services/triviaApi';
 
 type Screen = 'home' | 'categories' | 'game' | 'result' | 'party-setup';
 
@@ -54,6 +54,8 @@ export default function App() {
   const [reportedQuestionIds, setReportedQuestionIds] = useState<string[]>([]);
   const [statsLoaded, setStatsLoaded] = useState(false);
   const [playerId, setPlayerId] = useState<string>('local-player');
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
+  const [sessionSource, setSessionSource] = useState<'edge_function' | 'rest_fallback' | 'local_fallback'>('local_fallback');
 
   const currentQuestion = questions[index];
   const remainingMs = Math.max(0, BLITZ_DURATION_MS - (timerNow - startedAt));
@@ -118,7 +120,10 @@ export default function App() {
     const seed = mode === 'daily-blitz' ? getDailySeed() : Date.now();
     const count = mode === 'survival' ? 30 : mode === 'pass-the-phone' ? 24 : 20;
     setCategory(nextCategory);
-    setQuestions(await loadQuestionSet(nextCategory, count, seed));
+    const officialSession = await startOfficialGameSession(playerId, mode, nextCategory, count, seed);
+    setQuestions(officialSession.questions);
+    setActiveSessionId(officialSession.sessionId);
+    setSessionSource(officialSession.source);
     setIndex(0);
     setAnswers([]);
     setScore(0);
@@ -195,9 +200,30 @@ export default function App() {
       totalQuestions: finalAnswers.length,
       durationMs: Date.now() - startedAt,
       answers: finalAnswers,
+      sessionId: activeSessionId,
+      validationStatus: activeSessionId ? 'pending' : 'local_only',
     };
     setResult(nextResult);
-    submitGameResult(playerId, nextResult).catch(() => undefined);
+    submitGameResult(playerId, nextResult)
+      .then(async (official) => {
+        let challengeCode = official.challengeCode ?? null;
+        if (mode === 'challenge' && activeSessionId && official.status !== 'rejected') {
+          const challenge = await createChallengeFromSession(playerId, activeSessionId);
+          challengeCode = challenge?.challengeCode ?? challengeCode;
+        }
+        setResult((current) =>
+          current
+            ? {
+                ...current,
+                officialScore: official.officialScore,
+                validationStatus: official.status,
+                suspicionFlags: official.suspicionFlags,
+                challengeCode,
+              }
+            : current,
+        );
+      })
+      .catch(() => undefined);
     setStats((current) => ({
       totalGames: current.totalGames + 1,
       totalCorrect: current.totalCorrect + correct,
@@ -348,6 +374,12 @@ export default function App() {
             <Stat label="Correct" value={String(result.correct)} />
             <Stat label="Streak" value={String(result.maxStreak)} />
           </View>
+          <View style={styles.panel}>
+            <Text style={styles.panelTitle}>Backend Status</Text>
+            <Text style={styles.muted}>Session: {result.sessionId ? result.sessionId.slice(0, 8) : 'local only'} · Source: {sessionSource}</Text>
+            <Text style={styles.muted}>Validation: {result.validationStatus ?? 'local_only'}{typeof result.officialScore === 'number' ? ` · Official ${result.officialScore}` : ''}</Text>
+            {!!result.suspicionFlags?.length && <Text style={styles.muted}>Flags: {result.suspicionFlags.join(', ')}</Text>}
+          </View>
           {mode === 'pass-the-phone' && (
             <View style={styles.panel}>
               <Text style={styles.panelTitle}>Local Scoreboard</Text>
@@ -359,8 +391,8 @@ export default function App() {
           {mode === 'challenge' && (
             <View style={styles.panel}>
               <Text style={styles.panelTitle}>Challenge Code</Text>
-              <Text style={styles.challengeCode}>RANCH-{result.score}-{result.correct}</Text>
-              <Text style={styles.muted}>Share this code for now. Backend deep links are scoped as the next online phase.</Text>
+              <Text style={styles.challengeCode}>{result.challengeCode ?? `LOCAL-${result.score}-${result.correct}`}</Text>
+              <Text style={styles.muted}>{result.challengeCode ? 'Backend challenge created. Opponent flow comes next.' : 'Local fallback code. Backend challenge creation needs Supabase functions configured.'}</Text>
             </View>
           )}
           <ModeCard title="Run it back" body="Same mode. Same attitude." onPress={() => startGame(result.category)} />
