@@ -16,11 +16,12 @@
     "android": {
       "package": "com.neontrivia.app",
       "adaptiveIcon": {
-        "backgroundColor": "#07051F",
-        "foregroundImage": "./assets/brand/adaptive-icon.png"
+        "foregroundImage": "./assets/brand/adaptive-icon.png",
+        "backgroundColor": "#020013"
       },
       "permissions": [],
       "splash": {
+        "image": "./assets/brand/native-splash-icon.png",
         "backgroundColor": "#020013",
         "resizeMode": "contain"
       }
@@ -32,6 +33,7 @@
     },
     "icon": "./assets/brand/app-icon.png",
     "splash": {
+      "image": "./assets/brand/native-splash-icon.png",
       "backgroundColor": "#020013",
       "resizeMode": "contain"
     },
@@ -44,6 +46,7 @@
       [
         "expo-splash-screen",
         {
+          "image": "./assets/brand/native-splash-icon.png",
           "backgroundColor": "#020013",
           "resizeMode": "contain"
         }
