@@ -188,8 +188,7 @@ export default function App() {
   const [partyTurnIndex, setPartyTurnIndex] = useState(0);
   const [pendingPartyAdvance, setPendingPartyAdvance] = useState(false);
   const finishLockRef = useRef(false);
-  const loadingProgress = useRef(new Animated.Value(0)).current;
-  const [minSplashElapsed, setMinSplashElapsed] = useState(false);
+  const [introComplete, setIntroComplete] = useState(false);
   const [bootReady, setBootReady] = useState(false);
 
   const currentQuestion = questions[index];
@@ -205,23 +204,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const animation = Animated.timing(loadingProgress, {
-      toValue: 1,
-      duration: 3200,
-      easing: Easing.inOut(Easing.cubic),
-      useNativeDriver: false,
-    });
-    animation.start();
-    const timer = setTimeout(() => setMinSplashElapsed(true), 3200);
-    return () => {
-      animation.stop();
-      clearTimeout(timer);
-    };
-  }, [loadingProgress]);
-
-  useEffect(() => {
-    if (statsLoaded && minSplashElapsed) setBootReady(true);
-  }, [statsLoaded, minSplashElapsed]);
+    if (statsLoaded && introComplete) setBootReady(true);
+  }, [statsLoaded, introComplete]);
 
   useEffect(() => {
     if (!statsLoaded) return;
@@ -567,7 +551,7 @@ export default function App() {
         <StatusBar style="light" backgroundColor="#020013" translucent={false} />
 
         {!bootReady ? (
-          <LoadingScreen progress={loadingProgress} />
+          <LoadingScreen onDone={() => setIntroComplete(true)} />
         ) : (
           <>
         {screen === 'home' && (
@@ -665,15 +649,32 @@ export default function App() {
 }
 
 
-function LoadingScreen({ progress }: { progress: Animated.Value }) {
-  const fillWidth = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '62%'] });
-  const knobLeft = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '62%'] });
-  const pulseScale = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.88, 1.18, 0.88] });
-  const pulseOpacity = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.35, 0.9, 0.35] });
+function LoadingScreen({ onDone }: { onDone: () => void }) {
+  const progress = useRef(new Animated.Value(0)).current;
+  const fillWidth = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] });
+  const knobLeft = progress.interpolate({ inputRange: [0, 1], outputRange: ['0%', '100%'] });
+  const pulseScale = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.9, 1.24, 0.96] });
+  const pulseOpacity = progress.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.18, 0.85, 0.25] });
+
+  useEffect(() => {
+    progress.setValue(0);
+    const startDelay = setTimeout(() => {
+      Animated.timing(progress, {
+        toValue: 1,
+        duration: 3600,
+        easing: Easing.inOut(Easing.cubic),
+        useNativeDriver: false,
+      }).start(({ finished }) => {
+        if (finished) setTimeout(onDone, 320);
+      });
+    }, 280);
+    return () => clearTimeout(startDelay);
+  }, [onDone, progress]);
 
   return (
     <ImageBackground source={LOADING_SCREEN} style={styles.loadingScreen} imageStyle={styles.loadingImage} resizeMode="cover">
       <View pointerEvents="none" style={styles.loadingBarOverlay}>
+        <View style={styles.loadingBarTrack} />
         <Animated.View style={[styles.loadingBarFill, { width: fillWidth }]} />
         <Animated.View style={[styles.loadingKnobWrap, { left: knobLeft }]}>
           <Animated.View style={[styles.loadingPulse, { opacity: pulseOpacity, transform: [{ scale: pulseScale }] }]} />
@@ -1027,11 +1028,12 @@ const styles = StyleSheet.create({
   safeArea: { flex: 1, backgroundColor: '#020013' },
   loadingScreen: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013' },
   loadingImage: { width: '100%', height: '100%' },
-  loadingBarOverlay: { position: 'absolute', left: '23.7%', top: '72.0%', width: '45.7%', height: 18, justifyContent: 'center', zIndex: 10 },
-  loadingBarFill: { height: 3, borderRadius: 2, backgroundColor: 'rgba(255, 36, 187, 0.8)', shadowColor: '#ff2fc7', shadowOpacity: 0.75, shadowRadius: 8 },
-  loadingKnobWrap: { position: 'absolute', width: 20, height: 20, marginLeft: -10, alignItems: 'center', justifyContent: 'center' },
-  loadingPulse: { position: 'absolute', width: 30, height: 30, borderRadius: 15, borderWidth: 1, borderColor: 'rgba(255, 70, 220, 0.45)', backgroundColor: 'rgba(255, 70, 220, 0.05)' },
-  loadingKnob: { width: 10, height: 10, borderRadius: 5, backgroundColor: '#fff2ff', shadowColor: '#ff35d2', shadowOpacity: 0.9, shadowRadius: 10 },
+  loadingBarOverlay: { position: 'absolute', left: '24.5%', top: '66.9%', width: '51%', height: 24, justifyContent: 'center', zIndex: 10 },
+  loadingBarTrack: { position: 'absolute', left: 0, right: 0, height: 4, borderRadius: 3, backgroundColor: 'rgba(18, 6, 45, 0.96)', shadowColor: '#2b0d62', shadowOpacity: 0.65, shadowRadius: 6 },
+  loadingBarFill: { height: 4, borderRadius: 3, backgroundColor: 'rgba(255, 32, 190, 0.95)', shadowColor: '#ff2fc7', shadowOpacity: 0.95, shadowRadius: 10 },
+  loadingKnobWrap: { position: 'absolute', width: 24, height: 24, marginLeft: -12, alignItems: 'center', justifyContent: 'center' },
+  loadingPulse: { position: 'absolute', width: 34, height: 34, borderRadius: 17, borderWidth: 1, borderColor: 'rgba(255, 77, 225, 0.5)', backgroundColor: 'rgba(255, 60, 220, 0.06)' },
+  loadingKnob: { width: 12, height: 12, borderRadius: 6, backgroundColor: '#fff3ff', shadowColor: '#ff35d2', shadowOpacity: 1, shadowRadius: 12 },
   mockupShell: { flex: 1, width: '100%', height: '100%', backgroundColor: '#020013', alignItems: 'center', justifyContent: 'center' },
   mockupCanvas: { position: 'relative', overflow: 'hidden', backgroundColor: '#020013' },
   mockupImage: { width: '100%', height: '100%' },

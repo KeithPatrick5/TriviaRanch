@@ -50,7 +50,8 @@
           "backgroundColor": "#020013",
           "resizeMode": "cover"
         }
-      ]
+      ],
+      "./plugins/withCleanAndroidLaunchSplash"
     ]
   }
 }
