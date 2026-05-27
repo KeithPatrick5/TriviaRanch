@@ -23,15 +23,16 @@ function listFiles(dir, out = []) {
   return out;
 }
 
-function transparentVectorXml() {
+function emptyVectorXml() {
+  // Do not draw a path. Android 12's splash screen can still paint a masked icon
+  // background if an adaptive/launcher icon is used. A true empty vector plus a
+  // dark icon background prevents the white-circle native splash flash.
   return `<?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <path android:fillColor="#00000000" android:pathData="M0,0h108v108h-108z" />
-</vector>
+    android:width="1dp"
+    android:height="1dp"
+    android:viewportWidth="1"
+    android:viewportHeight="1" />
 `;
 }
 
@@ -50,6 +51,8 @@ function patchColors(file) {
 
   const colors = {
     splashscreen_background: DARK,
+    splashscreen_icon_background: DARK,
+    splashscreen_icon_background_color: DARK,
     notification_icon_color: '#ffffff',
   };
 
@@ -62,38 +65,62 @@ function patchColors(file) {
   fs.writeFileSync(file, xml);
 }
 
-function patchStyleXml(file) {
-  if (!fs.existsSync(file)) return;
-  let xml = fs.readFileSync(file, 'utf8');
+function setOrAddItem(body, name, value) {
+  const re = new RegExp(`<item name="${name}">.*?<\\/item>`, 'g');
+  if (re.test(body)) return body.replace(re, `<item name="${name}">${value}</item>`);
+  return `${body}\n        <item name="${name}">${value}</item>`;
+}
 
+function patchStyleBody(body) {
   const items = {
     'android:windowBackground': '@drawable/splashscreen',
+    'android:colorAccent': '@color/splashscreen_background',
     windowSplashScreenBackground: '@color/splashscreen_background',
     'android:windowSplashScreenBackground': '@color/splashscreen_background',
-    windowSplashScreenAnimatedIcon: '@drawable/empty_splash_icon',
-    'android:windowSplashScreenAnimatedIcon': '@drawable/empty_splash_icon',
-    windowSplashScreenIconBackgroundColor: '@android:color/transparent',
-    'android:windowSplashScreenIconBackgroundColor': '@android:color/transparent',
+    windowSplashScreenAnimatedIcon: '@drawable/transparent_splash_icon',
+    'android:windowSplashScreenAnimatedIcon': '@drawable/transparent_splash_icon',
+    windowSplashScreenIconBackgroundColor: '@color/splashscreen_background',
+    'android:windowSplashScreenIconBackgroundColor': '@color/splashscreen_background',
+    windowSplashScreenBrandingImage: '@drawable/transparent_splash_icon',
+    'android:windowSplashScreenBrandingImage': '@drawable/transparent_splash_icon',
   };
 
+  let patched = body;
   for (const [name, value] of Object.entries(items)) {
-    const re = new RegExp(`<item name="${name}">.*?<\\/item>`, 'g');
-    xml = xml.replace(re, `<item name="${name}">${value}</item>`);
+    patched = setOrAddItem(patched, name, value);
   }
+  if (!patched.includes('postSplashScreenTheme')) {
+    patched = `${patched}\n        <item name="postSplashScreenTheme">@style/AppTheme</item>`;
+  }
+  return patched;
+}
 
-  // Ensure every SplashScreen style has the transparent icon settings even if Expo did not create them.
-  xml = xml.replace(/(<style[^>]+parent="[^"]*Theme\.SplashScreen[^"]*"[^>]*>)([\s\S]*?)(<\/style>)/g, (match, open, body, close) => {
-    const additions = [];
-    for (const [name, value] of Object.entries(items)) {
-      if (!body.includes(`name="${name}"`)) additions.push(`        <item name="${name}">${value}</item>`);
-    }
-    if (!body.includes('postSplashScreenTheme')) additions.push('        <item name="postSplashScreenTheme">@style/AppTheme</item>');
-    return `${open}${body}${additions.length ? '\n' + additions.join('\n') + '\n' : ''}${close}`;
+function patchStyleXml(file) {
+  let xml = fs.existsSync(file)
+    ? fs.readFileSync(file, 'utf8')
+    : '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n</resources>\n';
+
+  let touched = false;
+
+  // Patch every existing splash/launch theme. Expo/React Native names vary by SDK/template.
+  xml = xml.replace(/(<style[^>]+name="[^"]*(?:Splash|Launch|Starting)[^"]*"[^>]*>)([\s\S]*?)(<\/style>)/gi, (match, open, body, close) => {
+    touched = true;
+    return `${open}${patchStyleBody(body)}\n    ${close}`;
   });
 
-  // If Expo did not create a splash style for some reason, create one.
+  // Some templates only have AppTheme at launch; patch it too so the system cannot fall back to launcher icon.
+  xml = xml.replace(/(<style[^>]+name="AppTheme"[^>]*>)([\s\S]*?)(<\/style>)/gi, (match, open, body, close) => {
+    return `${open}${setOrAddItem(body, 'android:windowBackground', '@drawable/splashscreen')}\n    ${close}`;
+  });
+
   if (!xml.includes('name="Theme.App.SplashScreen"')) {
-    xml = xml.replace('</resources>', `    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">\n        <item name="windowSplashScreenBackground">@color/splashscreen_background</item>\n        <item name="android:windowSplashScreenBackground">@color/splashscreen_background</item>\n        <item name="windowSplashScreenAnimatedIcon">@drawable/empty_splash_icon</item>\n        <item name="android:windowSplashScreenAnimatedIcon">@drawable/empty_splash_icon</item>\n        <item name="windowSplashScreenIconBackgroundColor">@android:color/transparent</item>\n        <item name="android:windowSplashScreenIconBackgroundColor">@android:color/transparent</item>\n        <item name="android:windowBackground">@drawable/splashscreen</item>\n        <item name="postSplashScreenTheme">@style/AppTheme</item>\n    </style>\n</resources>`);
+    touched = true;
+    xml = xml.replace('</resources>', `    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">\n${patchStyleBody('')}\n    </style>\n</resources>`);
+  }
+
+  if (!xml.includes('name="Theme.App.Starting"')) {
+    touched = true;
+    xml = xml.replace('</resources>', `    <style name="Theme.App.Starting" parent="Theme.SplashScreen">\n${patchStyleBody('')}\n    </style>\n</resources>`);
   }
 
   fs.writeFileSync(file, xml);
@@ -103,14 +130,11 @@ function patchManifest(file) {
   if (!fs.existsSync(file)) return;
   let xml = fs.readFileSync(file, 'utf8');
 
-  // Android 12's system splash falls back to the launcher icon in some Expo/Gradle combinations.
-  // During local testing, force a transparent launcher icon so the first native frame is a neutral dark screen,
-  // then the React loading screen becomes the first branded screen.
-  xml = xml.replace(/android:icon="[^"]*"/g, 'android:icon="@drawable/empty_splash_icon"');
-  xml = xml.replace(/android:roundIcon="[^"]*"/g, 'android:roundIcon="@drawable/empty_splash_icon"');
-
-  // Ensure MainActivity uses the splash theme.
+  // Keep launcher icons for the app drawer where possible, but force MainActivity to use our splash theme.
   xml = xml.replace(/(<activity[^>]+android:name="\.MainActivity"[\s\S]*?)(android:theme="[^"]*")/m, '$1android:theme="@style/Theme.App.SplashScreen"');
+
+  // If MainActivity somehow has no theme attribute, add it.
+  xml = xml.replace(/(<activity[^>]+android:name="\.MainActivity"(?![\s\S]*?android:theme=)[^>]*)(>)/m, '$1 android:theme="@style/Theme.App.SplashScreen"$2');
 
   fs.writeFileSync(file, xml);
 }
@@ -122,21 +146,56 @@ module.exports = function withCleanAndroidLaunchSplash(config) {
 
     ensureDir(resRoot);
 
-    // Dark-only native splash resources. The cinematic loading screen is handled by React immediately after launch.
-    write(path.join(resRoot, 'drawable', 'empty_splash_icon.xml'), transparentVectorXml());
-    write(path.join(resRoot, 'drawable', 'splashscreen_logo.xml'), transparentVectorXml());
+    // True transparent drawable used for Android 12+ native splash icon/branding.
+    write(path.join(resRoot, 'drawable', 'transparent_splash_icon.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable', 'empty_splash_icon.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable', 'splashscreen_logo.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable', 'ic_launcher_foreground.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable', 'ic_launcher_round.xml'), emptyVectorXml());
     write(path.join(resRoot, 'drawable', 'splashscreen.xml'), darkShapeXml());
 
-    // Also override common launcher foreground aliases that Android may use for its mandatory splash icon.
-    write(path.join(resRoot, 'drawable', 'ic_launcher_foreground.xml'), transparentVectorXml());
-    write(path.join(resRoot, 'drawable', 'ic_launcher_round.xml'), transparentVectorXml());
+    // Some Android templates use drawable-v31 resources for Android 12 splash.
+    write(path.join(resRoot, 'drawable-v31', 'transparent_splash_icon.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable-v31', 'empty_splash_icon.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable-v31', 'splashscreen_logo.xml'), emptyVectorXml());
+    write(path.join(resRoot, 'drawable-v31', 'splashscreen.xml'), darkShapeXml());
 
     patchColors(path.join(resRoot, 'values', 'colors.xml'));
+    patchColors(path.join(resRoot, 'values-v31', 'colors.xml'));
 
+    // Patch generated styles/themes, then force explicit v31 overrides.
     for (const file of listFiles(resRoot)) {
-      if (/\/values[^/]*\/styles\.xml$/.test(file)) patchStyleXml(file);
-      if (/\/values[^/]*\/themes\.xml$/.test(file)) patchStyleXml(file);
+      if (/\/values[^/]*\/(styles|themes)\.xml$/.test(file)) patchStyleXml(file);
     }
+
+    write(path.join(resRoot, 'values-v31', 'styles.xml'), `<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splashscreen_background</item>
+        <item name="android:windowSplashScreenBackground">@color/splashscreen_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/transparent_splash_icon</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/transparent_splash_icon</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/splashscreen_background</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/splashscreen_background</item>
+        <item name="windowSplashScreenBrandingImage">@drawable/transparent_splash_icon</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/transparent_splash_icon</item>
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splashscreen_background</item>
+        <item name="android:windowSplashScreenBackground">@color/splashscreen_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/transparent_splash_icon</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/transparent_splash_icon</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/splashscreen_background</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/splashscreen_background</item>
+        <item name="windowSplashScreenBrandingImage">@drawable/transparent_splash_icon</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/transparent_splash_icon</item>
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+        <item name="postSplashScreenTheme">@style/AppTheme</item>
+    </style>
+</resources>
+`);
 
     patchManifest(path.join(root, 'app', 'src', 'main', 'AndroidManifest.xml'));
 
