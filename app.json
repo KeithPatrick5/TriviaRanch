@@ -6,7 +6,9 @@
     "orientation": "portrait",
     "userInterfaceStyle": "dark",
     "scheme": "triviaranch",
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.triviaranch.app"
@@ -14,7 +16,8 @@
     "android": {
       "package": "com.triviaranch.app",
       "adaptiveIcon": {
-        "backgroundColor": "#08090B"
+        "backgroundColor": "#070604",
+        "foregroundImage": "./assets/brand/adaptive-icon.png"
       },
       "permissions": []
     },
@@ -22,6 +25,7 @@
       "eas": {
         "projectId": "replace-after-eas-init"
       }
-    }
+    },
+    "icon": "./assets/brand/app-icon.png"
   }
 }

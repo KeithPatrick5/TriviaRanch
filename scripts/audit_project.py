@@ -53,8 +53,25 @@ for forbidden in ['node_modules', 'package-lock.json', 'tsconfig.tsbuildinfo']:
     if (root / forbidden).exists():
         errors.append(f'Forbidden artifact present: {forbidden}')
 
+if (root / 'docs/gui-screenshots').exists():
+    errors.append('Generated screenshot folder should not be included: docs/gui-screenshots')
+
+for expected_asset in [
+    'assets/brand/trivia-ranch-header-logo.png',
+    'assets/brand/trivia-ranch-plaque-logo.png',
+    'assets/brand/app-icon.png',
+    'assets/brand/adaptive-icon.png',
+]:
+    if not (root / expected_asset).exists():
+        errors.append(f'Missing logo asset: {expected_asset}')
+
+app_json_text = (root / 'app.json').read_text()
+for marker in ['./assets/brand/app-icon.png', './assets/brand/adaptive-icon.png']:
+    if marker not in app_json_text:
+        errors.append(f'Missing app icon config marker: {marker}')
+
 for expected in [
-    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md','docs/RANCH_FIGHT_BOARD_AUDIT.md','docs/PRE_QUESTION_STABILITY_AUDIT.md',
+    'docs/PRODUCT_BIBLE.md','docs/BACK_BURNER.md','docs/PHASE_AUDITS.md','docs/REPAIR_PHASE_AUDITS.md','docs/ANDROID_QA_CHECKLIST.md','docs/BACKEND_HARDENING_AUDIT.md','docs/BACKEND_FLOW.md','docs/FRONTEND_GUI_PHASE_AUDIT.md','docs/RANCH_FIGHT_BOARD_AUDIT.md','docs/PRE_QUESTION_STABILITY_AUDIT.md','docs/LOGO_INTEGRATION_AUDIT.md','docs/LOGO_PLACEMENT_CLEANUP_AUDIT.md',
     'supabase/schema.sql','App.tsx','src/services/triviaApi.ts','src/types/env.d.ts'
 ]:
     if not (root / expected).exists():
@@ -80,6 +97,9 @@ required_app_markers = [
     'lastDailyBlitzDate',
     'challenge-enter',
     'reportFlash',
+    'brandCompactLogo',
+    'brandLogoImage',
+    'trivia-ranch-compact-lockup.png',
 ]
 for marker in required_app_markers:
     if marker not in app_text:
@@ -144,4 +164,4 @@ if errors:
         print(f'- {error}')
     raise SystemExit(1)
 
-print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass, ranch fight board GUI pass, pre-question stability pass.')
+print('Repair markers present: timer, persistence, editable party names, report flow, remote fallback, server-authoritative score submit, backend schema, edge functions, ranch gold GUI pass, ranch fight board GUI pass, pre-question stability pass, selected logo integration pass.')

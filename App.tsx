@@ -3,7 +3,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Alert, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { colors } from './src/theme/colors';
 import { spacing } from './src/theme/spacing';
@@ -12,6 +12,8 @@ import { getDailySeed, questionCount } from './src/engine/questions';
 import { BLITZ_DURATION_MS, SURVIVAL_LIVES, buildAnswer, rankFromXp, resultLine } from './src/engine/scoring';
 import { GameAnswer, GameMode, GameResult, MainCategory, PlayerStats, Question } from './src/types/game';
 import { createChallengeFromSession, ensureAnonymousPlayer, startOfficialGameSession, submitGameResult, submitQuestionReport } from './src/services/triviaApi';
+
+const brandCompactLogo = require('./assets/brand/trivia-ranch-compact-lockup.png');
 
 type Screen = 'home' | 'categories' | 'game' | 'result' | 'party-setup' | 'challenge-enter';
 
@@ -318,11 +320,7 @@ export default function App() {
         {screen === 'home' && (
           <ScrollView contentContainerStyle={styles.page}>
             <View style={styles.brandRow}>
-              <View>
-                <Text style={styles.logoTiny}>TRIVIA</Text>
-                <Text style={styles.logo}>RANCH</Text>
-                <Text style={styles.tagline}>FAST TRIVIA FIGHTS</Text>
-              </View>
+              <Image source={brandCompactLogo} style={styles.brandLogoImage} resizeMode="contain" />
               <View style={styles.rankBadge}>
                 <Text style={styles.rankBadgeTop}>{rankFromXp(stats.xp)}</Text>
                 <Text style={styles.rankBadgeBottom}>{stats.xp} XP</Text>
@@ -599,11 +597,12 @@ const styles = StyleSheet.create({
   appBackdrop: { flex: 1 },
   page: { flexGrow: 1, padding: spacing.lg, gap: spacing.sm, backgroundColor: 'transparent' },
   gamePage: { flex: 1, padding: spacing.lg, gap: spacing.sm, backgroundColor: 'transparent' },
-  brandRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: spacing.xs },
+  brandRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: spacing.sm, minHeight: 72 },
   logoTiny: { color: colors.muted, fontSize: 13, fontWeight: '900', letterSpacing: 4 },
   logo: { color: colors.text, fontSize: 41, fontWeight: '900', letterSpacing: 1, lineHeight: 42 },
   tagline: { color: colors.ranchGold, fontSize: 12, fontWeight: '900', marginTop: spacing.xs, letterSpacing: 1.4 },
-  rankBadge: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 7, paddingHorizontal: spacing.md, paddingVertical: spacing.sm, alignItems: 'flex-end' },
+  brandLogoImage: { width: 224, height: 76 },
+  rankBadge: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surfaceRaised, borderRadius: 6, paddingHorizontal: spacing.sm, paddingVertical: spacing.xs, alignItems: 'flex-end' },
   rankBadgeTop: { color: colors.ranchGoldBright, fontSize: 12, fontWeight: '900' },
   rankBadgeBottom: { color: colors.muted, fontSize: 10, fontWeight: '800', marginTop: 2 },
   dailyHero: { borderWidth: 1, borderColor: colors.borderSoft, backgroundColor: colors.surface, borderRadius: 9, padding: spacing.md, gap: spacing.sm, borderLeftWidth: 4, borderLeftColor: colors.ranchGold },
