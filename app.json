@@ -27,10 +27,15 @@
       }
     },
     "icon": "./assets/brand/app-icon.png",
+    "splash": {
+      "image": "./assets/brand/splash.png",
+      "backgroundColor": "#020013",
+      "resizeMode": "contain"
+    },
     "androidStatusBar": {
       "barStyle": "light-content",
       "backgroundColor": "#020013",
-      "translucent": true
+      "translucent": false
     },
     "plugins": []
   }
